@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100, 400, 700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:200, 400" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/amt.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="../js/calc1.js"></script>
+</head>
+<body>
+  <div class="menu" id="navbar">
+    <h1>Aaron M. Talbott, Ph.D., P.E.</h1>
+    <ul>
+      <li class="active"><a href=#>Home</a></li>
+      <li><a href=#>About Me</a></li>
+      <li><a href=#>Projects</a></li>
+      <li class="contact"><a href=#>Contact</a></li>
+    </ul>
+  </div>
+    <div class="row">
+      <div class="card">
+        <h1>Simple-Span Beam Calculator</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column33">
+        <div class="card">
+          <h1>Beam Properties</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Variable</th>
+                <th>Symbol</th>
+                <th>Value</th>
+                <th>Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td>Span</td>
+                  <td>L</td>
+                  <td><input type="number" id="L" value=20></td>
+                  <td>ft</td>
+              </tr>
+              <tr>
+                  <td>Elastic Modulus</td>
+                  <td>E</td>
+                  <td><input type="number" id="E" value=29000></td>
+                  <td>ksi</td>
+              </tr>
+              <tr>
+                  <td>Moment of Inertia</td>
+                  <td>I</td>
+                  <td><input type="number" id="I" value=100></td>
+                  <td>in^4</td>
+              </tr>
+              <tr>
+                  <td>Section Modulus</td>
+                  <td>S</td>
+                  <td><input type="number" id="S" value=50></td>
+                  <td>in^3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+            <h1>Concentrated Loads</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Location</th>
+                        <th>Magnitude</th>
+                    </tr>
+                    <tr>
+                        <th>No.</th>
+                        <th>(ft)</th>
+                        <th>(kips)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td style="width: 33.333%">1</td>
+                      <td style="width: 33.333%"><input type="number" id="p-loc-1" value=10></td>
+                      <td style="width: 33.333%"><input type="number" id="p-mag-1" value=1></td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td><input type="number" id="p-loc-2" value=0></td>
+                      <td><input type="number" id="p-mag-2" value=0></td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td><input type="number" id="p-loc-3" value=0></td>
+                      <td><input type="number" id="p-mag-3" value=0></td>
+                  </tr>
+                  <tr>
+                      <td>4</td>
+                      <td><input type="number" id="p-loc-4" value=0></td>
+                      <td><input type="number" id="p-mag-4" value=0></td>
+                  </tr>
+                  <tr>
+                      <td>5</td>
+                      <td><input type="number" id="p-loc-5" value=0></td>
+                      <td><input type="number" id="p-mag-5" value=0></td>
+                  </tr>
+                  <tr>
+                      <td>6</td>
+                      <td><input type="number" id="p-loc-6" value=0></td>
+                      <td><input type="number" id="p-mag-6" value=0></td>
+                  </tr>
+                  <tr>
+                      <td>7</td>
+                      <td><input type="number" id="p-loc-7" value=0></td>
+                      <td><input type="number" id="p-mag-7" value=0></td>
+                  </tr>
+                  <tr>
+                      <td>8</td>
+                      <td><input type="number" id="p-loc-8" value=0></td>
+                      <td><input type="number" id="p-mag-8" value=0></td>
+                  </tr>
+                  <tr>
+                      <td>9</td>
+                      <td><input type="number" id="p-loc-9" value=0></td>
+                      <td><input type="number" id="p-mag-9" value=0></td>
+                  </tr>
+                  <tr>
+                      <td>10</td>
+                      <td><input type="number" id="p-loc-10" value=0></td>
+                      <td><input type="number" id="p-mag-10" value=0></td>
+                  </tr>
+                </body>
+                <tfoot>
+                  <tr>
+                    <td colspan="3">
+                      1. Location is measured from left side of beam
+                    </td>
+                  </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="card">
+            <h1>Distributed Loads</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th colspan="2" style="border-bottom: 1px solid darkgray">Location</th>
+                        <th colspan="2" style="border-bottom: 1px solid darkgray">Magnitude</th>
+                    </tr>
+                    <tr>
+                        <th>No.</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Start</th>
+                        <th>End</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>(ft)</th>
+                        <th>(ft)</th>
+                        <th>(klf)</th>
+                        <th>(klf)</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td style="width:20%;">1</td>
+                    <td style="width:20%;"><input type="number" id="w-start-loc-1" value=5></td>
+                    <td style="width:20%;"><input type="number" id="w-end-loc-1" value=15></td>
+                    <td style="width:20%;"> <input type="number" id="w-start-mag-1" value=1></td>
+                    <td style="width:20%;"><input type="number" id="w-end-mag-1" value=2></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="number" id="w-start-loc-2" value=0></td>
+                    <td><input type="number" id="w-end-loc-2" value=0></td>
+                    <td><input type="number" id="w-start-mag-2" value=0></td>
+                    <td><input type="number" id="w-end-mag-2" value=0></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><input type="number" id="w-start-loc-3" value=0></td>
+                    <td><input type="number" id="w-end-loc-3" value=0></td>
+                    <td><input type="number" id="w-start-mag-3" value=0></td>
+                    <td><input type="number" id="w-end-mag-3" value=0></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><input type="number" id="w-start-loc-4" value=0></td>
+                    <td><input type="number" id="w-end-loc-4" value=0></td>
+                    <td><input type="number" id="w-start-mag-4" value=0></td>
+                    <td><input type="number" id="w-end-mag-4" value=0></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><input type="number" id="w-start-loc-5" value=0></td>
+                    <td><input type="number" id="w-end-loc-5" value=0></td>
+                    <td><input type="number" id="w-start-mag-5" value=0></td>
+                    <td><input type="number" id="w-end-mag-5" value=0></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><input type="number" id="w-start-loc-6" value=0></td>
+                    <td><input type="number" id="w-end-loc-6" value=0></td>
+                    <td><input type="number" id="w-start-mag-6" value=0></td>
+                    <td><input type="number" id="w-end-mag-6" value=0></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><input type="number" id="w-start-loc-7" value=0></td>
+                    <td><input type="number" id="w-end-loc-7" value=0></td>
+                    <td><input type="number" id="w-start-mag-7" value=0></td>
+                    <td><input type="number" id="w-end-mag-7" value=0></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><input type="number" id="w-start-loc-8" value=0></td>
+                    <td><input type="number" id="w-end-loc-8" value=0></td>
+                    <td><input type="number" id="w-start-mag-8" value=0></td>
+                    <td><input type="number" id="w-end-mag-8" value=0></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><input type="number" id="w-start-loc-9" value=0></td>
+                    <td><input type="number" id="w-end-loc-9" value=0></td>
+                    <td><input type="number" id="w-start-mag-9" value=0></td>
+                    <td><input type="number" id="w-end-mag-9" value=0></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><input type="number" id="w-start-loc-10" value=0></td>
+                    <td><input type="number" id="w-end-loc-10" value=0></td>
+                    <td><input type="number" id="w-start-mag-10" value=0></td>
+                    <td><input type="number" id="w-end-mag-10" value=0></td>
+                </tr>
+            </table>
+        </div>
+      </div>
+      <div class="column67">
+        <button type="button" onclick="calculate()">Calculate</button>
+        <div class="card" id="chart_div">
+          <div id="shear_diagram"></div>
+          <div id="moment_diagram"></div>
+          <div id="displacement_diagram"></div>
+        </div>
+        <h1>Output</h1>
+        <textarea id="output" rows="20" cols="72"></textarea>
+      </div>
+    </div>
+</body>
+</html>

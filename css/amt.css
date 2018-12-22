@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 100%
+}
+
+body {
+  background: #f1f1f1;
+  height: 100%;
+  margin: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("../img/1280px-Old_timer_structural_worker2.jpg");
+
+  /* Full height */
+  height: 50%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: local;
+}
+
+/* Top Menu */
+
+.menu {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  height: 3.125rem;
+  line-height: 2.875rem;
+  overflow: hidden;
+  background-color: rgba(50, 50, 50, 1);
+  border-radius: 0;
+}
+
+.menu h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 1.5rem;
+  float: left;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  border-bottom: 0.25rem solid red;
+}
+
+.menu ul {
+  float: right;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  float: left;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0 1.25rem;
+  margin: 0;
+  transition: background-color 0.2s, border-bottom 0.2s;
+}
+
+.menu li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.menu li:hover:not(.active) {
+  border-bottom: 0.25rem solid red;
+  background-color: #660000;
+}
+
+.menu li.active {
+  border-bottom: 0.25rem solid red;
+  background-color: #660000;
+}
+
+.menu li.contact {
+  color: red;
+}
+
+.menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+menu li.contact {
+  background-color: red;
+  color: black;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 3rem;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.column33 {
+  float: left;
+  width: 33.333%;
+  margin: 0;
+  padding: 0;
+}
+
+.column67 {
+  float: left;
+  width: 66.667%;
+  margin: 0;
+  padding: 0;
+}
+
+.column25 {
+  float: left;
+  width: 25%;
+  margin: 0;
+  padding: 0;
+}
+
+.column75 {
+  float: left;
+  width: 75%;
+  margin: 0;
+  padding: 0;
+}
+
+.column50 {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  margin: 0.625rem;
+  padding: 0.625rem;
+  background-color: #e6e6e6;
+  border: 0.0625rem solid darkgray;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+              0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+}
+
+.card table {
+  font-size: 0.9rem;
+  margin-top: 1.25rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.card thead{
+  border-top: 0.0625rem solid darkgray;
+  border-bottom: 0.1875rem solid darkgray;
+}
+
+.card tfoot{
+  border-top: 0.1875rem solid darkgray;
+  border-bottom: 0.0625rem solid darkgray;
+  font-size: 0.8rem;
+}
+
+.card tbody tr{
+  border-bottom: 0.0625rem solid darkgray;
+}
+
+.card tbody tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+/* .card th{
+  text-align: left;
+} */
+
+.card td{
+  text-align: center;
+}
+
+.card input {
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.625rem;
+  margin: 0;
+  border: 0.0625rem solid red;
+  background-color: #ffcccc;
+}
