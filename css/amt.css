@@ -3,13 +3,13 @@
 }
 
 html {
+  font-size: 100%;
   height: 100%;
-  font-family: 'Roboto', sans-serif;
-  font-size: 100%
 }
 
 body {
-  background: #f1f1f1;
+  font-family: 'Roboto', sans-serif;
+  background: #dcdcdc;
   height: 100%;
   margin: 0;
 }
@@ -34,66 +34,103 @@ input[type=number]::-webkit-outer-spin-button {
   background-attachment: local;
 }
 
+.topnav {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  display: table;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right:auto;
+  padding: 0;
+  /* padding-top: 25%; */
+  /* height: 50%; */
+  width: 100%;
+  max-width: 35rem;
+  /* background-color: #262626; */
+  /* color: #dcdcdc; */
+  border-bottom: .0625rem solid black;
+}
+
+.topnav.frontpage {
+  height: 50%;
+}
+
+.topnav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.logo {
+  color:inherit;
+  display: table-cell;
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
+}
+
+.logo a {
+  /* color: #f5f5f5; */
+  color: inherit;
+  padding: 0rem;
+  margin: 0.25rem;
+  text-decoration: none;
+  /* font-size: 1.5rem; */
+  float: left;
+  font-weight: 700;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.1s;
+  /* border: 0.25rem solid #40a9ef;
+  box-shadow: 1px 1px 0px 0 rgba(0, 0, 0, 1);
+  text-shadow: 1px 1px 0 #ccc,; */
+}
+
 /* Top Menu */
 
-.menu {
+.container {
+  display:inline-block;
+  float: right;
   margin: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
-  height: 3.125rem;
-  line-height: 2.875rem;
+  padding: 0;
+  /* margin-right: 0.25rem; */
+}
+
+.menu {
+  display: table-cell;
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
-  background-color: rgba(50, 50, 50, 1);
   border-radius: 0;
 }
 
-.menu h1 {
-  margin: 0;
-  padding: 0;
-  color: white;
-  font-size: 1.5rem;
-  float: left;
-  font-family: "Oswald", sans-serif;
-  font-weight: 400;
-  border-bottom: 0.25rem solid red;
-}
-
-.menu ul {
-  float: right;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu li {
-  float: left;
-  text-align: center;
-  font-size: 1rem;
-  padding: 0 1.25rem;
-  margin: 0;
-  transition: background-color 0.2s, border-bottom 0.2s;
-}
-
-.menu li a {
+.menu a {
   display: block;
-  color: white;
+  float: left;
+  color: inherit;
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
   text-decoration: none;
+  margin:0;
 }
 
-.menu li:hover:not(.active) {
-  border-bottom: 0.25rem solid red;
-  background-color: #660000;
+.menu a:hover {
+  /* border: 0.25rem solid darkgray; */
+  background-color: #c53211;
+  color: white;
 }
 
-.menu li.active {
-  border-bottom: 0.25rem solid red;
-  background-color: #660000;
+.menu a.contact {
+  color: #f6f6f6;
+  background-color: #c53211;
 }
 
-.menu li.contact {
-  color: red;
+@media screen and (max-width: 600px) {
+  .menu li {float: none;}
 }
 
 .menu:after {
@@ -102,36 +139,45 @@ input[type=number]::-webkit-outer-spin-button {
   clear: both;
 }
 
-menu li.contact {
-  background-color: red;
-  color: black;
-}
-
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
 }
 
+.shrinkfont {
+  font-size: 1rem;
+}
+
 .sticky + .content {
-  padding-top: 3rem;
+  padding-top: 10rem;
 }
 
 .row {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
-.column33 {
+.leftcol {
   float: left;
-  width: 33.333%;
+  width: 25%;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
-.column67 {
+.rightcol {
   float: left;
-  width: 66.667%;
+  width: 25%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.maincol {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -158,20 +204,26 @@ menu li.contact {
 }
 
 .card {
-  margin: 0.625rem;
+  display: block;
+  /* text-align: left; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
   padding: 0.625rem;
-  background-color: #e6e6e6;
+  max-width: 35rem;
+  /* background-color: #e6e6e6;
   border: 0.0625rem solid darkgray;
   font-size: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-              0 6px 20px 0 rgba(0, 0, 0, 0.19);
+              0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .card h1 {
   margin: 0;
   padding: 0;
   font-size: 1.25rem;
-  font-family: "Oswald", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
 
@@ -193,12 +245,12 @@ menu li.contact {
   font-size: 0.8rem;
 }
 
-.card tbody tr{
+/* .card tbody tr{
   border-bottom: 0.0625rem solid darkgray;
-}
+} */
 
 .card tbody tr:nth-child(even){
-  background-color: #f2f2f2;
+  background-color: #cccccc;
 }
 
 /* .card th{
@@ -227,4 +279,10 @@ button {
   margin: 0;
   border: 0.0625rem solid red;
   background-color: #ffcccc;
+}
+
+.footer {
+  color: darkgray;
+  text-align: center;
+  border-top: 0.0625rem solid darkgray;
 }
