@@ -53,8 +53,9 @@ input[type=number]::-webkit-outer-spin-button {
   border-bottom: .0625rem solid black;
 }
 
-.topnav.frontpage {
-  height: 50%;
+.fullWidth {
+  max-width: none;
+  width: 100%;
 }
 
 .topnav:after {
@@ -210,39 +211,43 @@ input[type=number]::-webkit-outer-spin-button {
   margin-right: auto;
   margin-top: 0.625rem;
   margin-bottom: 0.625rem;
-  padding: 0.625rem;
+  padding: 0;
   max-width: 35rem;
-  /* background-color: #e6e6e6;
-  border: 0.0625rem solid darkgray;
-  font-size: 1rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  /* background-color: #e6e6e6; */
+  /* background-color: #f2f2f2; */
+  /* border: 0.0625rem solid darkgray; */
+  font-size: 0.9rem;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
               0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .card h1 {
   margin: 0;
   padding: 0;
-  font-size: 1.25rem;
   font-family: "Raleway", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
+  font-size: inherit;
 }
 
 .card table {
   font-size: 0.9rem;
   margin-top: 1.25rem;
-  width: 100%;
+  margin-right:auto;
+  margin-left: auto;
+  /* width: 100%; */
   border-collapse: collapse;
 }
 
 .card thead{
-  border-top: 0.0625rem solid darkgray;
+  /* border-top: 0.0625rem solid darkgray; */
   border-bottom: 0.1875rem solid darkgray;
 }
 
 .card tfoot{
   border-top: 0.1875rem solid darkgray;
-  border-bottom: 0.0625rem solid darkgray;
+  /* border-bottom: 0.0625rem solid darkgray; */
   font-size: 0.8rem;
+  text-align: left;
 }
 
 /* .card tbody tr{
@@ -250,7 +255,7 @@ input[type=number]::-webkit-outer-spin-button {
 } */
 
 .card tbody tr:nth-child(even){
-  background-color: #cccccc;
+  background-color: #e6e6e6;
 }
 
 /* .card th{
@@ -258,12 +263,46 @@ input[type=number]::-webkit-outer-spin-button {
 } */
 
 .card td{
-  text-align: center;
+  text-align: left;
 }
 
 .card input {
-  width: 100%;
+  width: 5rem;
   font-size: 0.9rem;
+}
+
+.cardHeader {
+  border: 0.0625rem solid darkgray;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  background: #e6e6e6;
+}
+
+.cardHeader h1 {
+  padding: 0.5rem;
+}
+
+.cardHeader:hover {
+  background: #f2f2f2;
+}
+
+.cardContent {
+  border-bottom: 0.0625rem solid darkgray;
+  border-right: 0.0625rem solid darkgray;
+  border-left: 0.0625rem solid darkgray;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  overflow: hidden;
+  max-height: none;
+  transition: 0.4s;
+}
+
+.cardContent p {
+  padding: 0.5rem;
+}
+
+.hidden {
+  height: 0;
 }
 
 /* Clear floats after the columns */
@@ -281,8 +320,16 @@ button {
   background-color: #ffcccc;
 }
 
-.footer {
+.pageFooter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  padding: 0.5rem;
+  max-width: 35rem;
+  border-top: 0.0625rem solid darkgray;
+  font-size: 0.8rem;
   color: darkgray;
   text-align: center;
-  border-top: 0.0625rem solid darkgray;
 }
