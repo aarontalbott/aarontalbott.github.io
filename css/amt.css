@@ -160,27 +160,11 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
 }
 
-.leftcol {
-  float: left;
-  width: 25%;
-  height: 100%;
-  margin: 0;
+.narrowColumn {
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
-}
-
-.rightcol {
-  float: left;
-  width: 25%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.maincol {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  max-width: 35rem;
 }
 
 .column25 {
@@ -190,6 +174,12 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
 }
 
+.column50 {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
 .column75 {
   float: left;
   width: 75%;
@@ -197,10 +187,9 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
 }
 
-.column50 {
-  float: left;
-  width: 50%;
-  margin: 0;
+.column90 {
+  width: 90%;
+  margin: auto;
   padding: 0;
 }
 
@@ -221,7 +210,7 @@ input[type=number]::-webkit-outer-spin-button {
               0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
-.card h1 {
+h1 {
   margin: 0;
   padding: 0;
   font-family: "Raleway", sans-serif;
@@ -229,7 +218,7 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: inherit;
 }
 
-.card table {
+.cardContent table {
   font-size: 0.9rem;
   margin-top: 1.25rem;
   margin-right:auto;
@@ -238,12 +227,12 @@ input[type=number]::-webkit-outer-spin-button {
   border-collapse: collapse;
 }
 
-.card thead{
+.cardContent thead{
   /* border-top: 0.0625rem solid darkgray; */
   border-bottom: 0.1875rem solid darkgray;
 }
 
-.card tfoot{
+.cardContent tfoot{
   border-top: 0.1875rem solid darkgray;
   /* border-bottom: 0.0625rem solid darkgray; */
   font-size: 0.8rem;
@@ -254,7 +243,7 @@ input[type=number]::-webkit-outer-spin-button {
   border-bottom: 0.0625rem solid darkgray;
 } */
 
-.card tbody tr:nth-child(even){
+.cardContent tbody tr:nth-child(even){
   background-color: #e6e6e6;
 }
 
@@ -262,19 +251,18 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: left;
 } */
 
-.card td{
+.cardContent td{
   text-align: left;
 }
 
-.card input {
+input {
   width: 5rem;
   font-size: 0.9rem;
 }
 
 .cardHeader {
+  width: 100%;
   border: 0.0625rem solid darkgray;
-  border-top-right-radius: 0.5rem;
-  border-top-left-radius: 0.5rem;
   background: #e6e6e6;
 }
 
@@ -286,12 +274,16 @@ input[type=number]::-webkit-outer-spin-button {
   background: #f2f2f2;
 }
 
+.cardHeader:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .cardContent {
   border-bottom: 0.0625rem solid darkgray;
   border-right: 0.0625rem solid darkgray;
   border-left: 0.0625rem solid darkgray;
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
   overflow: hidden;
   max-height: none;
   transition: 0.4s;
@@ -299,10 +291,29 @@ input[type=number]::-webkit-outer-spin-button {
 
 .cardContent p {
   padding: 0.5rem;
+  margin: 0;
+}
+
+.cardTitle {
+  display: inline-block;
+  float: left;
+}
+
+.cardButton {
+  display: inline-block;
+  float: right;
 }
 
 .hidden {
   height: 0;
+}
+
+.hidden:after {
+  content: '\02796'; /* Unicode character for "plus" sign (+) */
+  float: right;
+  color:inherit;
+  font-size: 0.5rem;
+  margin-left: 0.25rem;
 }
 
 /* Clear floats after the columns */
@@ -313,11 +324,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 button {
-  font-size: 1rem;
-  padding: 0.625rem;
+  background-color: #c53211;
+  color: white;
+  font-size: 0.9rem;
+  padding: 0.25rem;
   margin: 0;
-  border: 0.0625rem solid red;
-  background-color: #ffcccc;
+  border: none;
 }
 
 .pageFooter {
