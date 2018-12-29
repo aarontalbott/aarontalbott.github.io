@@ -15,23 +15,19 @@
     <title>Simple Beam</title>
   </head>
   <body onload="calculate()">
-    <div class="topnav" id="navbar"></div>
     <div class="row">
-      <div class="narrowColumn">
-        <div class="row">
-          <h1>Simple-Span Beam</h1>
-          <button type="button" onclick="calculate()">Calculate</button>
-        </div>
-        <div class="card" id="graphicalOutput">
-          <div class="cardHeader">
-            <h1>Graphical Output</h1>
-          </div>
-          <div class="cardContent">
-            <div id="shear_diagram"></div>
-            <div id="moment_diagram"></div>
-            <div id="displacement_diagram"></div>
-          </div>
-        </div>
+      <div class="topnav" id="navbar"></div>
+    </div>
+    <div class="row">
+      <div class="column33">
+        <h1>Simple-Span Beam</h1>
+      </div>
+      <div class="column67">
+        <button type="button" onclick="calculate()">Calculate</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column33">
         <div class="card" id="intro">
           <div class="cardHeader">
             <h1>Introduction</h1>
@@ -262,6 +258,18 @@
                     <td><input type="number" id="w-end-mag-10" value=0></td>
                 </tr>
             </table>
+          </div>
+        </div>
+      </div>
+      <div class="column67">
+        <div class="card" id="graphicalOutput">
+          <div class="cardHeader">
+            <h1>Graphical Output</h1>
+          </div>
+          <div class="cardContent">
+            <div id="shear_diagram"></div>
+            <div id="moment_diagram"></div>
+            <div id="displacement_diagram"></div>
           </div>
         </div>
         <div class="card" id="numericOutput">

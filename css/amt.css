@@ -46,7 +46,7 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
   /* padding-top: 25%; */
   /* height: 50%; */
-  width: 90%;
+  width: 100%;
   /* max-width: 35rem; */
   /* background-color: #262626; */
   /* color: #dcdcdc; */
@@ -100,8 +100,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .menu {
-  display: table-cell;
-  vertical-align: bottom;
+  float:right;
+  /* display: table-cell;
+  vertical-align: bottom; */
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -130,9 +131,9 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #c53211;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .menu li {float: none;}
-}
+} */
 
 .menu:after {
   content: "";
@@ -155,9 +156,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .row {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left:auto;
+  margin-right:auto;
   padding: 0;
-  width: 100%;
+  width: 90%;
 }
 
 .narrowColumn {
@@ -170,6 +174,20 @@ input[type=number]::-webkit-outer-spin-button {
 .column25 {
   float: left;
   width: 25%;
+  margin: 0;
+  padding: 0;
+}
+
+.column33 {
+  float: left;
+  width: 33.333%;
+  margin: 0;
+  padding: 0;
+}
+
+.column67 {
+  float: left;
+  width: 66.667%;
   margin: 0;
   padding: 0;
 }
@@ -194,14 +212,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .card {
-  display: block;
   /* text-align: left; */
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
   margin-top: 0.625rem;
   margin-bottom: 0.625rem;
   padding: 0;
-  max-width: 35rem;
+  /* max-width: 35rem; */
   /* background-color: #e6e6e6; */
   /* background-color: #f2f2f2; */
   /* border: 0.0625rem solid darkgray; */
@@ -308,13 +325,13 @@ input {
   height: 0;
 }
 
-.hidden:after {
-  content: '\02796'; /* Unicode character for "plus" sign (+) */
+/* .hidden:after {
+  content: '\02796'; // plus sign
   float: right;
   color:inherit;
   font-size: 0.5rem;
   margin-left: 0.25rem;
-}
+} */
 
 /* Clear floats after the columns */
 .row:after {
@@ -344,4 +361,21 @@ button {
   font-size: 0.8rem;
   color: darkgray;
   text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .row {
+    width: 100%;
+  }
+
+  .column33, .column50, .column67 {
+    width: 100%;
+  }
+
+  .logo, .menu {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
