@@ -46,8 +46,8 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
   /* padding-top: 25%; */
   /* height: 50%; */
-  width: 100%;
-  max-width: 35rem;
+  width: 90%;
+  /* max-width: 35rem; */
   /* background-color: #262626; */
   /* color: #dcdcdc; */
   border-bottom: .0625rem solid black;

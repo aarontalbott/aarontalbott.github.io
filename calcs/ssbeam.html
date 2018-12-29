@@ -3,10 +3,14 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet"></link>
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet"></link>
-    <link rel="stylesheet" type="text/css" href="../css/amt.css"></link>
+    <link rel="stylesheet" type="text/css" href="/css/amt.css"></link>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="../js/calc1.js"></script>
-    <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/calc1.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous">
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Simple Beam</title>
   </head>
@@ -260,9 +264,6 @@
             </table>
           </div>
         </div>
-        <div class="card" id="buttons">
-
-        </div>
         <div class="card" id="numericOutput">
           <h1>Numerical Output</h1>
           <textarea id="output" rows="20" cols="72"></textarea>
@@ -277,7 +278,6 @@
     <script>
       var headers = document.getElementsByClassName("cardHeader");
       var i;
-
       for (i = 0; i < headers.length; i++) {
         var button = headers[i].childNodes[1];
         headers[i].addEventListener("click", function() {

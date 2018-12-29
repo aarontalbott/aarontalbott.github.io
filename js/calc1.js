@@ -1,7 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-   call(calculate());
-}, false);
-
 /*
 Simple-Span Beam Calculator
 
