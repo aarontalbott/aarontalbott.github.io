@@ -43,7 +43,10 @@ function drawChart() {
   view_shear.setColumns([0,1]);
   view_moment.setColumns([0,2]);
   view_displacement.setColumns([0,3]);
-  var options = {};
+  var options = {
+    backgroundColor: "#dcdcdc",
+    vAxis: {title: "Shear"}
+  };
   var chart1 = new google.visualization.LineChart(document.getElementById('shear_diagram'));
   var chart2 = new google.visualization.LineChart(document.getElementById('moment_diagram'));
   var chart3 = new google.visualization.LineChart(document.getElementById('displacement_diagram'));
