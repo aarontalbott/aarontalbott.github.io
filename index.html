@@ -5,21 +5,11 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/amt.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
   <title>aarontalbott.com</title>
 </head>
 <body>
-  <div class="topnav" id="navbar">
-    <div class="logo">
-      <a id="myname" href=#>Aaron M. Talbott, Ph.D., P.E.</a>
-    </div>
-    <div class="menu">
-      <div class="container">
-        <a href=#>About Me</a>
-        <a href=./calcs/index.html>Projects</a>
-        <a href=#>Contact</a>
-      </div>
-    </div>
-  </div>
+  <div class="topnav" id="navbar"></div>
   <div class="column90">
     <div class="card">
       <div class="cardHeader">
@@ -50,23 +40,9 @@
   <div class="pageFooter">
     Copyright &copy 2018 Aaron Talbott
   </div>
-<!-- <script>
-window.onscroll = function() {myFunction()};
-
-var navbar = document.getElementById("navbar");
-var myname = document.getElementById("myname");
-var sticky = navbar.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.style.paddingTop = "0";
-    myname.style.fontSize = "1rem";
-  } else {
-    navbar.style.paddingTop = "25%";
-    myname.style.fontSize = "3rem";
-  }
-}
-</script> -->
-
+  <script>
+    $("#navbar").load("navbar.html", console.log("navbar loaded"));
+    // $("#footer").load("footer.html");
+  </script>
 </body>
 </html>
