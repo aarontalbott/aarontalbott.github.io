@@ -6,22 +6,12 @@
     <link rel="stylesheet" type="text/css" href="../css/amt.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="../js/calc1.js"></script>
+    <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Structural Calculations Index</title>
   </head>
   <body>
-    <div class="topnav" id="navbar">
-      <div class="logo">
-        <a id="myname" href=../index.html>Aaron M. Talbott, Ph.D., P.E.</a>
-      </div>
-      <div class="menu">
-        <div class="container">
-          <a href=#>About Me</a>
-          <a href=#>Projects</a>
-          <a href=#>Contact</a>
-        </div>
-      </div>
-    </div>
+    <div class="topnav" id="navbar"></div>
     <div class="row">
       <div class="narrowColumn">
         <h1>Projects</h1>
@@ -37,9 +27,11 @@
         </div>
       </div>
     </div>
-    <div class="pageFooter">
-      Copyright &copy 2018 Aaron Talbott
-    </div>
+    <div class="pageFooter" id="pageFooter"></div>
+    <script>
+      $("#navbar").load("navbar.html", console.log("navbar loaded"));
+      $("#pageFooter").load("footer.html");
+    </script>
     <script>
       var headers = document.getElementsByClassName("cardHeader");
       var i;
