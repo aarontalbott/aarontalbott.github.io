@@ -19,14 +19,7 @@
       <div class="topnav" id="navbar"></div>
     </div>
     <div class="row">
-      <div class="column33">
-        <h1>Simple-Span Beam</h1>
-      </div>
-      <div class="column67">
-        <button type="button" onclick="calculate()">Calculate</button>
-      </div>
-    </div>
-    <div class="row">
+      <h1>Simple-Span Beam</h1>
       <div class="column33">
         <div class="card" id="intro">
           <div class="cardHeader">
@@ -35,13 +28,14 @@
           <div class="cardContent">
             <p>This page calculates the shear, moment, and deflection diagrams for a simply supported beam.  The calculation is based on the priciple of superposition.  The diagrams for each individual load are computed at each cross section (based on the number of calculation points entered).  The results are then added to get the totals at each section.</p>
             <p>This page can accept up to ten point loads and ten line loads.  This should be sufficient to represent most practical problems.</p>
+            <button type="button" onclick="calculate()">Calculate</button>
           </div>
         </div>
         <div class="card" id="beamProps">
           <div class="cardHeader">
             <h1>Beam Properties</h1>
           </div>
-          <div class="cardContent">
+          <div class="cardContent hidden">
             <table>
               <thead>
                 <tr>
@@ -84,7 +78,7 @@
           <div class="cardHeader">
             <h1>Concentrated Loads</h1>
           </div>
-          <div class="cardContent">
+          <div class="cardContent hidden">
             <table>
                 <thead>
                     <tr>
@@ -164,7 +158,7 @@
           <div class="cardHeader">
             <h1>Distributed Loads</h1>
           </div>
-          <div class="cardContent">
+          <div class="cardContent hidden">
             <table>
                 <thead>
                     <tr>
@@ -291,7 +285,6 @@
         headers[i].addEventListener("click", function() {
           var content = this.nextElementSibling;
           content.classList.toggle("hidden");
-          button.style.content = "test";
         });
       }
     </script>

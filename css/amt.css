@@ -22,7 +22,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .bg {
   /* The image used */
-  background-image: url("../img/1280px-Old_timer_structural_worker2.jpg");
+  background-image: url("/img/1280px-Old_timer_structural_worker2.jpg");
 
   /* Full height */
   height: 50%;
@@ -44,12 +44,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left: auto;
   margin-right:auto;
   padding: 0;
-  /* padding-top: 25%; */
-  /* height: 50%; */
   width: 100%;
-  /* max-width: 35rem; */
-  /* background-color: #262626; */
-  /* color: #dcdcdc; */
   border-bottom: .0625rem solid black;
 }
 
@@ -66,8 +61,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .logo {
   color:inherit;
-  display: table-cell;
-  vertical-align: bottom;
+  /* display: table-cell;
+  vertical-align: bottom; */
   margin: 0;
   padding: 0;
 }
@@ -79,7 +74,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0.25rem;
   text-decoration: none;
   /* font-size: 1.5rem; */
-  float: left;
+  /* float: left; */
   font-weight: 700;
   transition: 0.3s;
   transition-timing-function: ease-in-out;
@@ -162,6 +157,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-right:auto;
   padding: 0;
   width: 90%;
+  max-width: 72rem;
 }
 
 .narrowColumn {
@@ -235,7 +231,7 @@ h1 {
   font-size: inherit;
 }
 
-.cardContent table {
+table {
   font-size: 0.9rem;
   margin-top: 1.25rem;
   margin-right:auto;
@@ -244,12 +240,12 @@ h1 {
   border-collapse: collapse;
 }
 
-.cardContent thead{
+thead{
   /* border-top: 0.0625rem solid darkgray; */
   border-bottom: 0.1875rem solid darkgray;
 }
 
-.cardContent tfoot{
+tfoot{
   border-top: 0.1875rem solid darkgray;
   /* border-bottom: 0.0625rem solid darkgray; */
   font-size: 0.8rem;
@@ -260,7 +256,7 @@ h1 {
   border-bottom: 0.0625rem solid darkgray;
 } */
 
-.cardContent tbody tr:nth-child(even){
+tbody tr:nth-child(even){
   background-color: #e6e6e6;
 }
 
@@ -268,7 +264,7 @@ h1 {
   text-align: left;
 } */
 
-.cardContent td{
+td{
   text-align: left;
 }
 
@@ -345,7 +341,7 @@ button {
   color: white;
   font-size: 0.9rem;
   padding: 0.25rem;
-  margin: 0;
+  margin: 0.625rem;
   border: none;
 }
 
@@ -363,7 +359,7 @@ button {
   text-align: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .row {
     width: 100%;
   }
@@ -372,10 +368,22 @@ button {
     width: 100%;
   }
 
-  .logo, .menu {
+  .logo {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+  }
+
+  .menu {
+    float: none;
+    display: inline-block;
+  }
+
+  #navMenuCol {
+    text-align: center;
+  }
+
+  .bg {
+    height: 25%;
   }
 
 }
