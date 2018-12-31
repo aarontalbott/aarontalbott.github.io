@@ -14,6 +14,11 @@ body {
   margin: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -352,7 +357,8 @@ button {
   margin-top: 2rem;
   margin-bottom: 3rem;
   padding: 0.5rem;
-  max-width: 35rem;
+  /* max-width: 35rem; */
+  width: 100%;
   border-top: 0.0625rem solid darkgray;
   font-size: 0.8rem;
   color: darkgray;
@@ -364,7 +370,11 @@ button {
     width: 100%;
   }
 
-  .column33, .column50, .column67 {
+  .column25,
+  .column33,
+  .column50,
+  .column67,
+  .column75 {
     width: 100%;
   }
 
@@ -386,4 +396,46 @@ button {
     height: 25%;
   }
 
+}
+
+.resumePaper {
+  display: block;
+  float: left;
+  width: 99%;
+  height: 100%;
+  background-color: white;
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.resumeHeader {
+  width: 100%;
+  background-color: darkgray;
+  color: white;
+  padding: 3rem;
+}
+
+.resumeHeader h1 {
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.resumeHeader h2 {
+  font-size: 1rem;
+  font-weight: 200;
+  padding: 0;
+  margin: 0;
+}
+
+.resumePhoto {
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+}
+
+.resumeSection {
+  height: 10rem;
 }

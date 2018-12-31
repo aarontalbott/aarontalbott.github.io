@@ -9,49 +9,51 @@
   <title>aarontalbott.com</title>
 </head>
 <body>
-
   <div class="row" id="headerRow">
     <div class="topnav" id="navbar"></div>
   </div>
-  <!-- <div class="row">
-    <div class="bg"></div>
-  </div> -->
-  <div class="row">
-    <div class="column33">
-      <div class="card">
+  <div class="row" id="contentRow">
+    <div class="column33" id="leftColumn">
+      <div class="card" id="aboutMe">
         <div class="cardHeader">
           <h1>About Me</h1>
         </div>
         <div class="cardContent">
           <p>I am a structural engineer based on Louisville, KY.  My primary focus is the maintenance, repair, and re-use of existing structures. The majority of my professional expertince has been with heavy industrial structures.</p>
-          <p></p>
+          <p><a href="/aboutme.html">more...</a></p>
         </div>
       </div>
     </div>
-    <div class="column33">
+    <div class="column33" id="middleColumn">
       <div class="card">
         <div class="cardHeader">
-          <h1>Title 1</h1>
+          <h1>Projects</h1>
         </div>
         <div class="cardContent">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum libero accumsan, bibendum magna volutpat, consectetur diam. Morbi sit amet diam lobortis, egestas ante vitae, suscipit lorem. Proin rhoncus ante at urna lacinia, a dignissim turpis finibus. Nam accumsan, metus non efficitur consequat, est ipsum semper ex, accumsan feugiat metus nulla a nulla. Nulla quis quam sollicitudin nisi placerat dapibus. Maecenas quis sapien hendrerit, ornare enim sit amet, interdum ante. Quisque vitae mi purus.</p>
+          <p>Structural Engineering for People in a Hurry</p>
+          <p>Structural Engineering for People with Lots of Time</p>
         </div>
       </div>
     </div>
-    <div class="column33">
+    <div class="column33" id="rightColumn">
       <div class="card">
         <div class="cardHeader">
-          <h1>Title 1</h1>
+          <h1>Contact Info</h1>
         </div>
         <div class="cardContent">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum libero accumsan, bibendum magna volutpat, consectetur diam. Morbi sit amet diam lobortis, egestas ante vitae, suscipit lorem. Proin rhoncus ante at urna lacinia, a dignissim turpis finibus. Nam accumsan, metus non efficitur consequat, est ipsum semper ex, accumsan feugiat metus nulla a nulla. Nulla quis quam sollicitudin nisi placerat dapibus. Maecenas quis sapien hendrerit, ornare enim sit amet, interdum ante. Quisque vitae mi purus.</p>
+          <p>LinkedIn</p>
+          <p>Facebook</p>
+          <p>Instagram</p>
+          <p>Twitter</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="pageFooter" id="pageFooter"></div>
+  <div class="row" id="footerRow">
+    <div class="pageFooter" id="pageFooter"></div>
+  </div>
   <script>
-    $("#navbar").load("/navbar.html", console.log("navbar loaded"));
+    $("#navbar").load("/navbar.html");
     $("#pageFooter").load("/footer.html");
   </script>
 </body>
