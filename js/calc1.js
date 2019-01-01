@@ -40,7 +40,7 @@ function drawChart() {
   view_moment.setColumns([0,2]);
   view_displacement.setColumns([0,3]);
   var options = {
-    backgroundColor: "#dcdcdc",
+    backgroundColor: "#ffffff",
     vAxis: {title: "Shear"}
   };
   var chart1 = new google.visualization.LineChart(document.getElementById('shear_diagram'));

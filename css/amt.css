@@ -10,7 +10,7 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   /* background: #dcdcdc; */
-  background-color: white;
+  background-color: #f5f5f5;
   height: 100%;
   margin: 0;
 }
@@ -96,14 +96,24 @@ input[type=number]::-webkit-outer-spin-button {
 .topnav {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  font-size: 1rem;
-  margin: 0 0 3rem 0;
-  padding: 25% 0.25rem 0.5rem 0.25rem;
+  font-size: 1.5rem;
+  margin: 0 auto 0 auto;
+  padding: 0;
   width: 100%;
-  background-color: black;
-  color: white;
+  background-color: #000000;
+  color: #ffffff;
   transition: 0.5s;
+  max-width: 60rem;
   /* border-bottom: .0625rem solid black; */
+}
+
+.topNavFrontPage {
+  padding-top: 20%;
+  font-size: 2rem;
+}
+
+.shadow {
+  box-shadow: 0 10px 6px -6px #777;
 }
 
 .topnav:after {
@@ -115,19 +125,20 @@ input[type=number]::-webkit-outer-spin-button {
 .logo {
   float:left;
   color:inherit;
-  margin: 0;
+  margin: auto;
   padding: 0;
-  font-size: 2rem;
-  transition: 0.5s;
+  font-size: inherit;
+  transition: 1s;
+  height: 100%;
 }
 
 .logo a {
   color: inherit;
   padding: 0.25rem;
-  margin: 0.25rem;
+  margin: auto 0.25rem;
   text-decoration: none;
   font-weight: 700;
-  transition: 0.5s;
+  font-size: inherit;
 }
 
 .menu {
@@ -140,12 +151,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .menu a {
-  display: block;
+  display: table-cell;
   float: left;
   color: inherit;
   text-align: center;
+  vertical-align: bottom;
   font-size: 0.75rem;
-  padding: 0.5rem 0.5rem;
+  padding: 0.25rem 0.25rem;
   text-decoration: none;
   margin: 0.25rem 0.5rem;
   /* border: 1px solid #c53211; */
@@ -155,8 +167,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .menu a:hover {
   /* border: 0.25rem solid darkgray; */
-  background-color: #c53211;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 /* .menu:after {
@@ -172,30 +184,43 @@ input[type=number]::-webkit-outer-spin-button {
   margin-right:auto;
   padding: 0;
   width: 100%;
-  max-width: 72rem;
+  max-width: 60rem;
+  background-color: white;
+}
+
+.grayBorder {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  border-right: 1px solid lightgray;
 }
 
 .redLeftBorder {
-  border-left: 10px solid red;
+  border-left: 1rem solid red;
 }
 
 .cyanLeftBorder {
-  border-left: 10px solid cyan;
+  border-left: 1rem solid cyan;
+}
+
+.topMargin {
+  margin-top: 3rem;
 }
 
 .sectionHeader {
   /* display: inline-block; */
-  padding: 0.5rem 0 0.25rem 0;
-  margin: 3rem 2rem 0 2rem;
-  border-bottom: 1px solid lightgray;
+  padding: 0.25rem;
+  margin: 0;
+  width: 100%;
+  max-width: 60rem;
+  /* border-bottom: 1px solid lightgray; */
   /* border-left: 1px solid lightgray;
   border-right: 1px solid lightgray; */
-  /* background: linear-gradient(to bottom, #f7f7f7 0%,#ffffff 100%); */
   /* box-shadow: 0 -6px 6px -6px #777; */
 }
 
 .sectionHeader h1 {
   font-size: 1.25rem;
+  padding: 0.25rem;
 }
 
 /* .rightOfTab {
@@ -357,7 +382,7 @@ button {
   .logo {
     width: 100%;
     text-align: center;
-    padding: 0.25rem;
+    /* padding: 0.25rem; */
     font-size: 1.5rem;
   }
 
@@ -365,9 +390,15 @@ button {
     width: 100%;
     text-align: center;
     padding: 0.25rem;
+    /* font-size: 1rem; */
   }
 
   .menu a {
     display: inline-block;
     float: none;
   }
+
+  .row {
+    width: 95%;
+  }
+}
