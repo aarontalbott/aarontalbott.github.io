@@ -22,7 +22,7 @@ a {
 
 h1 {
   margin: 0;
-  padding: 0.25rem 0;
+  padding: 0;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 1rem;
@@ -175,14 +175,37 @@ input[type=number]::-webkit-outer-spin-button {
   max-width: 72rem;
 }
 
-.sectionHeader {
-  display: inline-block;
-  padding: 0.5rem;
-  margin: 3rem 2rem 1rem 2rem;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+.redLeftBorder {
+  border-left: 10px solid red;
 }
+
+.cyanLeftBorder {
+  border-left: 10px solid cyan;
+}
+
+.sectionHeader {
+  /* display: inline-block; */
+  padding: 0.5rem 0 0.25rem 0;
+  margin: 3rem 2rem 0 2rem;
+  border-bottom: 1px solid lightgray;
+  /* border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray; */
+  /* background: linear-gradient(to bottom, #f7f7f7 0%,#ffffff 100%); */
+  /* box-shadow: 0 -6px 6px -6px #777; */
+}
+
+.sectionHeader h1 {
+  font-size: 1.25rem;
+}
+
+/* .rightOfTab {
+  height: 100%
+  border-bottom: 1px solid lightgray;
+}
+
+.sectionHeader:after {
+  clear: both;
+} */
 
 .narrowColumn {
   margin-left: auto;
