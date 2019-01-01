@@ -85,6 +85,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .bg {
+  text-align: right;
+  vertical-align: bottom;
   background-image: url("/img/1280px-Old_timer_structural_worker2.jpg");
   height: 50%;
   background-position: center;
@@ -110,8 +112,19 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .topNavFrontPage {
-  padding-top: 20%;
-  font-size: 1.5rem;
+  height: 50%;
+
+}
+
+.splashPage {
+  text-align: center;
+  background-color: black;
+  padding: 10rem 2rem;
+  margin: auto;
+  max-width: 60rem;
+  width: 100%;
+  color: white;
+  font-size: 3rem;
 }
 
 .shadow {
@@ -119,6 +132,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .topnav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.bg:after {
   content: "";
   display: table;
   clear: both;
@@ -369,7 +388,7 @@ button {
 
 @media screen and (max-width: 600px) {
 
-  
+
 
   .column25,
   .column33,
