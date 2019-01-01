@@ -91,12 +91,14 @@ input[type=number]::-webkit-outer-spin-button {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: local;
+  max-width: 60rem;
+  margin: auto;
 }
 
 .topnav {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 0 auto 0 auto;
   padding: 0;
   width: 100%;
@@ -109,7 +111,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .topNavFrontPage {
   padding-top: 20%;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .shadow {
@@ -133,11 +135,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .logo a {
+  display: block;
   color: inherit;
   padding: 0.25rem;
   margin: auto 0.25rem;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 400;
   font-size: inherit;
 }
 
@@ -159,9 +162,9 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 0.75rem;
   padding: 0.25rem 0.25rem;
   text-decoration: none;
-  margin: 0.25rem 0.5rem;
+  margin: 0.25rem 1rem;
   /* border: 1px solid #c53211; */
-  border: 1px solid white;
+  /* border: 1px solid white; */
   /* border-radius: 0.5rem; */
 }
 
@@ -366,6 +369,8 @@ button {
 
 @media screen and (max-width: 600px) {
 
+  
+
   .column25,
   .column33,
   .column50,
@@ -383,13 +388,13 @@ button {
     width: 100%;
     text-align: center;
     /* padding: 0.25rem; */
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
 
   .menu {
     width: 100%;
     text-align: center;
-    padding: 0.25rem;
+    /* padding: 0.25rem; */
     /* font-size: 1rem; */
   }
 
