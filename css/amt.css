@@ -22,10 +22,10 @@ a {
 
 h1 {
   margin: 0;
-  padding: 0;
+  padding: 0.25rem 0;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 h2 {
@@ -33,7 +33,7 @@ h2 {
   padding: 0;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 table {
@@ -85,13 +85,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .bg {
-  /* The image used */
   background-image: url("/img/1280px-Old_timer_structural_worker2.jpg");
-
-  /* Full height */
   height: 50%;
-
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -103,10 +98,11 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 400;
   font-size: 1rem;
   margin: 0 0 3rem 0;
-  padding: 4rem 0.25rem 1rem 0.25rem;
+  padding: 25% 0.25rem 0.5rem 0.25rem;
   width: 100%;
   background-color: black;
   color: white;
+  transition: 0.5s;
   /* border-bottom: .0625rem solid black; */
 }
 
@@ -121,7 +117,8 @@ input[type=number]::-webkit-outer-spin-button {
   color:inherit;
   margin: 0;
   padding: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  transition: 0.5s;
 }
 
 .logo a {
@@ -130,6 +127,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0.25rem;
   text-decoration: none;
   font-weight: 700;
+  transition: 0.5s;
 }
 
 .menu {
@@ -138,6 +136,7 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
   overflow: hidden;
   border-radius: 0;
+  transition: 1s;
 }
 
 .menu a {
@@ -146,11 +145,12 @@ input[type=number]::-webkit-outer-spin-button {
   color: inherit;
   text-align: center;
   font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   text-decoration: none;
-  margin: 0.25rem 0.25rem;
-  border: 1px solid #c53211;
-  border-radius: 0.5rem;
+  margin: 0.25rem 0.5rem;
+  /* border: 1px solid #c53211; */
+  border: 1px solid white;
+  /* border-radius: 0.5rem; */
 }
 
 .menu a:hover {
@@ -173,6 +173,15 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
   width: 100%;
   max-width: 72rem;
+}
+
+.sectionHeader {
+  display: inline-block;
+  padding: 0.5rem;
+  margin: 3rem 2rem 1rem 2rem;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 }
 
 .narrowColumn {
@@ -224,7 +233,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .card {
   /* text-align: left; */
-  margin: 0.625rem;
+  margin: 1rem 2rem 1rem 2rem;
   padding: 0;
   /* max-width: 35rem; */
   /* background-color: #e6e6e6; */
@@ -256,7 +265,7 @@ input[type=number]::-webkit-outer-spin-button {
 .cardLinkList {
   display: block;
   width: 100%;
-  padding: 0.25rem 0 0.25rem 0;
+  padding: 0.5rem 0 0.5rem 0;
   text-decoration: none;
 }
 
@@ -308,11 +317,7 @@ button {
 }
 
 @media screen and (max-width: 600px) {
-  .row {
-    width: 100%;
-  }
 
-  .topnav,
   .column25,
   .column33,
   .column50,
@@ -321,14 +326,22 @@ button {
     width: 100%;
   }
 
+  .topnav {
+    padding-top: 0.5rem;
+    margin-bottom: 0;
+  }
+
   .logo {
     width: 100%;
     text-align: center;
+    padding: 0.25rem;
+    font-size: 1.5rem;
   }
 
   .menu {
     width: 100%;
     text-align: center;
+    padding: 0.25rem;
   }
 
   .menu a {
