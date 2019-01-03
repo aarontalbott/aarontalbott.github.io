@@ -23,7 +23,7 @@
       <div class="column33">
         <div class="card" id="intro">
           <div class="cardHeader">
-            <h1>Introduction</h1>
+            <h2>Introduction</h2>
           </div>
           <div class="cardContent">
             <p>This page calculates the shear, moment, and deflection diagrams for a simply supported beam.  The calculation is based on the priciple of superposition.  The diagrams for each individual load are computed at each cross section (based on the number of calculation points entered).  The results are then added to get the totals at each section.</p>
@@ -33,18 +33,18 @@
         </div>
         <div class="card" id="beamProps">
           <div class="cardHeader">
-            <h1>Beam Properties</h1>
+            <h2>Beam Properties</h2>
           </div>
           <div class="cardContent hidden">
             <table>
-              <thead>
+              <!-- <thead>
                 <tr>
                   <th>Variable</th>
                   <th>Symbol</th>
                   <th>Value</th>
                   <th>Unit</th>
                 </tr>
-              </thead>
+              </thead> -->
               <tbody>
                 <tr>
                     <td>Span</td>
@@ -76,7 +76,7 @@
         </div>
         <div class="card" id="pointLoads">
           <div class="cardHeader">
-            <h1>Concentrated Loads</h1>
+            <h2>Concentrated Loads</h2>
           </div>
           <div class="cardContent hidden">
             <table>
@@ -156,7 +156,7 @@
         </div>
         <div class="card" id="lineLoads">
           <div class="cardHeader">
-            <h1>Distributed Loads</h1>
+            <h2>Distributed Loads</h2>
           </div>
           <div class="cardContent hidden">
             <table>
@@ -258,7 +258,7 @@
       <div class="column67">
         <div class="card" id="graphicalOutput">
           <div class="cardHeader">
-            <h1>Graphical Output</h1>
+            <h2>Graphical Output</h2>
           </div>
           <div class="cardContent">
             <div id="shear_diagram"></div>
@@ -268,7 +268,7 @@
         </div>
         <div class="card" id="numericOutput">
           <div class="cardHeader">
-            <h1>Numerical Output</h1>
+            <h2>Numerical Output</h2>
           </div>
           <div class="cardContent">
             <textarea id="output" rows="20" cols="72"></textarea>
@@ -280,17 +280,6 @@
     <script>
       $("#navbar").load("/navbar.html", console.log("navbar loaded"));
       $("#pageFooter").load("/footer.html");
-    </script>
-    <script>
-      var headers = document.getElementsByClassName("cardHeader");
-      var i;
-      for (i = 0; i < headers.length; i++) {
-        var button = headers[i].childNodes[1];
-        headers[i].addEventListener("click", function() {
-          var content = this.nextElementSibling;
-          content.classList.toggle("hidden");
-        });
-      }
     </script>
     <script type="text/javascript">
       calculate();

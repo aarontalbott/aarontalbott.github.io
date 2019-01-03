@@ -1,1 +1,13 @@
 All content &copy 2018 Aaron Talbott, unless noted otherwise.
+
+<script>
+  var headers = document.getElementsByClassName("cardHeader");
+  var i;
+  for (i = 0; i < headers.length; i++) {
+    var button = headers[i].childNodes[1];
+    headers[i].addEventListener("click", function() {
+      var content = this.nextElementSibling;
+      content.classList.toggle("hidden");
+    });
+  }
+</script>
