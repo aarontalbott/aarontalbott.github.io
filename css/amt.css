@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+
 * {
   box-sizing: border-box;
 }
@@ -9,10 +12,8 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: white;
   color: black;
-
-  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-
   height: 100%;
   margin: 0;
 }
@@ -26,8 +27,8 @@ h1 {
   margin: 0;
   padding: 0;
   font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 1.25rem;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 h2 {
@@ -35,7 +36,7 @@ h2 {
   padding: 0;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 table {
@@ -105,7 +106,7 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 400;
   font-size: 1.25rem;
   margin: 0 auto 0 auto;
-  padding: 3rem 0 0 0;
+  padding: 1rem 0 2rem 0;
   width: 100%;
   /* background-color: #646f6f; */
   color: inherit;
@@ -131,22 +132,22 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .logo {
-  float:left;
+  /* float:left; */
   color:inherit;
-  margin: auto;
-  padding: 0;
+  margin: 1rem 0 0 0;
+  padding: 0 0 0 0.5rem;
   font-size: inherit;
   transition: 1s;
-  height: 100%;
+  border-bottom: 2px solid black;
 }
 
 .logo a {
   display: block;
   color: inherit;
-  padding: 0.25rem;
-  margin: auto 0.25rem;
+  padding: 0;
+  margin: 0;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 700;
   font-size: inherit;
 }
 
@@ -155,6 +156,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  /* border: 1px solid black; */
   border-radius: 0;
   transition: 1s;
 }
@@ -166,18 +168,18 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
   vertical-align: bottom;
   font-size: 0.75rem;
-  padding: 0.25rem 0.25rem;
+  padding: 0.25rem 0.5rem;
   text-decoration: none;
-  margin: 0.25rem 1rem;
-  border: 1px solid black;
+  margin: 0;
+  /* border: 1px solid black; */
   /* border: 1px solid white; */
   /* border-radius: 0.5rem; */
 }
 
 .menu a:hover {
   /* border: 0.25rem solid darkgray; */
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 /* .menu:after {
@@ -193,7 +195,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin-right:auto;
   padding: 0;
   width: 100%;
-  /* max-width: 60rem; */
   overflow: hidden;
 }
 
@@ -276,6 +277,19 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
 }
 
+.splash50 {
+  height: 50%;
+  text-align: center;
+  padding: 15rem 0;
+  margin:auto;
+  width: 100%;
+  max-width: 60rem;
+  background-color: black;
+  font-size: 3rem;
+  color: white;
+  overflow: hidden;
+}
+
 .card {
   /* text-align: left; */
   margin: 0 auto 0 auto;
@@ -307,7 +321,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .cardHeader:hover {
-  background: #f2f2f2;
+  background: black;
+  color: white;
 }
 
 .cardContent {
@@ -327,7 +342,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .cardLinkList:hover {
-  background-color: #f2f2f2;
+  text-decoration: underline;
 }
 
 .hidden {
@@ -377,8 +392,6 @@ button {
 
 @media screen and (max-width: 600px) {
 
-
-
   .column25,
   .column33,
   .column50,
@@ -387,31 +400,17 @@ button {
     width: 100%;
   }
 
-  .topnav {
-    padding-top: 0.5rem;
-    margin-bottom: 0;
-  }
-
   .logo {
     width: 100%;
     text-align: center;
-    /* padding: 0.25rem; */
-    /* font-size: 1.5rem; */
   }
 
   .menu {
     width: 100%;
-    text-align: center;
-    /* padding: 0.25rem; */
-    /* font-size: 1rem; */
   }
 
   .menu a {
-    display: inline-block;
-    float: none;
+    width: 100%;
   }
 
-  /* .row {
-    width: 95%;
-  } */
 }

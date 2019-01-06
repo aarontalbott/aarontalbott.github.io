@@ -6,90 +6,118 @@
         box-sizing: border-box;
       }
 
-      .container {
-        width: 100%;
-      }
-
-      .vertNavbar {
+      body {
         font-family: sans-serif;
-        font-size: 0.9rem;
-      }
-
-      .vertNavbar a, label{
-        cursor: pointer;
-        display: block;
-        float:left;
-        text-decoration: none;
-        color: black;
-        padding: 5px;
-        margin: 0;
-        border-bottom: 1px solid lightgray;
-      }
-
-      .vertNavbar a:hover, label:hover {
         background-color: lightgray;
       }
 
-      input {
-        display: none;
+      .nav,
+      .submenu {
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+        max-width: 60rem;
+        margin: 10rem auto 0 auto;
+        border: 1px solid green;
+        text-align: center;
+      }
+
+      .nav {
+        position: relative;
+        display: block;
+        border: 1px solid red;
+        z-index: 0;
+      }
+
+      .nav > a {
+        display: block;
+        position: relative;
+        float: left;
+        padding: 5px;
+        margin: 10px;
+        text-decoration: none;
+        text-align: center;
+        border: 1px solid black;
+      }
+
+      .submenu > a {
+        display: block;
+        float: left;
+        width: 100%;
+        padding: 5px;
+        margin: 10px;
+        text-decoration: none;
+        text-align: center;
+        border: 1px solid black;
       }
 
       .submenu {
         position: absolute;
-        z-index: 1;
-
-        overflow: hidden;
-        transition: 1s;
-        margin-left: 20px;
         display: none;
+        float: left;
+        top: 50px;
+        left: 0px;
+        z-index: 1;
+        width: 10rem;
+        border: 1px solid black;
       }
 
-      input:checked ~ .submenu {
+      a:hover + .submenu {
         display: block;
       }
 
     </style>
   </head>
   <body>
-    <div class="container vertNavbar">
-      <a href="#">What is structural engineering?</a>
-      <a href="#">Statics</a>
-      <a href="#">Dynamics</a>
-      <div class="container">
-        <input type="checkbox" id="materials"><label for="materials">Strength of Materials</label>
+    <div class="container">
+      <div class="nav">
+        <a href="#">Engineering Mechanics</a>
+        <div class="submenu">
+          <a href="#">Statics</a>
+          <a href="#">Dynamics</a>
+        </div>
+        <a href="#">Strength of Materials</a>
         <div class="submenu">
           <a href="#">Stress and Strain</a>
           <a href="#">Two-dimensional State of Stress at a Point</a>
           <a href="#">Three-Dimensional State of Stress at a Point</a>
           <a href="#">Failure Criteria</a>
         </div>
+        <a href="#">Structural Engineering</a>
+        <div class="submenu">
+          <a href="#">Structural Analysis</a>
+          <div class="submenu">
+            <a href="#">Statically Determinate</a>
+            <a href="#">Statically Indeterminate</a>
+            <a href="#">Compatibility</a>
+            <a href="#">Direct Integration</a>
+            <a href="#">Energy Methods</a>
+            <a href="#">Matrix Analysis</a>
+            <a href="#">Finite Element Analysis</a>
+          </div>
+          <a href="#">Structural Stability</a>
+          <div class="submenu">
+            <a href="#">Stable Equilibrium</a>
+            <a href="#">What is Buckling?</a>
+            <a href="#">Common Stability Problems in Structural Engineering</a>
+          </div>
+          <a href="#">Factors of Safety</a>
+          <div class="submenu">
+            <a href="#">Geometric Uncertainties</a>
+            <a href="#">Load Uncertainties</a>
+            <a href="#">Material Uncertainties</a>
+            <a href="#">Analysis Uncertainties</a>
+          </div>
+          <a href="#">Design Codes</a>
+          <a href="#">The Structural Engineer's Role</a>
+        </div>
+        <a href="#">Other Stuff</a>
       </div>
-      <input type="checkbox" id="analysis"><label for="analysis">Structural Analysis</label>
-      <div class=submenu>
-        <a href="#">Statically Determinate</a>
-        <a href="#">Statically Indeterminate</a>
-        <a href="#">Compatibility</a>
-        <a href="#">Direct Integration</a>
-        <a href="#">Energy Methods</a>
-        <a href="#">Matrix Analysis</a>
-        <a href="#">Finite Element Analysis</a>
-      </div>
-      <input type="checkbox" id="stability"><label for="stability">Structural Stability</label>
-      <div class=submenu>
-        <a href="#">Stable Equilibrium</a>
-        <a href="#">What is Buckling?</a>
-        <a href="#">Common Stability Problems in Structural Engineering</a>
-      </div>
-      <input type="checkbox" id="safety"><label for="safety">Factors of Safety</label>
-      <div class=submenu>
-        <a href="#">Geometric Uncertainties</a>
-        <a href="#">Load Uncertainties</a>
-        <a href="#">Material Uncertainties</a>
-        <a href="#">Analysis Uncertainties</a>
-      </div>
-      <a href="#">Design Codes</a>
-      <a href="#">The Structural Engineer's Role</a>
-      <a href="#">Additional Information</a>
     </div>
+
   </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/amt.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+  <title>aarontalbott.com</title>
+</head>
+<body>
+  <div class="row">
+    <div class="topnav" id="navbar"></div>
+  </div>
+  <div class="row" id="contentRow">
+    <div class="card noHorPad">
+      <div class="cardHeader">
+        <h1>Structural Engineering</h1>
+      </div>
+      <div class="cardContent">
+        <div class="column33" id="leftColumn">
+          <div class="card">
+            <div class="cardHeader">
+              <h2>For People in a Hurry</h2>
+            </div>
+            <div class="cardContent">
+              <a class="cardLinkList" href="#">What is Structural Engineering?</a>
+              <a class="cardLinkList" href="#">What is a beam?</a>
+              <a class="cardLinkList" href="#">What is a column?</a>
+              <a class="cardLinkList" href="#">Why do structures fail?</a>
+              <a class="cardLinkList" href="#">What does failure mean?</a>
+            </div>
+          </div>
+        </div>
+        <div class="column33" id="middleColumn">
+          <div class="card">
+            <div class="cardHeader">
+              <h2>For People with Lots of Time</h2>
+            </div>
+            <div class="cardContent">
+              <a class="cardLinkList" href="#">Stress and Strain</a>
+              <a class="cardLinkList" href="#">Axially-Loaded Elements</a>
+              <a class="cardLinkList" href="#">Flexural Elements</a>
+              <a class="cardLinkList" href="#">Structural Analysis</a>
+              <a class="cardLinkList" href="#">Statics</a>
+              <a class="cardLinkList" href="#">Dynamics</a>
+            </div>
+          </div>
+        </div>
+        <div class="column33" id="rightColumn">
+          <div class="card">
+            <div class="cardHeader">
+              <h2>For People who Like Numbers</h2>
+            </div>
+            <div class="cardContent">
+              <a class="cardLinkList" href="/calcs/ssbeam.html">Simply Supported Beam</a>
+              <a class="cardLinkList" href="#">Item</a>
+              <a class="cardLinkList" href="#">Item</a>
+              <a class="cardLinkList" href="#">Item</a>
+              <a class="cardLinkList" href="#">Item</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pageFooter" id="pageFooter"></div>
+  <script>
+    $("#navbar").load("/navbar.html");
+    $("#pageFooter").load("/footer.html");
+  </script>
+</body>
+</html>
