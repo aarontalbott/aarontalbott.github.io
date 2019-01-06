@@ -4,16 +4,38 @@
   <link rel="stylesheet" type="text/css" href="css/amt.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+  <style media="screen">
+    .frontPageNav {
+      height: 25%;
+    }
+
+    .splashCard {
+      display: table;
+      height: 75%;
+      text-align: center;
+      padding: auto 0;
+      margin: auto;
+      width: 100%;
+      max-width: 60rem;
+      background-color: black;
+      font-size: 3rem;
+      color: white;
+      overflow: hidden;
+    }
+
+    .splashText {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  </style>
   <title>aarontalbott.com</title>
 </head>
 <body>
-  <div class="row">
+  <div class="row frontPageNav">
     <div class="topnav" id="navbar"></div>
   </div>
-  <div class="row" id="contentRow">
-    <div class="splash50">
-      engineering can be simple.
-    </div>
+  <div class="row splashCard" id="contentRow">
+      <span class="splashText">engineering can be simple.</span>
   </div>
   <div class="pageFooter" id="pageFooter"></div>
   <script>
