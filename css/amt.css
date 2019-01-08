@@ -322,18 +322,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
-/* .floatingList {
-  color: red;
-} */
-
-/* .floatingList > li {
-  border: 1px solid green;
-  float: left;
-  width: 10rem;
-
-  margin: auto;
-  padding: 1rem;
-} */
 
 .cardLinkList {
   display: block;
