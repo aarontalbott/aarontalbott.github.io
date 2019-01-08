@@ -194,11 +194,12 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left:auto;
   margin-right:auto;
   padding: 0;
-  width: 100%;
+  width: 90%;
   overflow: hidden;
+  max-width: 60rem;
 }
 
-.grayBorder {
+/* .grayBorder {
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   border-right: 1px solid lightgray;
@@ -228,7 +229,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-right: auto;
   padding: 0;
   max-width: 35rem;
-}
+} */
 
 .column25 {
   float: left;
@@ -321,6 +322,19 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
+/* .floatingList {
+  color: red;
+} */
+
+/* .floatingList > li {
+  border: 1px solid green;
+  float: left;
+  width: 10rem;
+
+  margin: auto;
+  padding: 1rem;
+} */
+
 .cardLinkList {
   display: block;
   width: 100%;
@@ -351,6 +365,19 @@ input[type=number]::-webkit-outer-spin-button {
   clear: both;
 }
 
+.toplevel > a {
+  display: block;
+  /* float: left; */
+  padding: 5px;
+  margin: 0;
+  border: 1px solid black;
+}
+
+.sublevel {
+  visibility: hidden;
+  overflow: hidden;
+}
+
 button {
   background-color: #c53211;
   color: white;
@@ -371,7 +398,7 @@ button {
   width: 100%;
   /* border-top: 0.0625rem solid darkgray; */
   font-size: 0.8rem;
-  color: inherit;
+  color: lightgray;
   text-align: center;
 }
 

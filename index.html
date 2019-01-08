@@ -5,37 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
   <style media="screen">
-    .frontPageNav {
+    /* .frontPageNav {
       height: 25%;
-    }
+    } */
 
     .splashCard {
       display: table;
       height: 75%;
       text-align: center;
-      padding: auto 0;
+      padding: 5rem;
       margin: auto;
-      width: 100%;
       max-width: 60rem;
       background-color: black;
-      font-size: 3rem;
       color: white;
       overflow: hidden;
     }
 
-    .splashText {
+    .splashQuote {
       display: table-cell;
+      width: 100%;
       vertical-align: middle;
+      font-weight: 200;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+
+    .splashAuthor {
+      font-weight: 200;
+      font-size: 1rem;
     }
   </style>
   <title>aarontalbott.com</title>
 </head>
 <body>
-  <div class="row frontPageNav">
+  <div class="row">
     <div class="topnav" id="navbar"></div>
   </div>
   <div class="row splashCard" id="contentRow">
-      <span class="splashText">engineering can be simple.</span>
+      <div class="splashQuote">
+        <p>"Everything should be made as simple as possible,
+            but not simpler."
+        </p>
+        <p class="splashAuthor"> -
+          <a href="https://www.nature.com/articles/d41586-018-05004-4" target="_blank"> attributed to</a> Albert Einstein
+        </p>
+      </div>
   </div>
   <div class="pageFooter" id="pageFooter"></div>
   <script>
