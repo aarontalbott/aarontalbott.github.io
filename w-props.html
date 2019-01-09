@@ -1,0 +1,89 @@
+<html>  
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/amt.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+  </head>
+  <body onLoad=populate();>
+    <div class="row">
+      <div class="topnav" id="navbar"></div>
+    </div>
+    <div class="row" id="contentRow">
+      <h1>Wide-Flange Shapes</h1>
+      <p>Section properties from AISC shapes database v15.</p>
+    </div>
+    <div class="pageFooter" id="pageFooter"></div>
+  </body>
+   <script>
+      function populate() {
+        var url = "/data/aisc-shapes-database-v15-w.json";
+      $.getJSON(url, function(data){buildselect(data)});
+      }
+
+      function buildselect(shapeLibrary) {
+        var sectionKeys = Object.keys(shapeLibrary);
+        console.log(sectionKeys);
+
+        var targetDiv = document.getElementById("contentRow");
+        var select = document.createElement("select");
+        var option = document.createElement("option");
+
+        for (let section of sectionKeys) {
+          option = document.createElement("option");
+          option.value = section;
+          option.innerHTML = section;
+          select.appendChild(option);
+        }
+        targetDiv.appendChild(select);
+
+      }
+
+      function getresults();
+
+
+      //Build table of wide-flange section properties.
+      function buildtable(shapeLibrary) {
+        
+        var sectionKeys = Object.keys(shapeLibrary);
+        var propertyKeys = Object.keys(shapeLibrary[sectionKeys[0]]);
+
+        var body = document.getElementsByTagName("body")[0];
+        var tbl = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+        var row = document.createElement("tr");
+        var heading = document.createElement("th");
+        var cell = document.createElement("td");
+        var cellText = document.createTextNode("");
+
+        //Build Header Row
+
+        for (let property of propertyKeys) {
+          heading = document.createElement("th");
+          cellText = document.createTextNode(property);
+          heading.appendChild(cellText);
+          row.appendChild(heading);
+        }
+        tblBody.appendChild(row);
+
+        //Build Data Rows
+
+        for (let section of sectionKeys) {
+          row = document.createElement("tr");
+          for (let property of propertyKeys) {
+            cell = document.createElement("td");
+            cellText = document.createTextNode(shapeLibrary[section][property]);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+          }
+          tblBody.appendChild(row);
+        }
+        tbl.appendChild(tblBody);
+        body.appendChild(tbl);
+      }
+
+    </script>
+</html>
