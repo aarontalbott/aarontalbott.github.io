@@ -1,4 +1,4 @@
-<html>  
+<html>
   <head>
     <link rel="stylesheet" type="text/css" href="/css/amt.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +19,8 @@
     <div class="pageFooter" id="pageFooter"></div>
   </body>
    <script>
+    $("#navbar").load("/navbar.html");
+     $("#pageFooter").load("/footer.html");
       function populate() {
         var url = "/data/aisc-shapes-database-v15-w.json";
       $.getJSON(url, function(data){buildselect(data)});
@@ -42,12 +44,16 @@
 
       }
 
-      function getresults();
+      function getresults() {
+
+
+
+      }
 
 
       //Build table of wide-flange section properties.
       function buildtable(shapeLibrary) {
-        
+
         var sectionKeys = Object.keys(shapeLibrary);
         var propertyKeys = Object.keys(shapeLibrary[sectionKeys[0]]);
 
