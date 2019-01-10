@@ -55,6 +55,7 @@ table {
   margin-left: auto;
   /* width: 100%; */
   border-collapse: collapse;
+  overflow: scroll;
 }
 
 thead{
@@ -65,7 +66,7 @@ thead{
 th {
   position: sticky;
   top: 1px;
-  padding: 0.25rem;
+  padding: 0.5rem;
 }
 
 tfoot{
@@ -90,7 +91,7 @@ tbody tr:nth-child(even){
 td{
   text-align: left;
   font-size: inherit;
-  padding: 0.25rem;
+  padding: 0.5rem;
 }
 
 input {
