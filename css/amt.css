@@ -65,6 +65,7 @@ thead{
 th {
   position: sticky;
   top: 1px;
+  padding: 0.25rem;
 }
 
 tfoot{
@@ -89,6 +90,7 @@ tbody tr:nth-child(even){
 td{
   text-align: left;
   font-size: inherit;
+  padding: 0.25rem;
 }
 
 input {
