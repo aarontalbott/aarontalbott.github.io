@@ -16,6 +16,7 @@
       <h1>Wide-Flange Shapes</h1>
       <p>Section properties from AISC shapes database v15.</p>
     </div>
+    <div id="tableContainer"></div>
     <div class="pageFooter" id="pageFooter"></div>
   </body>
    <script>
@@ -57,7 +58,7 @@
         var sectionKeys = Object.keys(shapeLibrary);
         var propertyKeys = Object.keys(shapeLibrary[sectionKeys[0]]);
 
-        var body = document.getElementsByTagName("body")[0];
+        var body = document.getElementByID("tableContainer");
         var tbl = document.createElement("table");
         var tblBody = document.createElement("tbody");
         var row = document.createElement("tr");
