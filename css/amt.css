@@ -16,12 +16,12 @@ body {
 
 a {
   color: inherit;
-  transition: 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  text-decoration: underline;
 }
 
-a:hover {
-  background-color: lightgray;
-}
+/* a:hover {
+  text-decoration: underline;
+} */
 
 h1 {
   margin: 0;
@@ -93,8 +93,8 @@ input {
 
 p {
   font-size: 1rem;
-  text-align: justify;
-  text-justify: auto;
+  /* text-align: justify;
+  text-justify: auto; */
   line-height: 1.5;
 }
 
@@ -103,106 +103,6 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-.bg {
-  text-align: right;
-  vertical-align: bottom;
-  background-image: url("/img/1280px-Old_timer_structural_worker2.jpg");
-  height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: local;
-  max-width: 60rem;
-  margin: auto;
-}
-
-.topnav {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
-  font-size: 1.25rem;
-  margin: 0 auto 0 auto;
-  padding: 1rem 0 2rem 0;
-  width: 100%;
-  /* background-color: #646f6f; */
-  color: inherit;
-  transition: 0.5s;
-  max-width: 50rem;
-  /* border-bottom: .0625rem solid black; */
-}
-
-.shadow {
-  box-shadow: 0 10px 6px -6px #777;
-}
-
-.topnav:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.bg:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.logo {
-  /* float:left; */
-  color:inherit;
-  margin: 1rem 0 0 0;
-  padding: 0 0 0 0.5rem;
-  font-size: inherit;
-  transition: 1s;
-  border-bottom: 2px solid black;
-}
-
-.logo a {
-  display: block;
-  color: inherit;
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: inherit;
-}
-
-.menu {
-  float:right;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  /* border: 1px solid black; */
-  border-radius: 0;
-  transition: 1s;
-}
-
-.menu a {
-  display: table-cell;
-  float: left;
-  color: inherit;
-  text-align: center;
-  vertical-align: bottom;
-  font-size: 0.8rem;
-  padding: 0.25rem 0.5rem;
-  text-decoration: none;
-  margin: 0;
-  /* border: 1px solid black; */
-  /* border: 1px solid white; */
-  /* border-radius: 0.5rem; */
-}
-
-.menu a:hover {
-  /* border: 0.25rem solid darkgray; */
-  background-color: black;
-  color: white;
-}
-
-/* .menu:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
 
 .row {
   margin-top: 0;
@@ -214,38 +114,6 @@ input[type=number]::-webkit-outer-spin-button {
   overflow: hidden;
   max-width: 50rem;
 }
-
-/* .grayBorder {
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
-  border-right: 1px solid lightgray;
-}
-
-.redLeftBorder {
-  border-left: 1rem solid red;
-}
-
-.cyanLeftBorder {
-  border-left: 1rem solid cyan;
-}
-
-.topMargin {
-  margin-top: 3rem;
-}
-
-.sectionHeader {
-  padding: 0.25rem;
-  margin: 0;
-  width: 100%;
-  max-width: 60rem;
-}
-
-.narrowColumn {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  max-width: 35rem;
-} */
 
 .column25 {
   float: left;
@@ -406,7 +274,73 @@ button {
   text-align: center;
 }
 
+#navbar {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  margin: 0 auto 0 auto;
+  padding: 1rem 0 2rem 0;
+  width: 100%;
+  /* background-color: #646f6f; */
+  color: inherit;
+  max-width: 50rem;
+  overflow: auto;
+  /* border-bottom: .0625rem solid black; */
+}
 
+.shadow {
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+#pageHeader {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px solid black;
+}
+
+#pageHeader a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#menuWrapper {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  border-radius: 0;
+}
+
+#menu {
+  display: inline-block;
+  margin: 1rem 0 0 0;
+  padding: 0;
+  border-radius: 0;
+  overflow: auto;
+  /* background-color: #ecf0f1;
+  border-radius: 0.75rem; */
+}
+
+#menu a {
+  display: block;
+  float: left;
+  color: inherit;
+  font-size: 0.9rem;
+  padding: 0.55rem 1rem;
+  text-decoration: none;
+  margin: 0.5rem;
+  border: 1px solid lightgray;
+  /* border: 1px solid black; */
+  /* border: 1px solid white; */
+  border-radius: 1rem;
+}
+
+#menu a:hover {
+  background-color: #3498db;
+  color: white;
+}
 
 @media screen and (max-width: 600px) {
 
@@ -418,17 +352,27 @@ button {
     width: 100%;
   }
 
-  .logo {
-    width: 100%;
+  #pageHeader {
     text-align: center;
   }
 
-  .menu {
-    width: 100%;
+  #menu {
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    margin-top: 1.5rem;
   }
 
-  .menu a {
+  #menu a {
     width: 100%;
+    margin: 0;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid lightgray;
+  }
+
+  #menu a:last-child {
+    border-bottom: none;
   }
 
 }
