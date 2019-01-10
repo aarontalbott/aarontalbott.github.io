@@ -23,7 +23,7 @@
      $("#pageFooter").load("/footer.html");
       function populate() {
         var url = "/data/aisc-shapes-database-v15-w.json";
-      $.getJSON(url, function(data){buildselect(data)});
+      $.getJSON(url, function(data){buildtable(data)});
       }
 
       function buildselect(shapeLibrary) {
