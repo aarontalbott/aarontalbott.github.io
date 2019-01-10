@@ -7,6 +7,13 @@
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous">
     </script>
+    <style>
+      #tableContainer {
+        width: 100%;
+        height: 30rem;
+        overflow: scroll;
+      }
+    </style>
   </head>
   <body onLoad=populate();>
     <div class="row">
@@ -15,8 +22,8 @@
     <div class="row" id="contentRow">
       <h1>Wide-Flange Shapes</h1>
       <p>Section properties from AISC shapes database v15.</p>
+      <div id="tableContainer"></div>
     </div>
-    <div id="tableContainer"></div>
     <div class="pageFooter" id="pageFooter"></div>
   </body>
    <script>
