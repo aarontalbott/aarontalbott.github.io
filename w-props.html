@@ -1,6 +1,6 @@
-<html>
+<html>  
   <head>
-    <link rel="stylesheet" type="text/css" href="/css/amt.css">
+    <link rel="stylesheet" type="text/css" href="https://aarontalbott.github.io/css/amt.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -8,96 +8,196 @@
       crossorigin="anonymous">
     </script>
     <style>
-      #tableContainer {
+      table {
         width: 100%;
-        height: 30rem;
+        margin: 0;
+      }
+
+      td {
+        white-space: nowrap;
+      }
+
+      th {
+        background-color: white;
+      }
+
+      #sectionSketch {
+        width: 100%;
+        height: 33%;
+        background-color: lightgray;
+      }
+
+      #sectionData {
+        width: 100%;
+        height: 67%;
         overflow: scroll;
       }
+
+      #beamCurve,
+      #columnCurve,
+      #combinedCurve {
+        width: 100%;
+        height: 33.333%;
+        background-color: lightslategray;
+      }
+      
     </style>
   </head>
-  <body onLoad=populate();>
+  <body onload="getData()">
     <div class="row">
       <div class="topnav" id="navbar"></div>
     </div>
     <div class="row" id="contentRow">
       <h1>Wide-Flange Shapes</h1>
       <p>Section properties from AISC shapes database v15.</p>
-      <div id="tableContainer"></div>
+      <div id="dataHeader"></div>
+      <div class="column33">
+        <div id="sectionSketch">Sketch</div>
+        <div id="sectionData">Data</div>
+      </div>
+      <div class="column67">
+        <div id="beamCurve">Beam Curve</div>
+        <div id="columnCurve">Column Curve</div>
+        <div id="combinedCurve">Combined Loading Curve</div>
+      </div>
     </div>
     <div class="pageFooter" id="pageFooter"></div>
   </body>
-   <script>
-    $("#navbar").load("/navbar.html");
-     $("#pageFooter").load("/footer.html");
-      function populate() {
-        var url = "/data/aisc-shapes-database-v15-w.json";
-      $.getJSON(url, function(data){buildtable(data)});
-      }
 
-      function buildselect(shapeLibrary) {
-        var sectionKeys = Object.keys(shapeLibrary);
-        console.log(sectionKeys);
+  <script>
 
-        var targetDiv = document.getElementById("contentRow");
-        var select = document.createElement("select");
+    // Global Variables
+    var shapeLibrary = undefined; // JSON containing all shape data
+    var sectionKeys = undefined; // array containing section keys
+    var propertyKeys = undefined; // array containing seciton property keys
+    var currentSection = undefined; // current section being shown on the page
+
+    // Pull data from server and call function to build page elements
+    function getData() { 
+      var url = "https://aarontalbott.github.io/data/aisc-shapes-database-v15-w.json";
+      $.getJSON(url, function(data){
+        shapeLibrary = data;
+        sectionKeys = Object.keys(shapeLibrary);
+        propertyKeys = Object.keys(shapeLibrary[sectionKeys[0]]);
+        populateDropdown();
+      });
+    }
+
+    // Create and populate dropdown menu for selecting section
+    function populateDropdown() {
+      var targetDiv = document.getElementById("dataHeader");
+
+      // Build section dropdown and append to targetDiv
+
+      var select = document.createElement("select");
+      select.setAttribute("onchange", "update(this.value)");
+
+      for (var i = 0; i < sectionKeys.length; i++) {
         var option = document.createElement("option");
-
-        for (let section of sectionKeys) {
-          option = document.createElement("option");
-          option.value = section;
-          option.innerHTML = section;
-          select.appendChild(option);
-        }
-        targetDiv.appendChild(select);
-
+        option.value = sectionKeys[i];
+        option.innerHTML = sectionKeys[i];
+        select.appendChild(option);
       }
 
-      function getresults() {
+      targetDiv.appendChild(select);
+    }
 
+    // Build full table for all sections
+    function buildFullTable() {
 
+      //Build table and append to target div
+      
+      var tbl = document.createElement("table");
+      var tblBody = document.createElement("tbody");
+      var row = document.createElement("tr");
+      var heading = document.createElement("th");
+      var cell = document.createElement("td");
+      var cellText = document.createTextNode("");
 
+      //Build Header Row
+
+      for (var i = 0; i < propertyKeys.length; i++) {
+        heading = document.createElement("th");
+        cellText = document.createTextNode(propertyKeys[i]);
+        heading.appendChild(cellText);
+        row.appendChild(heading);
       }
 
+      tblBody.appendChild(row);
 
-      //Build table of wide-flange section properties.
-      function buildtable(shapeLibrary) {
+      //Build Data Rows
 
-        var sectionKeys = Object.keys(shapeLibrary);
-        var propertyKeys = Object.keys(shapeLibrary[sectionKeys[0]]);
-
-        var body = document.getElementById("tableContainer");
-        var tbl = document.createElement("table");
-        var tblBody = document.createElement("tbody");
-        var row = document.createElement("tr");
-        var heading = document.createElement("th");
-        var cell = document.createElement("td");
-        var cellText = document.createTextNode("");
-
-        //Build Header Row
-
-        for (let property of propertyKeys) {
-          heading = document.createElement("th");
-          cellText = document.createTextNode(property);
-          heading.appendChild(cellText);
-          row.appendChild(heading);
+      for (var i = 0; i < sectionKeys.length; i++) {
+        section = sectionKeys[i]
+        row = document.createElement("tr");
+        for (var j = 0; j < propertyKeys.length; j++) {
+          property = propertyKeys[j]
+          cell = document.createElement("td");
+          cellText = document.createTextNode(shapeLibrary[section][property]);
+          cell.appendChild(cellText);
+          row.appendChild(cell);
         }
+
         tblBody.appendChild(row);
-
-        //Build Data Rows
-
-        for (let section of sectionKeys) {
-          row = document.createElement("tr");
-          for (let property of propertyKeys) {
-            cell = document.createElement("td");
-            cellText = document.createTextNode(shapeLibrary[section][property]);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-          }
-          tblBody.appendChild(row);
-        }
-        tbl.appendChild(tblBody);
-        body.appendChild(tbl);
       }
 
-    </script>
+      tbl.appendChild(tblBody);
+      targetDiv.appendChild(tbl);
+    }
+
+    // Build table for currentSection
+    function buildCurrentSectionTable() {
+
+      var targetDiv = document.getElementById("sectionData");
+      var tbl = document.createElement("table");
+      var tblBody = document.createElement("tbody");
+
+      //Build Data Rows        
+      for (var i = 0; i < propertyKeys.length; i++) {
+        var propertyName = propertyKeys[i];
+        var propertyValue = shapeLibrary[currentSection][propertyName];
+
+        var row = document.createElement("tr");
+
+        var labelCell = document.createElement("td");
+        var labelText = document.createTextNode(propertyName);
+        labelCell.appendChild(labelText);
+        row.appendChild(labelCell);
+
+        var valueCell = document.createElement("td");
+        var valueText = document.createTextNode(propertyValue);
+        valueCell.appendChild(valueText);
+        row.appendChild(valueCell);
+
+        tblBody.appendChild(row);
+      }
+
+      tbl.appendChild(tblBody);
+      targetDiv.appendChild(tbl);
+    }
+
+    function update(section) {
+      clear();
+      currentSection = section;
+      buildCurrentSectionTable();
+      
+    }
+
+    function clear() {
+      var targetDivs = ["sectionSketch", 
+                        "sectionData", 
+                        "beamCurve", 
+                        "columnCurve", 
+                        "combinedCurve"];
+
+      for (var i = 0; i < targetDivs.length; i++) {
+        var currentDiv = document.getElementById(targetDivs[i]);
+        var children = currentDiv.childNodes;
+        for (var j = 0; j < children.length; j++) {
+          currentDiv.removeChild(children[j]);
+        }
+      }
+    }
+
+  </script>
 </html>
