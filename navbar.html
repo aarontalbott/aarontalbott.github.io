@@ -1,7 +1,13 @@
 
   <div id="pageHeader">
     <a id="name" href="/">Aaron M. Talbott, Ph.D., P.E.</a>
-    <div id="menuButton"></div>
+
+      <a id="menuButton" href="#">
+        <img src="/img/iconfinder_menu-alt_134216.svg"
+             width="24px"
+             height="24px">
+      </a>
+
   </div>
   <div id="menuWrapper">
     <div id="menu">
@@ -11,3 +17,16 @@
         <a href=/contact.html>Contact</a>
     </div>
   </div>
+
+  <script>
+    var button = document.getElementById("menuButton");
+    button.addEventListener("click", function() {
+      var menu = document.getElementById("menuWrapper");
+      if (menu.style.maxHeight){
+        menu.style.maxHeight = null;
+      } else {
+        menu.style.maxHeight = menu.scrollHeight + "px";
+      }
+    });
+
+  </script>

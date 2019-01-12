@@ -1,6 +1,6 @@
-<html>  
+<html>
   <head>
-    <link rel="stylesheet" type="text/css" href="https://aarontalbott.github.io/css/amt.css">
+    <link rel="stylesheet" type="text/css" href="/css/amt.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -40,7 +40,7 @@
         height: 33.333%;
         background-color: lightslategray;
       }
-      
+
     </style>
   </head>
   <body onload="getData()">
@@ -75,8 +75,8 @@
     var currentSection = undefined; // current section being shown on the page
 
     // Pull data from server and call function to build page elements
-    function getData() { 
-      var url = "https://aarontalbott.github.io/data/aisc-shapes-database-v15-w.json";
+    function getData() {
+      var url = "/data/aisc-shapes-database-v15-w.json";
       $.getJSON(url, function(data){
         shapeLibrary = data;
         sectionKeys = Object.keys(shapeLibrary);
@@ -108,7 +108,7 @@
     function buildFullTable() {
 
       //Build table and append to target div
-      
+
       var tbl = document.createElement("table");
       var tblBody = document.createElement("tbody");
       var row = document.createElement("tr");
@@ -154,7 +154,7 @@
       var tbl = document.createElement("table");
       var tblBody = document.createElement("tbody");
 
-      //Build Data Rows        
+      //Build Data Rows
       for (var i = 0; i < propertyKeys.length; i++) {
         var propertyName = propertyKeys[i];
         var propertyValue = shapeLibrary[currentSection][propertyName];
@@ -182,14 +182,14 @@
       clear();
       currentSection = section;
       buildCurrentSectionTable();
-      
+
     }
 
     function clear() {
-      var targetDivs = ["sectionSketch", 
-                        "sectionData", 
-                        "beamCurve", 
-                        "columnCurve", 
+      var targetDivs = ["sectionSketch",
+                        "sectionData",
+                        "beamCurve",
+                        "columnCurve",
                         "combinedCurve"];
 
       for (var i = 0; i < targetDivs.length; i++) {
