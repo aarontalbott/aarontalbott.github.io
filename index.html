@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="css/amt.css">
+  <link rel="stylesheet" type="text/css" href="/css/amt.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
   <style>
@@ -22,6 +22,7 @@
       text-align: left;
       font-weight: 400;
       font-size: 1.5rem;
+      line-height: 1.1;
     }
 
     .quoteAuthor {
@@ -37,15 +38,18 @@
     <div id="navbar"></div>
   </div>
   <div class="row" id="contentRow">
-    <div class="quoteBox">
+    <!-- <div class="quoteBox">
       <p class="quoteText">"Everything should be made as simple as possible, but not simpler."</p>
       <p class="quoteAuthor"><a href="https://www.nature.com/articles/d41586-018-05004-4" target="_blank">- attributed to Albert Einstein</a></p>
-    </div>
+    </div> -->
   </div>
   <div class="pageFooter" id="pageFooter"></div>
   <script>
-    $("#navbar").load("/navbar.html");
+    $("#navbar").load("/navbar.html", function(){
+      document.getElementById("menuButton").click();
+    });
     $("#pageFooter").load("/footer.html");
+
   </script>
 </body>
 </html>

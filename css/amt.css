@@ -193,24 +193,26 @@ input[type=number]::-webkit-outer-spin-button {
 .cardHeader {
   width: 100%;
   font-family: "Raleway", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1rem;
-  border-bottom: 0.0625rem solid black;
-  padding: 0.25rem 0 0.25rem 0;
+  border: 1px solid lightgray;
+  padding: 1rem;
   color: inherit;
+  background-color: #ecf0f1;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .cardHeader:hover {
-  background: black;
+  background: #3498db;
   color: white;
 }
 
 .cardContent {
-  /* border-bottom: 0.0625rem solid darkgray;
-  border-right: 0.0625rem solid darkgray;
-  border-left: 0.0625rem solid darkgray; */
+  padding: 1rem;
   overflow: hidden;
   color: inherit;
+  background-color: #ecf0f1;
+  border-radius: 0 0 1rem 1rem;
 
 }
 
@@ -314,26 +316,42 @@ button {
   font-size: 1.25rem;
   font-weight: 700;
   text-decoration: none;
+  vertical-align: bottom;
+  margin-top: 0.25rem;
+  padding-left: 1rem;
 }
 
 #menuButton {
   display: block;
   float: right;
-  /* height: 1.25rem; */
-  /* border: 1px solid lightgray; */
-  /* text-decoration: none; */
-  /* padding-top: 0.45rem; */
-  /* border-radius: 0.5rem; */
-  /* font-size: 0.8rem; */
-  /* font-weight: 700; */
-  /* text-transform: uppercase; */
-  /* line-height: 1.25rem; */
-
+  overflow: auto;
+  padding: 0.25rem 1rem;
+  border-radius: 1rem;
+  background-color: #ecf0f1;
 }
 
-#menubutton > img {
+#menuButton a {
+  height: 24px;
+  display: block;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+#menuButton a > p {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#menubutton a > img {
+  display: inline-block;
   height: 24px;
   width: 24px;
+  padding: 0;
+  vertical-align: top;
 }
 
 #menuWrapper {
@@ -343,37 +361,53 @@ button {
   margin: 0;
   padding: 0;
   overflow: auto;
-  border-radius: 0;
-  /* background-color: #ecf0f1; */
+  border-radius: 1rem 0 1rem 1rem;
+  background-color: #ecf0f1;
   transition: 0.3s;
   transition-timing-function: ease-in-out;
   overflow: hidden;
 }
 
 #menu {
-  display: inline-block;
+  display: block;
   margin: 0;
   padding: 0;
   border-radius: 0;
   overflow: auto;
-  border: 1px solid lightgray;
-  border-radius: 1rem;
-  /* background-color: #ecf0f1;
-  border-radius: 0.75rem; */
+  /* border: 1px solid lightgray; */
+  /* background-color: #ecf0f1; */
+  /* border-radius: 0.75rem; */
 }
 
 #menu a {
   display: block;
-  float: left;
+  text-align: left;
+  /* float: left; */
   color: inherit;
   font-size: 0.9rem;
-  padding: 0.55rem 1rem;
+  padding: 0.5rem;
   text-decoration: none;
-  margin: 0.5rem;
+  margin: 0rem;
+  /* border-right: 1px solid lightgray; */
   /* border: 1px solid lightgray; */
   /* border: 1px solid black; */
   /* border: 1px solid white; */
   /* border-radius: 1rem; */
+}
+
+#menu a:nth-child(1) {
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+}
+
+#menu div {
+  padding: 1rem;
+  margin: 0;
+  display: block;
+  float: left;
+  vertical-align: top;
+  width: 25%;
 }
 
 #menu a:hover {
@@ -391,7 +425,12 @@ button {
     width: 100%;
   }
 
-  #pageHeader {
+  #menu > div {
+    display: block;
+    width: 100%;
+  }
+
+  /* #pageHeader {
     text-align: center;
   }
 
@@ -412,6 +451,6 @@ button {
 
   #menu a:last-child {
     border-bottom: none;
-  }
+  } */
 
 }

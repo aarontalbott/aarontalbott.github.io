@@ -1,20 +1,40 @@
 
   <div id="pageHeader">
     <a id="name" href="/">Aaron M. Talbott, Ph.D., P.E.</a>
-
-      <a id="menuButton" href="#">
+    <div id="menuButton">
+      <a href="#">
         <img src="/img/iconfinder_menu-alt_134216.svg"
              width="24px"
              height="24px">
+        <p>Menu</p>
       </a>
-
+    </div>
   </div>
   <div id="menuWrapper">
     <div id="menu">
-        <a href="/structural.html">Structural Engineering</a>
-        <a href="/software.html">Software Development</a>
+      <div>
+        <a href="/structural/index.html">Structural Engineering</a>
+        <a href="#">Statics</a>
+        <a href="#">Mechanics of Materials</a>
+        <a href="#">Structural Analysis</a>
+        <a href="#">Structural Stability</a>
+        <a href="#">Strucutral Reliability</a>
+        <a href="#">Design Codes</a>
+      </div>
+      <div>
+        <a href="/dev/index.html">Tools</a>
+        <a href="#">Simple-Span Beam Analysis</a>
+        <a href="#">Wide-Flange Beam Properties and Design Curves</a>
+      </div>
+      <div>
         <a href=/aboutme.html>About Me</a>
-        <a href=/contact.html>Contact</a>
+        <a href="#">CV</a>
+        <a href="#">Research Interests</a>
+        <a href="#">Personal Interests</a>
+      </div>
+      <div>
+        <a href=/contact.html>Contact Me</a>
+      </div>
     </div>
   </div>
 
@@ -24,8 +44,10 @@
       var menu = document.getElementById("menuWrapper");
       if (menu.style.maxHeight){
         menu.style.maxHeight = null;
+        button.style.borderRadius = "1rem";
       } else {
         menu.style.maxHeight = menu.scrollHeight + "px";
+        button.style.borderRadius = "1rem 1rem 0 0";
       }
     });
 
