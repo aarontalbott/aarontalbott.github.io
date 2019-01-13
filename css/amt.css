@@ -284,6 +284,8 @@ button {
   text-align: center;
 }
 
+/* Styling for the page header menu */
+
 #navbar {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
@@ -296,10 +298,6 @@ button {
   max-width: 50rem;
   overflow: auto;
   /* border-bottom: .0625rem solid black; */
-}
-
-.shadow {
-  box-shadow: 0 10px 6px -6px #777;
 }
 
 #pageHeader {
@@ -318,7 +316,7 @@ button {
   text-decoration: none;
   vertical-align: bottom;
   margin-top: 0.25rem;
-  padding-left: 1rem;
+
 }
 
 #menuButton {
@@ -428,6 +426,10 @@ button {
   #menu > div {
     display: block;
     width: 100%;
+  }
+
+  #menuButton p {
+    width: 0;
   }
 
   /* #pageHeader {
