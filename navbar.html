@@ -1,13 +1,8 @@
 
   <div id="pageHeader">
     <a id="name" href="/">Aaron M. Talbott, Ph.D., P.E.</a>
-    <div id="menuButton">
-      <a href="#">
-        <img src="/img/iconfinder_menu-alt_134216.svg"
-             width="24px"
-             height="24px">
-        <p>Menu</p>
-      </a>
+    <div id="menuButtonWrapper">
+      <a id="menuButton" href="#">Menu</a>
     </div>
   </div>
   <div id="menuWrapper">
@@ -44,10 +39,8 @@
       var menu = document.getElementById("menuWrapper");
       if (menu.style.maxHeight){
         menu.style.maxHeight = null;
-        button.style.borderRadius = "1rem";
       } else {
         menu.style.maxHeight = menu.scrollHeight + "px";
-        button.style.borderRadius = "1rem 1rem 0 0";
       }
     });
 

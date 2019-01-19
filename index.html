@@ -4,30 +4,18 @@
   <link rel="stylesheet" type="text/css" href="/css/amt.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script   src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
-  <style>
-    /* .frontPageNav {
-      height: 25%;
-    } */
-
-    .quoteBox {
+  <style media="screen">
+    #splashQuote {
+      display: table-cell;
       width: 100%;
-      max-width: 20rem;
-      margin: auto;
-      background-color: #ecf0f1;
-      padding: 2rem;
-      border-radius: 2rem;
+      height: 75%;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 3rem;
+      padding: 3rem;
+      color: darkgray;
     }
-
-    .quoteText {
-      text-align: left;
-      font-weight: 400;
-      font-size: 1.5rem;
-      line-height: 1.1;
-    }
-
-    .quoteAuthor {
-      text-align: right;
-      font-weight: 400;
+    #splashQuoteAuthor {
       font-size: 1rem;
     }
   </style>
@@ -37,12 +25,39 @@
   <div class="row">
     <div id="navbar"></div>
   </div>
-  <div class="row" id="contentRow">
-    <!-- <div class="quoteBox">
-      <p class="quoteText">"Everything should be made as simple as possible, but not simpler."</p>
-      <p class="quoteAuthor"><a href="https://www.nature.com/articles/d41586-018-05004-4" target="_blank">- attributed to Albert Einstein</a></p>
-    </div> -->
+  <div id="splashQuote">
+    "Everything should be made as simple as possible, but not simpler."<br><span id="splashQuoteAuthor">Albert Einstein (<a href="https://www.nature.com/articles/d41586-018-05004-4">probably</a>)</span>
   </div>
+  <!-- <div class="row" id="contentRow">
+    <div class="column67">
+      <div class="card">
+        <div class="cardHeader">
+          Structural Engineering
+        </div>
+        <div class="cardContent">
+          content
+        </div>
+      </div>
+    </div>
+    <div class="column33">
+      <div class="card">
+        <div class="cardHeader">
+          Contact
+        </div>
+        <div class="cardContent">
+          content
+        </div>
+      </div>
+      <div class="card">
+        <div class="cardHeader">
+          About me
+        </div>
+        <div class="cardContent">
+          content
+        </div>
+      </div>
+    </div>
+  </div> -->
   <div class="pageFooter" id="pageFooter"></div>
   <script>
     $("#navbar").load("/navbar.html", function(){
