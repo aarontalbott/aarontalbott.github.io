@@ -116,6 +116,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
   overflow: hidden;
   /* max-width: 50rem; */
+  /* margin: auto; */
 }
 
 .column25 {
@@ -263,7 +264,7 @@ button {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  margin: 0 0 2rem 0;
+  margin: auto;
   padding: 0;
   width: 100%;
   /* background-color: #646f6f; */
@@ -276,10 +277,11 @@ button {
 
 #pageHeader {
   display: block;
-  margin: 0;
+  margin: auto;
   padding: 0;
   /* border-bottom: 1px solid black; */
   overflow: auto;
+  max-width: 50rem;
 }
 
 #name {
@@ -338,6 +340,7 @@ button {
   transition-timing-function: ease-in-out;
   overflow: hidden;
   border-bottom: 1px solid lightgray;
+  max-width: 50rem;
 }
 
 #menu {
