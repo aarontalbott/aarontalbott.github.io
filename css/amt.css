@@ -264,22 +264,19 @@ button {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  margin: auto;
-  padding: 0;
+  margin: 0 auto 1rem auto;
+  padding: 0 1rem;
   width: 100%;
-  /* background-color: #646f6f; */
   color: black;
-  /* max-width: 50rem; */
   overflow: auto;
   background-color: white;
-  /* border-bottom: 1px solid lightgray; */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 #pageHeader {
   display: block;
   margin: auto;
   padding: 0;
-  /* border-bottom: 1px solid black; */
   overflow: auto;
   max-width: 50rem;
 }
@@ -288,17 +285,17 @@ button {
   display: block;
   float: left;
   font-size: 1.25rem;
-  font-weight: 700;
+  /* font-weight: 400; */
   text-decoration: none;
   vertical-align: bottom;
-  padding: 2rem;
+  padding: 1rem 0;
 }
 
 #menuButtonWrapper {
   display: block;
   float: right;
   overflow: auto;
-  padding: 2rem;
+  padding: 1rem 0;
 }
 
 #menuButton {
@@ -335,11 +332,9 @@ button {
   margin: auto;
   padding: 0 1rem;
   overflow: auto;
-  /* background-color: #ecf0f1; */
   transition: 0.3s;
   transition-timing-function: ease-in-out;
   overflow: hidden;
-  border-bottom: 1px solid lightgray;
   max-width: 50rem;
 }
 
