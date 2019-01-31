@@ -14,12 +14,12 @@
       text-align: center;
       vertical-align: middle;
       font-size: 2rem;
-      padding: 3rem;
+      padding: 6rem 3rem;
       background-color: #3498db;
       color: white;
       max-width: 50rem;
       margin: 2rem auto;
-      border-radius: 0.25rem;
+      border-radius: 1rem;
       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
     }
@@ -33,7 +33,7 @@
 <body>
   <div class="row">
     <div id="navbar"></div>
-    <div id="splashQuote"> Structural Engineering
+    <div id="splashQuote">
       "Everything should be made as simple as possible, but not simpler."<br><span id="splashQuoteAuthor">Albert Einstein (<a href="https://www.nature.com/articles/d41586-018-05004-4">probably</a>)</span>
     </div>
   </div>
@@ -70,9 +70,9 @@
   <div class="pageFooter" id="pageFooter"></div>
   <script>
     $("#navbar").load("/navbar.html", function(){
-      setTimeout(function(){
-        document.getElementById("menuButton").click()
-      }, 1000);
+      // setTimeout(function(){
+      //   document.getElementById("menuButton").click()
+      // }, 1000);
       // document.getElementById("menuButton").click();
     });
     $("#pageFooter").load("/footer.html");
