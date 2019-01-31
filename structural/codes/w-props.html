@@ -111,7 +111,7 @@
 
     // Populate dropdown menu for selecting section
     function populateDropdown() {
-      var select = document.getElementByID("selectSection");
+      var select = document.getElementById("selectSection");
       select.setAttribute("onchange", "update(this.value)");
 
       for (var i = 0; i < sectionKeys.length; i++) {
