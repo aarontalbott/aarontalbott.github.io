@@ -167,10 +167,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .card {
-  margin: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  margin: 2rem auto;
   padding: 2rem;
   /* width: 100%; */
-  /* max-width: 60rem; */
+  max-width: 50rem;
   color: black;
   background-color: white;
   border-radius: 0.25rem;
@@ -193,6 +196,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .cardContent {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
   padding: 1rem;
   overflow: hidden;
   color: black;
@@ -353,6 +359,7 @@ button {
 
 #menu a {
   display: block;
+  position: relative;
   text-align: left;
   /* float: left; */
   color: inherit;
@@ -360,6 +367,8 @@ button {
   padding: 0.5rem;
   text-decoration: none;
   margin: 0rem;
+  transition: 0.1s;
+  transition-timing-function: ease-in-out;
   /* border-right: 1px solid lightgray; */
   /* border: 1px solid lightgray; */
   /* border: 1px solid black; */
@@ -369,7 +378,7 @@ button {
 
 #menu a:nth-child(1) {
   font-size: 0.9rem;
-  font-weight: 700;
+  /* font-weight: 700; */
   border-bottom: 1px solid black;
 }
 
