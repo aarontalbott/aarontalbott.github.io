@@ -109,13 +109,9 @@
       });
     }
 
-    // Create and populate dropdown menu for selecting section
+    // Populate dropdown menu for selecting section
     function populateDropdown() {
-      var targetDiv = document.getElementById("dataHeader");
-
-      // Build section dropdown and append to targetDiv
-
-      var select = document.createElement("select");
+      var select = document.getElementByID("selectSection");
       select.setAttribute("onchange", "update(this.value)");
 
       for (var i = 0; i < sectionKeys.length; i++) {
@@ -124,8 +120,6 @@
         option.innerHTML = sectionKeys[i];
         select.appendChild(option);
       }
-
-      targetDiv.appendChild(select);
     }
 
     // Build full table for all sections
