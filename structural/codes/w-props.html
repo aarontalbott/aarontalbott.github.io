@@ -75,6 +75,10 @@
                 <td><label for="Cb">Cb</label></td>
                 <td> <input id="Cb" type="text" value="1"></td>
               </tr>
+              <tr>
+                <td><label for="My">My (ft-kip)</label></td>
+                <td> <input id="My" type="text" value="-"></td>
+              </tr>
             </table>
           </div>
           <div class="column33">
@@ -93,14 +97,25 @@
   </body>
 
   <script>
-    $("#navbar").load("/navbar.html");
-    $("#pageFooter").load("/footer.html");
+    $("#navbar").load("/navbar.html"); // load navbar from file
+    $("#pageFooter").load("/footer.html"); // load footer from file
 
-    // Global Variables
+    // Define Global Variables
     var shapeLibrary = undefined; // JSON containing all shape data
     var sectionKeys = undefined; // array containing section keys
     var propertyKeys = undefined; // array containing seciton property keys
-    var currentSection = undefined; // current section being shown on the page
+
+    // Define Beam Object
+    var beam = {
+      My: function() {
+        
+      }
+      readPage: function() {
+        this.Fy = document.getElementById("Fy").value;
+        this.section = document.getElementById("selectSection").value;
+
+      }
+    };
 
     // Pull data from server and call function to build page elements
     function getData() {
@@ -204,7 +219,8 @@
       clear();
       currentSection = section;
       buildCurrentSectionTable();
-
+      beam.readPage();
+      document.getElementById("My").value = shapeLibrary[currentSection].Sx * beam.Fy / 12;
     }
 
     function clear() {
