@@ -316,7 +316,7 @@ button {
   color: #3498db;
   text-decoration: none;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   border: 1px solid #3498db;
 }
 
@@ -330,7 +330,7 @@ button {
   color: white;
   text-decoration: none;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 
 #menuWrapper {
