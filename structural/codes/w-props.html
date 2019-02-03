@@ -7,6 +7,7 @@
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous">
     </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style>
       table {
         width: 100%;
@@ -29,7 +30,15 @@
         border-radius: 0;
       }
 
+      .cardContent h1 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        border-bottom: 1px solid black;
+      }
 
+      .padding {
+        padding: 1rem;
+      }
 
     </style>
   </head>
@@ -60,11 +69,25 @@
           Input
         </div>
         <div class="cardContent">
-          <div class="column33">
+          <div class="column33 padding">
             <h1>Section Properties</h1>
             <select id="selectSection"></select>
+            <table>
+              <tr>
+                <td>Ix</td>
+                <td id="Ix"></td>
+              </tr>
+              <tr>
+                <td>Sx</td>
+                <td id="Sx"></td>
+              </tr>
+              <tr>
+                <td>rx</td>
+                <td id="rx"></td>
+              </tr>
+            </table>
           </div>
-          <div class="column33">
+          <div class="column33 padding">
             <h1>Material Properties</h1>
             <table>
               <tr>
@@ -77,7 +100,7 @@
               </tr>
             </table>
           </div>
-          <div class="column33">
+          <div class="column33 padding">
             <h1>Member Properties</h1>
             <table>
               <tr>
@@ -109,26 +132,29 @@
                 <th>L (ft)</th>
               </tr>
               <tr>
-                <td>Residual Stresses</td>
-                <td><input id="Mr" type="text" value="" disabled=true></td>
-                <td><input id="Lr" type="text" value="" disabled=true></td>
+                <td>Mr (0.7My)</td>
+                <td id="Mr"></td>
+                <td id="Lr"></td>
               </tr>
               <tr>
-                <td>Yield Moment</td>
-                <td><input id="My" type="text" value="" disabled=true></td>
+                <td>My</td>
+                <td id="My"></td>
                 <td></td>
               </tr>
               <tr>
-                <td>Plastic Moment</td>
-                <td><input id="Mp" type="text" value="" disabled=true></td>
-                <td><input id="Lp" type="text" value="" disabled=true></td>
+                <td>Mp</td>
+                <td id="Mp"></td>
+                <td id="Lp"></td>
               </tr>
               <tr>
-                <td>Nominal Moment</td>
-                <td><input id="Mn" type="text" value="" disabled=true></td>
+                <td>Mn</td>
+                <td id="Mn"></td>
                 <td></td>
               </tr>
             </table>
+          </div>
+          <div class="column50" id="beamCurve">
+
           </div>
         </div>
       </div>
@@ -139,6 +165,8 @@
   <script>
     $("#navbar").load("/navbar.html"); // load navbar from file
     $("#pageFooter").load("/footer.html"); // load footer from file
+
+    google.charts.load('current', {'packages':['corechart']});
 
     // Define Global Variables
     var shapeLibrary = undefined; // JSON containing all shape data
@@ -240,15 +268,14 @@
       document.getElementById("Lb").value = beam.Lb;
       document.getElementById("Cb").value = beam.Cb;
 
-      document.getElementById("Mr").value = beam.Mr();
-      document.getElementById("Lr").value = beam.Lr();
-      document.getElementById("My").value = beam.My();
-      document.getElementById("Mp").value = beam.Mp();
-      document.getElementById("Lp").value = beam.Lp();
-      document.getElementById("Mn").value = beam.Mn();
+      document.getElementById("Ix").innerHTML = beam.sectionProp("Ix");
 
-      clear();
-      buildCurrentSectionTable();
+      document.getElementById("Mr").innerHTML = beam.Mr().toFixed(1);
+      document.getElementById("Lr").innerHTML = beam.Lr().toFixed(1);
+      document.getElementById("My").innerHTML = beam.My().toFixed(1);
+      document.getElementById("Mp").innerHTML = beam.Mp().toFixed(1);
+      document.getElementById("Lp").innerHTML = beam.Lp().toFixed(1);
+      document.getElementById("Mn").innerHTML = beam.Mn().toFixed(1);
     }
 
     function refreshPage() {
@@ -275,6 +302,26 @@
       document.getElementById("Cb").setAttribute("oninput", "refreshPage()");
 
       updatePage();
+      drawChart();
+    }
+
+    function drawChart() {
+      var data = new google.visualization.arrayToDataTable([
+        ["Lb", "Mn"],
+        [0, beam.Mp()],
+        [beam.Lp(), beam.Mp()],
+        [beam.Lr(), beam.Mr()]
+      ]);
+      var options = {
+        backgroundColor: "#ffffff",
+        title: "Beam Strength Curve",
+        hAxis: {title: "Unbraced Length (ft)"},
+        vAxis: {title: "Nominal Strength (ft-kip)"},
+        legend: "none",
+        lineWidth: 1
+      };
+      var chart = new google.visualization.ScatterChart(document.getElementById('beamCurve'));
+      chart.draw(data, options);
     }
 
     // Build full table for all sections
@@ -360,19 +407,19 @@
     }
 
     function clear() {
-      var targetDivs = ["sectionSketch",
-                        "sectionData",
-                        "beamCurve",
-                        "columnCurve",
-                        "combinedCurve"];
-
-      for (var i = 0; i < targetDivs.length; i++) {
-        var currentDiv = document.getElementById(targetDivs[i]);
-        var children = currentDiv.childNodes;
-        for (var j = 0; j < children.length; j++) {
-          currentDiv.removeChild(children[j]);
-        }
-      }
+      // var targetDivs = ["sectionSketch",
+      //                   "sectionData",
+      //                   "beamCurve",
+      //                   "columnCurve",
+      //                   "combinedCurve"];
+      //
+      // for (var i = 0; i < targetDivs.length; i++) {
+      //   var currentDiv = document.getElementById(targetDivs[i]);
+      //   var children = currentDiv.childNodes;
+      //   for (var j = 0; j < children.length; j++) {
+      //     currentDiv.removeChild(children[j]);
+      //   }
+      // }
     }
 
   </script>
