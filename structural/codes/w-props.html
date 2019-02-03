@@ -21,25 +21,15 @@
         background-color: white;
       }
 
-      #sectionSketch {
+      select {
+        height: 2rem;
+        font-size: 0.9rem;
+        padding: 0.5rem;
         width: 100%;
-        height: 33%;
-        background-color: lightgray;
+        border-radius: 0;
       }
 
-      #sectionData {
-        width: 100%;
-        height: 67%;
-        overflow: scroll;
-      }
 
-      #beamCurve,
-      #columnCurve,
-      #combinedCurve {
-        width: 100%;
-        height: 33.333%;
-        background-color: lightslategray;
-      }
 
     </style>
   </head>
@@ -50,15 +40,33 @@
     <div class="row" id="contentRow">
       <div class="card">
         <div class="cardHeader">
-          Wide-Flange Shapes
+          Introduction
         </div>
         <div class="cardContent">
-          <div id="dataHeader">
+          <ul>
+            <li>Displays section properties for wide-flange steel sections.</li>
+            <li>Computes design strengths
+              <ul>
+                <li>Flexural Strength</li>
+                <li>Axial Strength</li>
+                <li>Combined Axial and Flexural Loading</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cardHeader">
+          Input
+        </div>
+        <div class="cardContent">
+          <div class="column33">
+            <h1>Section Properties</h1>
+            <select id="selectSection"></select>
+          </div>
+          <div class="column33">
+            <h1>Material Properties</h1>
             <table>
-              <tr>
-                <td>Select Section</td>
-                <td><select id="selectSection"></select></td>
-              </tr>
               <tr>
                 <td><label for="E">E (ksi)</label></td>
                 <td><input id="E" type="text" value=""></td>
@@ -67,52 +75,60 @@
                 <td><label for="Fy">Fy (ksi)</label></td>
                 <td><input id="Fy" type="text" value=""></td>
               </tr>
+            </table>
+          </div>
+          <div class="column33">
+            <h1>Member Properties</h1>
+            <table>
               <tr>
                 <td><label for="L">Length (ft)</label></td>
                 <td><input id="L" type="text" value=""></td>
               </tr>
               <tr>
                 <td><label for="Lb">Lb (ft)</label></td>
-                <td> <input id="Lb" type="text" value=""></td>
+                <td><input id="Lb" type="text" value=""></td>
               </tr>
               <tr>
                 <td><label for="Cb">Cb</label></td>
-                <td> <input id="Cb" type="text" value=""></td>
-              </tr>
-              <tr>
-                <td><label for="Mr">Mr (ft-kip)</label></td>
-                <td> <input id="Mr" type="text" value="" disabled=true></td>
-              <!-- </tr>
-              <tr> -->
-                <td><label for="Lr">Lr (ft)</label></td>
-                <td> <input id="Lr" type="text" value="" disabled=true></td>
-              </tr>
-              <tr>
-                <td><label for="My">My (ft-kip)</label></td>
-                <td> <input id="My" type="text" value="" disabled=true></td>
-              </tr>
-              <tr>
-                <td><label for="Mp">Mp (ft-kip)</label></td>
-                <td> <input id="Mp" type="text" value="" disabled=true></td>
-              <!-- </tr>
-              <tr> -->
-                <td><label for="Lp">Lp (ft)</label></td>
-                <td> <input id="Lp" type="text" value="" disabled=true></td>
-              </tr>
-              <tr>
-                <td><label for="Mn">Mn (ft-kip)</label></td>
-                <td> <input id="Mn" type="text" value="" disabled=true></td>
+                <td><input id="Cb" type="text" value=""></td>
               </tr>
             </table>
           </div>
-          <div class="column33">
-            <div id="sectionSketch">Sketch</div>
-            <div id="sectionData">Data</div>
-          </div>
-          <div class="column67">
-            <div id="beamCurve">Beam Curve</div>
-            <div id="columnCurve">Column Curve</div>
-            <div id="combinedCurve">Combined Loading Curve</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cardHeader">
+          Output
+        </div>
+        <div class="cardContent">
+          <div class="column50">
+            <table>
+              <tr>
+                <th>Description</th>
+                <th>M (ft-kip)</th>
+                <th>L (ft)</th>
+              </tr>
+              <tr>
+                <td>Residual Stresses</td>
+                <td><input id="Mr" type="text" value="" disabled=true></td>
+                <td><input id="Lr" type="text" value="" disabled=true></td>
+              </tr>
+              <tr>
+                <td>Yield Moment</td>
+                <td><input id="My" type="text" value="" disabled=true></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Plastic Moment</td>
+                <td><input id="Mp" type="text" value="" disabled=true></td>
+                <td><input id="Lp" type="text" value="" disabled=true></td>
+              </tr>
+              <tr>
+                <td>Nominal Moment</td>
+                <td><input id="Mn" type="text" value="" disabled=true></td>
+                <td></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
