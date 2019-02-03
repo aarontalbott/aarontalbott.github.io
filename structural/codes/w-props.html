@@ -60,24 +60,48 @@
                 <td><select id="selectSection"></select></td>
               </tr>
               <tr>
+                <td><label for="E">E (ksi)</label></td>
+                <td><input id="E" type="text" value=""></td>
+              </tr>
+              <tr>
                 <td><label for="Fy">Fy (ksi)</label></td>
-                <td><input id="Fy" type="text" value="50"></td>
+                <td><input id="Fy" type="text" value=""></td>
               </tr>
               <tr>
                 <td><label for="L">Length (ft)</label></td>
-                <td><input id="L" type="text" value="20"></td>
+                <td><input id="L" type="text" value=""></td>
               </tr>
               <tr>
                 <td><label for="Lb">Lb (ft)</label></td>
-                <td> <input id="Lb" type="text" value="20"></td>
+                <td> <input id="Lb" type="text" value=""></td>
               </tr>
               <tr>
                 <td><label for="Cb">Cb</label></td>
-                <td> <input id="Cb" type="text" value="1"></td>
+                <td> <input id="Cb" type="text" value=""></td>
+              </tr>
+              <tr>
+                <td><label for="Mr">Mr (ft-kip)</label></td>
+                <td> <input id="Mr" type="text" value="" disabled=true></td>
+              <!-- </tr>
+              <tr> -->
+                <td><label for="Lr">Lr (ft)</label></td>
+                <td> <input id="Lr" type="text" value="" disabled=true></td>
               </tr>
               <tr>
                 <td><label for="My">My (ft-kip)</label></td>
-                <td> <input id="My" type="text" value="-"></td>
+                <td> <input id="My" type="text" value="" disabled=true></td>
+              </tr>
+              <tr>
+                <td><label for="Mp">Mp (ft-kip)</label></td>
+                <td> <input id="Mp" type="text" value="" disabled=true></td>
+              <!-- </tr>
+              <tr> -->
+                <td><label for="Lp">Lp (ft)</label></td>
+                <td> <input id="Lp" type="text" value="" disabled=true></td>
+              </tr>
+              <tr>
+                <td><label for="Mn">Mn (ft-kip)</label></td>
+                <td> <input id="Mn" type="text" value="" disabled=true></td>
               </tr>
             </table>
           </div>
@@ -105,15 +129,70 @@
     var sectionKeys = undefined; // array containing section keys
     var propertyKeys = undefined; // array containing seciton property keys
 
-    // Define Beam Object
     var beam = {
-      My: function() {
-        
-      }
-      readPage: function() {
-        this.Fy = document.getElementById("Fy").value;
-        this.section = document.getElementById("selectSection").value;
+      section : "W8X31",
+      E: 29000, // ksi
+      Fy: 50, // ksi
+      L: 20, // ft
+      Lb: 20, // ft
+      Cb: 1,
 
+      sectionProp: function(prop) {
+        return shapeLibrary[this.section][prop];
+      },
+
+      My: function() {
+        return this.Fy * this.sectionProp("Sx") / 12;
+      },
+
+      Mp: function() {
+        return this.Fy * this.sectionProp("Zx") / 12;
+      },
+
+      Mr: function() {
+        return 0.7 * this.My();
+      },
+
+      Lp: function() {
+        return 1.76 * this.sectionProp("ry") * Math.sqrt(this.E / this.Fy) / 12;
+      },
+
+      Lr: function() {
+        a = 0.7 * this.Fy / this.E;
+        b = this.sectionProp("J") * 1 /
+            (this.sectionProp("Sx") * this.sectionProp("ho"));
+        return 1.95 * this.sectionProp("rts") / a *
+            Math.sqrt(b + Math.sqrt(a * a + 6.76 * a * a)) / 12;
+      },
+
+      Mn: function() {
+        Lb = this.Lb;
+        Lr = this.Lr();
+        Lp = this.Lp();
+        Mp = this.Mp();
+        Mr = this.Mr();
+        Cb = this.Cb;
+
+        if (Lb <= Lp) {
+          result = Mp;
+        }
+
+        if (Lb > Lp && Lb <= Lr) {
+          Mn = Cb * (Mp - (Mp - Mr) * (Lb - Lp) / (Lr - Lp));
+          result = Math.min(Mn, Mp);
+        }
+
+        if (Lb > Lr) {
+          a = Math.pow(Lb * 12 / this.sectionProp("rts"), 2);
+          b = this.sectionProp("J") * 1 /
+              (this.sectionProp("Sx") * this.sectionProp("ho"));
+          Fcr = Cb * Math.pow(Math.PI, 2) * this.E / a *
+                Math.sqrt(1 + 0.078 * b * a);
+          Mn = Fcr * this.sectionProp("Sx") / 12;
+          result = Math.min(Mn, Mp);
+        }
+
+        return result;
       }
     };
 
@@ -124,21 +203,62 @@
         shapeLibrary = data;
         sectionKeys = Object.keys(shapeLibrary);
         propertyKeys = Object.keys(shapeLibrary[sectionKeys[0]]);
-        populateDropdown();
+        initializePage();
       });
     }
 
-    // Populate dropdown menu for selecting section
-    function populateDropdown() {
-      var select = document.getElementById("selectSection");
-      select.setAttribute("onchange", "update(this.value)");
+    function readPage() { // sets beam properties to values from HTML page
+      beam.section = document.getElementById("selectSection").value;
+      beam.E = document.getElementById("E").value;
+      beam.Fy = document.getElementById("Fy").value;
+      beam.L = document.getElementById("L").value;
+      beam.Lb = document.getElementById("Lb").value;
+      beam.Cb = document.getElementById("Cb").value;
+    }
 
+    function updatePage() { // sets HTML page values to beam properties
+      document.getElementById("selectSection").value = beam.section;
+      document.getElementById("E").value = beam.E;
+      document.getElementById("Fy").value = beam.Fy;
+      document.getElementById("L").value = beam.L;
+      document.getElementById("Lb").value = beam.Lb;
+      document.getElementById("Cb").value = beam.Cb;
+
+      document.getElementById("Mr").value = beam.Mr();
+      document.getElementById("Lr").value = beam.Lr();
+      document.getElementById("My").value = beam.My();
+      document.getElementById("Mp").value = beam.Mp();
+      document.getElementById("Lp").value = beam.Lp();
+      document.getElementById("Mn").value = beam.Mn();
+
+      clear();
+      buildCurrentSectionTable();
+    }
+
+    function refreshPage() {
+      readPage();
+      updatePage();
+    }
+
+    // Populate dropdown menu for selecting section
+    function initializePage() {
+      // Populate section select dropdown
+      var select = document.getElementById("selectSection");
       for (var i = 0; i < sectionKeys.length; i++) {
         var option = document.createElement("option");
         option.value = sectionKeys[i];
         option.innerHTML = sectionKeys[i];
         select.appendChild(option);
       }
+
+      // Add event listeners to trigger re-calc when inputs are changed
+      select.setAttribute("onchange", "refreshPage()");
+      document.getElementById("Fy").setAttribute("oninput", "refreshPage()");
+      document.getElementById("L").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Lb").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Cb").setAttribute("oninput", "refreshPage()");
+
+      updatePage();
     }
 
     // Build full table for all sections
@@ -194,7 +314,7 @@
       //Build Data Rows
       for (var i = 0; i < propertyKeys.length; i++) {
         var propertyName = propertyKeys[i];
-        var propertyValue = shapeLibrary[currentSection][propertyName];
+        var propertyValue = shapeLibrary[beam.section][propertyName];
 
         var row = document.createElement("tr");
 
@@ -217,10 +337,10 @@
 
     function update(section) {
       clear();
-      currentSection = section;
+      beam.section = section;
       buildCurrentSectionTable();
-      beam.readPage();
-      document.getElementById("My").value = shapeLibrary[currentSection].Sx * beam.Fy / 12;
+      readPage();
+      document.getElementById("My").value = shapeLibrary[beam.section].Sx * beam.Fy / 12;
     }
 
     function clear() {
