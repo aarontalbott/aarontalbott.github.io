@@ -273,7 +273,7 @@ button {
   font-weight: 400;
   font-size: 1rem;
   margin: 0 auto 1rem auto;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   width: 100%;
   color: black;
   overflow: auto;
@@ -296,19 +296,19 @@ button {
   /* font-weight: 400; */
   text-decoration: none;
   vertical-align: bottom;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 #menuButtonWrapper {
   display: block;
   float: right;
   overflow: auto;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 #menuButton {
   margin-left: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   background-color: #ecf0f1;
   line-height: 1.25rem;
   font-size: 0.75rem;
@@ -322,7 +322,7 @@ button {
 
 #contactButton {
   margin-left: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   background-color: #ecf0f1;
   line-height: 1.25rem;
   font-size: 0.75rem;
