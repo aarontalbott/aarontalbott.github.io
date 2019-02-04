@@ -208,8 +208,18 @@
         return 1.76 * this.sectionProp("ry") * Math.sqrt(this.E / this.Fy) / 12;
       },
       
-      LpPrime: function() {
-        return this.Lp() + this.Mp() * (1 - 1 / this.Cb) * (this.Lr() - this.Lp()) / (this.Mp() - this.Mr())
+      LpPrime: function() { //unbraced length where Mn = Mp for Cb > 1
+        CbCritical = (1 / (1-this.Mr() / this.Mp()));
+        a = Math.pow(this.Mp(), 2) / (this.Cb * Math.pow(Math.Pi(), 2) * this.E * this.sectionProp("Sx"));
+        b = this.sectionProp("J") * 1 / this.sectionProp("Sx") / this.sectionProp("ho");
+        
+        if (this.Cb > 1 && this.Cb <= CbCritical) {
+          return this.Lp() + this.Mp() * (1 - 1 / this.Cb) * (this.Lr() - this.Lp()) / (this.Mp() - this.Mr());
+        }
+        
+        if (this.Cb > CbCritical) {
+          return this.sectionProp("rts") * Math.sqrt(1 / ((a) - 0.078 * (b)));   
+        }
       },
 
       Lr: function() {
@@ -318,6 +328,7 @@
     }
 
     function drawChart() {
+      
       var data = new google.visualization.arrayToDataTable([
         ["Lb", "Mn"],
         [0, beam.Mn(0)],
