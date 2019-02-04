@@ -216,8 +216,7 @@
             Math.sqrt(b + Math.sqrt(b * b + 6.76 * a * a)) / 12;
       },
 
-      Mn: function() {
-        Lb = this.Lb;
+      Mn: function(Lb) {
         Lr = this.Lr();
         Lp = this.Lp();
         Mp = this.Mp();
@@ -282,7 +281,7 @@
       document.getElementById("My").innerHTML = beam.My().toFixed(1);
       document.getElementById("Mp").innerHTML = beam.Mp().toFixed(1);
       document.getElementById("Lp").innerHTML = beam.Lp().toFixed(1);
-      document.getElementById("Mn").innerHTML = beam.Mn().toFixed(1);
+      document.getElementById("Mn").innerHTML = beam.Mn(beam.Lb).toFixed(1);
 
       drawChart();
     }
