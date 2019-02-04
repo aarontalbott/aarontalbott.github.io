@@ -245,7 +245,7 @@
         return result;
       },
       
-      MnCurve(): function() {
+      MnCurve: function() {
         CbCritical = (1 / (1-this.Mr() / this.Mp()));
         LpPrime = function() { //unbraced length where Mn = Mp for Cb > 1
           a = Math.pow(this.Mp(), 2) / (this.Cb * Math.pow(Math.PI, 2) * this.E * this.sectionProp("Sx"));
