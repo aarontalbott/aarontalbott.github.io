@@ -336,7 +336,8 @@
         hAxis: {title: "Unbraced Length (ft)"},
         vAxis: {title: "Nominal Strength (ft-kip)"},
         legend: "none",
-        lineWidth: 1
+        lineWidth: 2,
+        height: 400
       };
       var chart = new google.visualization.AreaChart(document.getElementById('beamCurve'));
       chart.draw(data, options);
