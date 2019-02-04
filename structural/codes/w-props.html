@@ -213,7 +213,7 @@
         b = this.sectionProp("J") * 1 /
             (this.sectionProp("Sx") * this.sectionProp("ho"));
         return 1.95 * this.sectionProp("rts") / a *
-            Math.sqrt(b + Math.sqrt(a * a + 6.76 * a * a)) / 12;
+            Math.sqrt(b + Math.sqrt(b * b + 6.76 * a * a)) / 12;
       },
 
       Mn: function() {
