@@ -247,18 +247,18 @@
       
       MnCurve: function() {
         CbCritical = (1 / (1-this.Mr() / this.Mp()));
-        LpPrime = function() { //unbraced length where Mn = Mp for Cb > 1
-          a = Math.pow(this.Mp(), 2) / (this.Cb * Math.pow(Math.PI, 2) * this.E * this.sectionProp("Sx"));
-          b = this.sectionProp("J") * 1 / this.sectionProp("Sx") / this.sectionProp("ho");
+        
+        a = Math.pow(this.Mp(), 2) / (this.Cb * Math.pow(Math.PI, 2) * this.E * this.sectionProp("Sx"));
+        b = this.sectionProp("J") * 1 / this.sectionProp("Sx") / this.sectionProp("ho");
 
-          if (this.Cb >= 1 && this.Cb <= CbCritical) {
-            return this.Lp() + this.Mp() * (1 - 1 / this.Cb) * (this.Lr() - this.Lp()) / (this.Mp() - this.Mr());
-          }
-
-          if (this.Cb > CbCritical) {
-            return this.sectionProp("rts") * Math.sqrt(1 / ((a) - 0.078 * (b)));   
-          }
+        if (this.Cb >= 1 && this.Cb <= CbCritical) {
+          LpPrime = this.Lp() + this.Mp() * (1 - 1 / this.Cb) * (this.Lr() - this.Lp()) / (this.Mp() - this.Mr());
         }
+
+        if (this.Cb > CbCritical) {
+          LpPrime = this.sectionProp("rts") * Math.sqrt(1 / ((a) - 0.078 * (b)));   
+        }
+        
         
         if (this.Cb >= 1 && this.Cb <= CbCritical) {
           return [ 
