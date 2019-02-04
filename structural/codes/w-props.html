@@ -207,6 +207,10 @@
       Lp: function() {
         return 1.76 * this.sectionProp("ry") * Math.sqrt(this.E / this.Fy) / 12;
       },
+      
+      LpPrime: function() {
+        return this.Lp() + this.Mp() * (1 - 1 / this.Cb) * (this.Lr() - this.Lp()) / (this.Mp() - this.Mr())
+      },
 
       Lr: function() {
         a = 0.7 * this.Fy / this.E;
@@ -316,9 +320,9 @@
     function drawChart() {
       var data = new google.visualization.arrayToDataTable([
         ["Lb", "Mn"],
-        [0, beam.Mp()],
-        [beam.Lp(), beam.Mp()],
-        [beam.Lr(), beam.Mr()],
+        [0, beam.Mn(0)],
+        [beam.LpPrime(), beam.Mn(beam.LpPrime())],
+        [beam.Lr(), beam.Mn(beam.Lr())],
         [1.05 * beam.Lr(), beam.Mn(1.05 * beam.Lr())],
         [1.10 * beam.Lr(), beam.Mn(1.10 * beam.Lr())],
         [1.15 * beam.Lr(), beam.Mn(1.15 * beam.Lr())],
