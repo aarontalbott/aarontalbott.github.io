@@ -207,20 +207,6 @@
       Lp: function() {
         return 1.76 * this.sectionProp("ry") * Math.sqrt(this.E / this.Fy) / 12;
       },
-      
-      LpPrime: function() { //unbraced length where Mn = Mp for Cb > 1
-        CbCritical = (1 / (1-this.Mr() / this.Mp()));
-        a = Math.pow(this.Mp(), 2) / (this.Cb * Math.pow(Math.PI, 2) * this.E * this.sectionProp("Sx"));
-        b = this.sectionProp("J") * 1 / this.sectionProp("Sx") / this.sectionProp("ho");
-        
-        if (this.Cb > 1 && this.Cb <= CbCritical) {
-          return this.Lp() + this.Mp() * (1 - 1 / this.Cb) * (this.Lr() - this.Lp()) / (this.Mp() - this.Mr());
-        }
-        
-        if (this.Cb > CbCritical) {
-          return this.sectionProp("rts") * Math.sqrt(1 / ((a) - 0.078 * (b)));   
-        }
-      },
 
       Lr: function() {
         a = 0.7 * this.Fy / this.E;
@@ -257,6 +243,60 @@
         }
 
         return result;
+      },
+      
+      MnCurve(): function() {
+        CbCritical = (1 / (1-this.Mr() / this.Mp()));
+        LpPrime = function() { //unbraced length where Mn = Mp for Cb > 1
+          a = Math.pow(this.Mp(), 2) / (this.Cb * Math.pow(Math.PI, 2) * this.E * this.sectionProp("Sx"));
+          b = this.sectionProp("J") * 1 / this.sectionProp("Sx") / this.sectionProp("ho");
+
+          if (this.Cb >= 1 && this.Cb <= CbCritical) {
+            return this.Lp() + this.Mp() * (1 - 1 / this.Cb) * (this.Lr() - this.Lp()) / (this.Mp() - this.Mr());
+          }
+
+          if (this.Cb > CbCritical) {
+            return this.sectionProp("rts") * Math.sqrt(1 / ((a) - 0.078 * (b)));   
+          }
+        }
+        
+        if (this.Cb >= 1 && this.Cb <= CbCritical) {
+          return [ 
+            ["Lb", "Mn"],
+            [0, beam.Mn(0)],
+            [beam.LpPrime(), beam.Mn(beam.LpPrime())],
+            [beam.Lr(), beam.Mn(beam.Lr())],
+            [1.05 * beam.Lr(), beam.Mn(1.05 * beam.Lr())],
+            [1.10 * beam.Lr(), beam.Mn(1.10 * beam.Lr())],
+            [1.15 * beam.Lr(), beam.Mn(1.15 * beam.Lr())],
+            [1.20 * beam.Lr(), beam.Mn(1.20 * beam.Lr())],
+            [1.25 * beam.Lr(), beam.Mn(1.25 * beam.Lr())],
+            [1.30 * beam.Lr(), beam.Mn(1.30 * beam.Lr())],
+            [1.35 * beam.Lr(), beam.Mn(1.35 * beam.Lr())],
+            [1.40 * beam.Lr(), beam.Mn(1.40 * beam.Lr())],
+            [1.45 * beam.Lr(), beam.Mn(1.45 * beam.Lr())],
+            [1.50 * beam.Lr(), beam.Mn(1.50 * beam.Lr())]
+          ];
+        }
+        
+        if (this.Cb > CbCritical) {
+          return [ 
+            ["Lb", "Mn"],
+            [0, beam.Mn(0)],
+            [beam.LpPrime(), beam.Mn(beam.LpPrime())],
+            [1.05 * beam.Lr(), beam.Mn(1.05 * beam.Lr())],
+            [1.10 * beam.Lr(), beam.Mn(1.10 * beam.Lr())],
+            [1.15 * beam.Lr(), beam.Mn(1.15 * beam.Lr())],
+            [1.20 * beam.Lr(), beam.Mn(1.20 * beam.Lr())],
+            [1.25 * beam.Lr(), beam.Mn(1.25 * beam.Lr())],
+            [1.30 * beam.Lr(), beam.Mn(1.30 * beam.Lr())],
+            [1.35 * beam.Lr(), beam.Mn(1.35 * beam.Lr())],
+            [1.40 * beam.Lr(), beam.Mn(1.40 * beam.Lr())],
+            [1.45 * beam.Lr(), beam.Mn(1.45 * beam.Lr())],
+            [1.50 * beam.Lr(), beam.Mn(1.50 * beam.Lr())]
+          ];
+        }
+    
       }
     };
 
@@ -329,22 +369,7 @@
 
     function drawChart() {
       
-      var data = new google.visualization.arrayToDataTable([
-        ["Lb", "Mn"],
-        [0, beam.Mn(0)],
-        [beam.LpPrime(), beam.Mn(beam.LpPrime())],
-        [beam.Lr(), beam.Mn(beam.Lr())],
-        [1.05 * beam.Lr(), beam.Mn(1.05 * beam.Lr())],
-        [1.10 * beam.Lr(), beam.Mn(1.10 * beam.Lr())],
-        [1.15 * beam.Lr(), beam.Mn(1.15 * beam.Lr())],
-        [1.20 * beam.Lr(), beam.Mn(1.20 * beam.Lr())],
-        [1.25 * beam.Lr(), beam.Mn(1.25 * beam.Lr())],
-        [1.30 * beam.Lr(), beam.Mn(1.30 * beam.Lr())],
-        [1.35 * beam.Lr(), beam.Mn(1.35 * beam.Lr())],
-        [1.40 * beam.Lr(), beam.Mn(1.40 * beam.Lr())],
-        [1.45 * beam.Lr(), beam.Mn(1.45 * beam.Lr())],
-        [1.50 * beam.Lr(), beam.Mn(1.50 * beam.Lr())],
-      ]);
+      var data = new google.visualization.arrayToDataTable(beam.MnCurve());
       var options = {
         backgroundColor: "#ffffff",
         title: "Beam Strength Curve",
