@@ -7,7 +7,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #ecf0f1;
+  /*background-color: #ecf0f1;*/
+  background-color: white;
   color: black;
   height: 100%;
   font-size: 100%;
@@ -177,7 +178,7 @@ input[type=number]::-webkit-outer-spin-button {
   color: black;
   background-color: white;
   border-radius: 0.5rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);*/
 }
 
 .cardHeader {
@@ -278,7 +279,7 @@ button {
   color: black;
   overflow: auto;
   background-color: white;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);*/
 }
 
 #pageHeader {
