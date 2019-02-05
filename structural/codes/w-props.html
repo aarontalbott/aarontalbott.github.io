@@ -274,9 +274,9 @@
         if (Cb >= 1 && Cb <= CbCritical) {
           return [
             ["Lb", "Mn"],
-            [0, Mp],
+            [0, beam.Mn(0)],
             [LpPrime, beam.Mn(LpPrime)],
-            [Lr, Mr],
+            [Lr, beam.Mn(Lr)],
             [1.05 * Lr, beam.Mn(1.05 * Lr)],
             [1.10 * Lr, beam.Mn(1.10 * Lr)],
             [1.15 * Lr, beam.Mn(1.15 * Lr)],
@@ -293,7 +293,7 @@
         if (this.Cb > CbCritical) {
           return [
             ["Lb", "Mn"],
-            [0, Mp],
+            [0, beam.Mn(0)],
             [LpPrime, beam.Mn(LpPrime)],
             [1.05 * LpPrime, beam.Mn(1.05 * LpPrime)],
             [1.10 * LpPrime, beam.Mn(1.10 * LpPrime)],
