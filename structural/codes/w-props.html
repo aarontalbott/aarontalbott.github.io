@@ -259,16 +259,15 @@
 
         CbCritical = Mp / Mr;
 
-        a = Math.pow(Mp / (Cb * Math.pow(Math.PI, 2) * E * Sx), 2);
-        b = -0.078 * J * 1 / Sx / ho;
-        c = -1;
-        x = (-b + Math.sqrt(b * b -4 * a * c)) / (2 * a);
-
         if (Cb >= 1 && Cb <= CbCritical) {
           LpPrime = Lp + Mp * (1 - 1 / Cb) * (Lr - Lp) / (Mp - Mr);
         }
 
         if (Cb > CbCritical) {
+			  a = Math.pow(Mp / (Cb * Math.pow(Math.PI, 2) * E * Sx), 2);
+          b = -0.078 * J * 1 / Sx / ho;
+          c = -1;
+          x = (-b - Math.sqrt(b * b -4 * a * c)) / (2 * a);
           LpPrime = rts * Math.sqrt(x);
         }
 
