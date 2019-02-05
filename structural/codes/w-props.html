@@ -244,31 +244,42 @@
 
         return result;
       },
-      
-      MnCurve: function() {
-        CbCritical = (1 / (1-this.Mr() / this.Mp()));
-        
-        a = Math.pow(this.Mp(), 2) / (this.Cb * Math.pow(Math.PI, 2) * this.E * this.sectionProp("Sx"));
-        b = this.sectionProp("J") * 1 / this.sectionProp("Sx") / this.sectionProp("ho");
 
-        if (this.Cb >= 1 && this.Cb <= CbCritical) {
-          LpPrime = this.Lp() + this.Mp() * (1 - 1 / this.Cb) * (this.Lr() - this.Lp()) / (this.Mp() - this.Mr());
+      MnCurve: function() {
+        Mp = this.Mp();
+        Mr = this.Mr();
+        Cb = this.Cb;
+        E = this.E;
+        Sx = this.sectionProp("Sx");
+        J = this.sectionProp("J");
+        ho = this.sectionProp("ho");
+        Lp = this.Lp();
+        Lr = this.Lr();
+        rts = this.sectionProp("rts");
+
+        CbCritical = Mp / Mr;
+
+        a = Math.pow(Mp, 2) / (Cb * Math.pow(Math.PI, 2) * E * Sx);
+        b = J * 1 / Sx / ho;
+
+        if (Cb >= 1 && Cb <= CbCritical) {
+          LpPrime = Lp + Mp * (1 - 1 / Cb) * (Lr - Lp) / (Mp - Mr);
         }
 
         if (this.Cb > CbCritical) {
-          LpPrime = this.sectionProp("rts") * Math.sqrt(1 / ((a) - 0.078 * (b)));   
+          LpPrime = rts * Math.sqrt(1 / (a - 0.078 * b));
         }
-        
-        
+
+
         if (this.Cb >= 1 && this.Cb <= CbCritical) {
-          return [ 
+          return [
             ["Lb", "Mn"],
             [0, beam.Mn(0)],
             [LpPrime, beam.Mn(LpPrime)],
-            [beam.Lr(), beam.Mn(beam.Lr())],
-            [1.05 * beam.Lr(), beam.Mn(1.05 * beam.Lr())],
-            [1.10 * beam.Lr(), beam.Mn(1.10 * beam.Lr())],
-            [1.15 * beam.Lr(), beam.Mn(1.15 * beam.Lr())],
+            [Lr, beam.Mn(Lr)],
+            [1.05 * Lr, beam.Mn(1.05 * beam.Lr())],
+            [1.10 * Lr, beam.Mn(1.10 * beam.Lr())],
+            [1.15 * Lr, beam.Mn(1.15 * beam.Lr())],
             [1.20 * beam.Lr(), beam.Mn(1.20 * beam.Lr())],
             [1.25 * beam.Lr(), beam.Mn(1.25 * beam.Lr())],
             [1.30 * beam.Lr(), beam.Mn(1.30 * beam.Lr())],
@@ -278,9 +289,9 @@
             [1.50 * beam.Lr(), beam.Mn(1.50 * beam.Lr())]
           ];
         }
-        
+
         if (this.Cb > CbCritical) {
-          return [ 
+          return [
             ["Lb", "Mn"],
             [0, beam.Mn(0)],
             [LpPrime, beam.Mn(LpPrime)],
@@ -296,7 +307,7 @@
             [1.50 * LpPrime, beam.Mn(1.50 * LpPrime)]
           ];
         }
-    
+
       }
     };
 
@@ -368,7 +379,7 @@
     }
 
     function drawChart() {
-      
+
       var data = new google.visualization.arrayToDataTable(beam.MnCurve());
       var options = {
         backgroundColor: "#ffffff",
