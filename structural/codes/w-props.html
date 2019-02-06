@@ -73,11 +73,9 @@
         </div>
         <div class="cardContent">
           <div class="column50 padding">
-            <h1>Section</h1>
-            <select id="selectSection"></select>
-            <h1>Material</h1>
-            <select id=“selectMaterial”></select>
             <h1>Member Properties</h1>
+            <select id="selectSection"></select>
+            <select id=“selectMaterial”></select>
             <table>
               <tr>
                 <th>Description</th>
@@ -107,20 +105,21 @@
           </div>
 
           <div class="column50 padding">
-            <h1>Design Method</h1>
+            <h1>Design Loads</h1>
               <select id="selectMethod">
                 <option value="ASD">ASD</option>
                 <option value="LRFD">LRFD</option>
               </select>
-            <h1>Design Loads</h1>
             <table>
               <tr>
-                <td><label for="Pr">Required Axial Strength (kips)</label></td>
+                <td>Pr</td>
                 <td><input id="Pr" type="text" value=""></td>
+		            <td>kips</td>
               </tr>
               <tr>
-                <td><label for="Mr">Required Flexural Strength (ft-kips)</label></td>
+                <td>Mr</td>
                 <td><input id="Mr" type="text" value=""></td>
+		            <td>ft-kips</td>
               </tr>
             </table>
           </div>
