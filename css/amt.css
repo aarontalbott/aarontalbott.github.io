@@ -7,8 +7,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  /*background-color: #ecf0f1;*/
-  background-color: white;
+  background-color: #ecf0f1;
+  /* background-color: white; */
   color: black;
   height: 100%;
   font-size: 100%;
@@ -178,18 +178,19 @@ input[type=number]::-webkit-outer-spin-button {
   color: black;
   background-color: white;
   border-radius: 0.5rem;
-  /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);*/
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .cardHeader {
   width: 100%;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   border-bottom: 1px solid lightgray;
   border-radius: 0.5rem 0.5rem 0 0;
-  padding: 1rem;
+  padding: 0.5rem;
   color: inherit;
+  /* border-left: 5px solid #3498db; */
 }
 
 .cardHeader:hover {
@@ -279,7 +280,7 @@ button {
   color: black;
   overflow: auto;
   background-color: white;
-  /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);*/
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 #pageHeader {

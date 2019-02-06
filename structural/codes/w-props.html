@@ -34,6 +34,7 @@
         font-size: 0.9rem;
         font-weight: 700;
         border-bottom: 1px solid black;
+        margin-bottom: 0.5rem;
       }
 
       .padding {
@@ -49,12 +50,13 @@
     <div class="row" id="contentRow">
       <div class="card">
         <div class="cardHeader">
-          Wide-Flange Beam-Column Design
+          AISC Beam-Column Design - W Shapes
         </div>
         <div class="cardContent">
           Computes axial (P), flexural (M), and combined axial and flexural (P-M) loading strength.  Uses AISC shapes database (version 15) and AISC 360-16.
         </div>
       </div>
+
       <div class="card">
         <div class="cardHeader">
           Input
@@ -63,47 +65,10 @@
           <div class="column33 padding">
             <h1>Section Properties</h1>
             <select id="selectSection"></select>
-            <table>
-              <tr>
-                <td>Ix (in4)</td>
-                <td id="Ix"></td>
-					   <td>Iy (in4)</td>
-                <td id="Iy"></td>
-              </tr>
-              <tr>
-                <td>Sx (in3)</td>
-                <td id="Sx"></td>
-                <td>Sy (in3)</td>
-                <td id="Sy"></td>
-              </tr>
-					<tr>
-					  <td>A (in2)</td>
-                <td id="A"></td>
-                <td></td>
-                <td></td>
-					</tr>
-              <tr>
-                <td>rx (in)</td>
-                <td id="rx"></td>
-                <td>ry (in)</td>
-                <td id="ry"></td>
-              </tr>
-            </table>
-          </div>
-          <div class="column33 padding">
             <h1>Material Properties</h1>
             <select id=“selectMaterial”></select>
-				 <table>
-              <tr>
-                <td><label for="E">E (ksi)</label></td>
-                <td><input id="E" type="text" value=""></td>
-              </tr>
-              <tr>
-                <td><label for="Fy">Fy (ksi)</label></td>
-                <td><input id="Fy" type="text" value=""></td>
-              </tr>
-            </table>
           </div>
+
           <div class="column33 padding">
             <h1>Member Properties</h1>
             <table>
@@ -121,19 +86,35 @@
               </tr>
             </table>
           </div>
+
+          <div class="column33 padding">
+            <h1>Design Loads</h1>
+            <table>
+              <tr>
+                <td><label for="Pr">Required Axial Strength (kips)</label></td>
+                <td><input id="Pr" type="text" value=""></td>
+              </tr>
+              <tr>
+                <td><label for="Mr">Required Flexural Strength (ft-kips)</label></td>
+                <td><input id="Mr" type="text" value=""></td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
+
       <div class="card">
         <div class="cardHeader">
-          Axial Capacity
+          Design Summary
         </div>
         <div class="cardContent">
-
+          <div id="beamCurve"></div>
         </div>
       </div>
+
       <div class="card">
         <div class="cardHeader">
-          Flexural Capacity
+          Detailed Calcs
         </div>
         <div class="cardContent">
           <div class="column50">
@@ -165,17 +146,42 @@
               </tr>
             </table>
           </div>
-          <div class="column50" id="beamCurve">
-
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="cardHeader">
-          Combined Loading Capacity
-        </div>
-        <div class="cardContent">
-
+          <table>
+            <tr>
+              <td><label for="E">E (ksi)</label></td>
+              <td><input id="E" type="text" value=""></td>
+            </tr>
+            <tr>
+              <td><label for="Fy">Fy (ksi)</label></td>
+              <td><input id="Fy" type="text" value=""></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td>Ix (in4)</td>
+              <td id="Ix"></td>
+           <td>Iy (in4)</td>
+              <td id="Iy"></td>
+            </tr>
+            <tr>
+              <td>Sx (in3)</td>
+              <td id="Sx"></td>
+              <td>Sy (in3)</td>
+              <td id="Sy"></td>
+            </tr>
+        <tr>
+          <td>A (in2)</td>
+              <td id="A"></td>
+              <td></td>
+              <td></td>
+        </tr>
+            <tr>
+              <td>rx (in)</td>
+              <td id="rx"></td>
+              <td>ry (in)</td>
+              <td id="ry"></td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
