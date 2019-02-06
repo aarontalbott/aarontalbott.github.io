@@ -34,7 +34,7 @@
         font-size: 0.9rem;
         font-weight: 700;
         border-bottom: 1px solid black;
-        margin-bottom: 0.5rem;
+        margin: 0.75rem 0 0.75rem 0;
       }
 
       .padding {
@@ -73,28 +73,45 @@
         </div>
         <div class="cardContent">
           <div class="column50 padding">
-            <h1>Section Properties</h1>
+            <h1>Section</h1>
             <select id="selectSection"></select>
-            <h1>Material Properties</h1>
+            <h1>Material</h1>
             <select id=“selectMaterial”></select>
             <h1>Member Properties</h1>
             <table>
               <tr>
-                <td><label for="L">Length (ft)</label></td>
+                <th>Description</th>
+                <th>Symbol</th>
+                <th>Value</th>
+                <th>Units</th>
+              </tr>
+              <tr>
+                <td>Length</td>
+                <td>L</td>
                 <td><input id="L" type="text" value=""></td>
+                <td>ft</td>
               </tr>
               <tr>
-                <td><label for="Lb">Lb (ft)</label></td>
+                <td>Unbraced Length</td>
+                <td>Lb</td>
                 <td><input id="Lb" type="text" value=""></td>
+                <td>ft</td>
               </tr>
               <tr>
-                <td><label for="Cb">Cb</label></td>
+                <td>Moment Gradient</td>
+                <td>Cb</td>
                 <td><input id="Cb" type="text" value=""></td>
+                <td>--</td>
               </tr>
             </table>
           </div>
 
           <div class="column50 padding">
+            <h1>Design Method</h1>
+              <select id="selectMethod">
+                <option value="ASD">ASD</option>
+                <option value="LRFD">LRFD</option>
+              </select>
             <h1>Design Loads</h1>
             <table>
               <tr>
