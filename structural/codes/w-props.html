@@ -41,6 +41,16 @@
         padding: 1rem;
       }
 
+      .result {
+        font-size: 3rem;
+        font-weight: 700;
+        background-color: #f7f7f7;
+        border-radius: 1rem;
+        width: 90%;
+        padding: 3rem;
+        margin: auto;
+      }
+
     </style>
   </head>
   <body onload="getData()">
@@ -105,7 +115,15 @@
           Design Summary
         </div>
         <div class="cardContent">
-          <div id="beamCurve"></div>
+          <div class="column33">
+            <div class="result" id="designMoment"></div>
+          </div>
+          <div class="column33">
+            <div class="result" id="designMoment"></div>
+          </div>
+          <div class="column33">
+            <div class="result" id="designMoment"></div>
+          </div>
         </div>
       </div>
 
@@ -114,6 +132,7 @@
           Detailed Calcs
         </div>
         <div class="cardContent">
+          <div id="beamCurve"></div>
           <div class="column50">
             <table>
               <tr>
@@ -364,6 +383,7 @@
       document.getElementById("Mp").innerHTML = beam.Mp().toFixed(1);
       document.getElementById("Lp").innerHTML = beam.Lp().toFixed(1);
       document.getElementById("Mn").innerHTML = beam.Mn(beam.Lb).toFixed(1);
+      document.getElementById("designMoment").innerHTML = beam.Mn(beam.Lb).toFixed(1);
 
       drawChart();
     }
