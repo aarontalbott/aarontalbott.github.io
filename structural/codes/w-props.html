@@ -526,6 +526,14 @@
       document.getElementById("Mry").value = beam.Mry;
 
       document.getElementById("Ix").innerHTML = beam.sectionProp("Ix");
+      document.getElementById("Sx").innerHTML = beam.sectionProp("Sx");
+      document.getElementById("rx").innerHTML = beam.sectionProp("rx");
+      
+      document.getElementById("Iy").innerHTML = beam.sectionProp("Iy");
+      document.getElementById("Sy").innerHTML = beam.sectionProp("Sy");
+      document.getElementById("ry").innerHTML = beam.sectionProp("ry");
+      
+      document.getElementById("A").innerHTML = beam.sectionProp("A");
 
       document.getElementById("Mr").innerHTML = beam.Mr().toFixed(1);
       document.getElementById("Lr").innerHTML = beam.Lr().toFixed(1);
