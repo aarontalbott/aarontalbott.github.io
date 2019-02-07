@@ -87,6 +87,7 @@ td{
   font-size: 0.9rem;
   padding: 0.1rem;
   word-break: break-all;
+  max-width: 15rem;
 }
 
 tfoot{
