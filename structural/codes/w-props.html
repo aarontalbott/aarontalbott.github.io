@@ -222,13 +222,13 @@
             <tr>
               <td class="tableDesc">Modulus of Elasticity</td>
               <td class="tableSymbol"><label for="E">E =</label></td>
-              <td class="tableValue"><input id="E" type="text" value=""></td>
+              <td class="tableValue" id="E"></td>
               <td class="tableUnits">ksi</td>
             </tr>
             <tr>
               <td class="tableDesc">Yield Stress</td>
               <td class="tableSymbol"><label for="Fy">F<sub>y</sub> =</label></td>
-              <td class="tableValue"><input id="Fy" type="text" value=""></td>
+              <td class="tableValue" id="Fy"></td>
               <td class="tableUnits">ksi</td>
             </tr>
           </table>
@@ -512,8 +512,7 @@
 
     function updatePage() { // sets HTML page values to beam properties
       document.getElementById("selectSection").value = beam.section;
-      document.getElementById("E").value = beam.E();
-      document.getElementById("Fy").value = beam.Fy();
+			document.getElementById("selectMaterial").value = beam.material;
       document.getElementById("L").value = beam.L;
       document.getElementById("Lb").value = beam.Lb;
       document.getElementById("Cb").value = beam.Cb;
@@ -525,6 +524,9 @@
       document.getElementById("Pr").value = beam.Pr;
       document.getElementById("Mrx").value = beam.Mrx;
       document.getElementById("Mry").value = beam.Mry;
+			
+			document.getElementById("E").innerHTML = beam.E();
+      document.getElementById("Fy").innerHTML = beam.Fy();
 
       document.getElementById("Ix").innerHTML = beam.sectionProp("Ix");
       document.getElementById("Sx").innerHTML = beam.sectionProp("Sx");
