@@ -71,13 +71,13 @@
           Input
         </div>
         <div class="cardContent">
-          <div class="column50 padding">
+
             <h1>Member Properties</h1>
-            <select id="selectSection"></select>
-            <select id=“selectMaterial”>
+            Section <select id="selectSection"></select><br>
+            Material <select id=“selectMaterial”>
               <option value="A36">ASTM A36</option>
               <option value="A992">ASTM A992</option>
-            </select>
+            </select><br>
             <table>
               <tr>
                 <th>Description</th>
@@ -86,13 +86,13 @@
                 <th>Units</th>
               </tr>
               <tr>
-                <td>Length</td>
+                <td>Member Length</td>
                 <td>L</td>
                 <td><input id="L" type="text" value=""></td>
                 <td>ft</td>
               </tr>
               <tr>
-                <td>Unbraced Length</td>
+                <td>Unbraced Length (Bending)</td>
 		            <td>L<sub>b</sub></td>
                 <td><input id="Lb" type="text" value=""></td>
                 <td>ft</td>
@@ -103,10 +103,32 @@
                 <td><input id="Cb" type="text" value=""></td>
                 <td>--</td>
               </tr>
+              <tr>
+                <td>Effective Length Factor (Strong-Axis Buckling)</td>
+                <td>K<sub>x</sub></td>
+                <td><input id="Kx" type="text" value=""></td>
+                <td>--</td>
+              </tr>
+              <tr>
+                <td>Unbraced Length (Strong-Axis Buckling)</td>
+                <td>L<sub>bx</sub></td>
+                <td><input id="Lbx" type="text" value=""></td>
+                <td>ft</td>
+              </tr>
+              <tr>
+                <td>Effective Length Factor (Weak-Axis Buckling)</td>
+                <td>K<sub>y</sub></td>
+                <td><input id="Ky" type="text" value=""></td>
+                <td>--</td>
+              </tr>
+              <tr>
+                <td>Unbraced Length (Weak-Axis Buckling)</td>
+                <td>L<sub>by</sub></td>
+                <td><input id="Lby" type="text" value=""></td>
+                <td>ft</td>
+              </tr>
             </table>
-          </div>
 
-          <div class="column50 padding">
             <h1>Design Loads</h1>
               <select id="selectMethod">
                 <option value="ASD">ASD</option>
@@ -124,7 +146,8 @@
 		            <td>ft-kips</td>
               </tr>
             </table>
-          </div>
+
+
         </div>
       </div>
 
