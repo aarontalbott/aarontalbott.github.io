@@ -178,39 +178,47 @@
           <h1>Material and Section Properties</h1>
           <table>
             <tr>
-                <td>Modulus of Elasticity</td>
-                <td><label for="E">E (ksi)</label></td>
-                <td><input id="E" type="text" value=""></td>
-                <td>ksi</td>
-              </tr>
+              <td>Modulus of Elasticity</td>
+              <td><label for="E">E (ksi)</label></td>
+              <td><input id="E" type="text" value=""></td>
+              <td>ksi</td>
+            </tr>
+            <tr>
+              <td>Yield Stress</td>
+              <td><label for="Fy">F<sub>y</sub> (ksi)</label></td>
+              <td><input id="Fy" type="text" value=""></td>
+              <td>ksi</td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <th>Property</th>
+              <th>Symbol</th>
+              <th>Strong-Axis (x)</th>
+              <th>Weak-Axis (y)</th>
+            </tr>
               <tr>
-                <td>Yield Stress</td>
-                <td><label for="Fy">F<sub>y</sub> (ksi)</label></td>
-                <td><input id="Fy" type="text" value=""></td>
-                <td>ksi</td>
-              </tr>
-              <tr>
-                <td>I<sub>x</sub> (in<sup>4</sup>)</td>
+                <td>Moment of Inertia (in<sup>4</sup>)</td>
+                <td>I</td>
                 <td id="Ix"></td>
-                <td>I<sub>y</sub> (in<sup>4</sup>)</td>
                 <td id="Iy"></td>
               </tr>
               <tr>
-                <td>S<sub>x</sub> (in<sup>3</sup>)</td>
+                <td>Section Modulus (in<sup>3</sup>)</td> 
+                <td>S</td>
                 <td id="Sx"></td>
-                <td>S<sub>y</sub> (in<sup>3</sup>)</td>
                 <td id="Sy"></td>
               </tr>
               <tr>
-                <td>A (in<sup>2</sup>)</td>
+                <td>Area (in<sup>2</sup>)</td>
+                <td>A</td>
                 <td id="A"></td>
-                <td></td>
                 <td></td>
               </tr>
               <tr>
-                <td>r<sub>x</sub> (in)</td>
+                <td>Radius of Gyration (in)</td>
+                <td>r</td>
                 <td id="rx"></td>
-                <td>r<sub>y</sub> (in)</td>
                 <td id="ry"></td>
               </tr>
           </table>
