@@ -499,6 +499,14 @@
       beam.L = document.getElementById("L").value;
       beam.Lb = document.getElementById("Lb").value;
       beam.Cb = document.getElementById("Cb").value;
+      beam.Kx = document.getElementById("Kx").value;
+      beam.Lx = document.getElementById("Lx").value;
+      beam.Ky = document.getElementById("Ky").value;
+      beam.Ly = document.getElementById("Ly").value;
+      beam.method = document.getElementById("selectMethod").value;
+      beam.Pr = document.getElementById("Pr").value;
+      beam.Mrx = document.getElementById("Mrx").value;
+      beam.Mry = document.getElementById("Mry").value;
     }
 
     function updatePage() { // sets HTML page values to beam properties
@@ -508,6 +516,14 @@
       document.getElementById("L").value = beam.L;
       document.getElementById("Lb").value = beam.Lb;
       document.getElementById("Cb").value = beam.Cb;
+      document.getElementById("Kx").value = beam.Kx;
+      document.getElementById("Lx").value = beam.Lx;
+      document.getElementById("Ky").value = beam.Ky;
+      document.getElementById("Ly").value = beam.Ly;
+      document.getElementById("selectMethod").value = beam.method;
+      document.getElementById("Pr").value = beam.Pr;
+      document.getElementById("Mrx").value = beam.Mrx;
+      document.getElementById("Mry").value = beam.Mry;
 
       document.getElementById("Ix").innerHTML = beam.sectionProp("Ix");
 
