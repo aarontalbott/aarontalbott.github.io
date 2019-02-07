@@ -332,12 +332,32 @@
 
     var beam = {
       section : "W8X31",
-      E: 29000, // ksi
-      Fy: 50, // ksi
+      material: "A36",
       L: 20, // ft
       Lb: 20, // ft
       Cb: 1,
+      Kx: 1,
+      Lx: 20, // ft
+      Ky: 1,
+      Ly: 20, // ft
+      Pr: 10, // kip
+      Mrx: 30, // ft-kip
+      Mry: 5, // ft-kip
 
+      E: function() {
+          return 29000; // ksi
+      }, 
+        
+      Fy: function() {
+        if (this.material == "A36") {
+          return 36; // ksi
+        }
+        
+        if (this.material == "A992") {
+          return 50; // ksi
+        }
+      },
+      
       sectionProp: function(prop) {
         return shapeLibrary[this.section][prop];
       },
@@ -355,11 +375,11 @@
       },
 
       Lp: function() {
-        return 1.76 * this.sectionProp("ry") * Math.sqrt(this.E / this.Fy) / 12;
+        return 1.76 * this.sectionProp("ry") * Math.sqrt(this.E() / this.Fy()) / 12;
       },
 
       Lr: function() {
-        a = 0.7 * this.Fy / this.E;
+        a = 0.7 * this.Fy() / this.E();
         b = this.sectionProp("J") * 1 /
             (this.sectionProp("Sx") * this.sectionProp("ho"));
         return 1.95 * this.sectionProp("rts") / a *
@@ -386,7 +406,7 @@
           a = Math.pow(Lb * 12 / this.sectionProp("rts"), 2);
           b = this.sectionProp("J") * 1 /
               (this.sectionProp("Sx") * this.sectionProp("ho"));
-          Fcr = Cb * Math.pow(Math.PI, 2) * this.E / a *
+          Fcr = Cb * Math.pow(Math.PI, 2) * this.E() / a *
                 Math.sqrt(1 + 0.078 * b * a);
           Mn = Fcr * this.sectionProp("Sx") / 12;
           result = Math.min(Mn, Mp);
@@ -399,7 +419,7 @@
         Mp = this.Mp();
         Mr = this.Mr();
         Cb = this.Cb;
-        E = this.E;
+        E = this.E();
         Sx = this.sectionProp("Sx");
         J = this.sectionProp("J");
         ho = this.sectionProp("ho");
@@ -475,8 +495,7 @@
 
     function readPage() { // sets beam properties to values from HTML page
       beam.section = document.getElementById("selectSection").value;
-      beam.E = document.getElementById("E").value;
-      beam.Fy = document.getElementById("Fy").value;
+      beam.material = document.getElementById("selectMaterial").value;
       beam.L = document.getElementById("L").value;
       beam.Lb = document.getElementById("Lb").value;
       beam.Cb = document.getElementById("Cb").value;
@@ -484,8 +503,8 @@
 
     function updatePage() { // sets HTML page values to beam properties
       document.getElementById("selectSection").value = beam.section;
-      document.getElementById("E").value = beam.E;
-      document.getElementById("Fy").value = beam.Fy;
+      document.getElementById("E").value = beam.E();
+      document.getElementById("Fy").value = beam.Fy();
       document.getElementById("L").value = beam.L;
       document.getElementById("Lb").value = beam.Lb;
       document.getElementById("Cb").value = beam.Cb;
