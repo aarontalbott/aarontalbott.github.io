@@ -80,50 +80,44 @@
             </select><br>
             <table>
               <tr>
-                <th>Description</th>
-                <th>Symbol</th>
-                <th>Value</th>
-                <th>Units</th>
-              </tr>
-              <tr>
                 <td>Member Length</td>
-                <td>L</td>
+                <td>L =</td>
                 <td><input id="L" type="text" value=""></td>
                 <td>ft</td>
               </tr>
               <tr>
                 <td>Unbraced Length (Bending)</td>
-		            <td>L<sub>b</sub></td>
+                <td>L<sub>b</sub> =</td>
                 <td><input id="Lb" type="text" value=""></td>
                 <td>ft</td>
               </tr>
               <tr>
                 <td>Moment Gradient</td>
-                <td>C<sub>b</sub></td>
+                <td>C<sub>b</sub> =</td>
                 <td><input id="Cb" type="text" value=""></td>
                 <td>--</td>
               </tr>
               <tr>
                 <td>Effective Length Factor (Strong-Axis Buckling)</td>
-                <td>K<sub>x</sub></td>
+                <td>K<sub>x</sub> =</td>
                 <td><input id="Kx" type="text" value=""></td>
                 <td>--</td>
               </tr>
               <tr>
                 <td>Unbraced Length (Strong-Axis Buckling)</td>
-                <td>L<sub>bx</sub></td>
+                <td>L<sub>bx</sub> =</td>
                 <td><input id="Lbx" type="text" value=""></td>
                 <td>ft</td>
               </tr>
               <tr>
                 <td>Effective Length Factor (Weak-Axis Buckling)</td>
-                <td>K<sub>y</sub></td>
+                <td>K<sub>y</sub> =</td>
                 <td><input id="Ky" type="text" value=""></td>
                 <td>--</td>
               </tr>
               <tr>
                 <td>Unbraced Length (Weak-Axis Buckling)</td>
-                <td>L<sub>by</sub></td>
+                <td>L<sub>by</sub> =</td>
                 <td><input id="Lby" type="text" value=""></td>
                 <td>ft</td>
               </tr>
@@ -137,14 +131,20 @@
             <table>
               <tr>
                 <td>Required Axial Strength</td>
-                <td>P<sub>r</sub></td>
+                <td>P<sub>r</sub> =</td>
                 <td><input id="Pr" type="text" value=""></td>
 		            <td>kips</td>
               </tr>
               <tr>
-                <td>Required Flexural Strength</td>
-                <td>M<sub>r</sub></td>
-                <td><input id="Mr" type="text" value=""></td>
+                <td>Required Flexural Strength (strong-axis)</td>
+                <td>M<sub>rx</sub> =</td>
+                <td><input id="Mrx" type="text" value=""></td>
+		            <td>ft-kips</td>
+              </tr>
+              <tr>
+                <td>Required Flexural Strength (weak-axis)</td>
+                <td>M<sub>ry</sub> =</td>
+                <td><input id="Mry" type="text" value=""></td>
 		            <td>ft-kips</td>
               </tr>
             </table>
@@ -172,20 +172,20 @@
 
       <div class="card">
         <div class="cardHeader">
-          Detailed Calcs
+          Detailed Calculation
         </div>
         <div class="cardContent">
           <h1>Material Properties</h1>
           <table>
             <tr>
               <td>Modulus of Elasticity</td>
-              <td><label for="E">E (ksi)</label></td>
+              <td><label for="E">E =</label></td>
               <td><input id="E" type="text" value=""></td>
               <td>ksi</td>
             </tr>
             <tr>
               <td>Yield Stress</td>
-              <td><label for="Fy">F<sub>y</sub> (ksi)</label></td>
+              <td><label for="Fy">F<sub>y</sub> =</label></td>
               <td><input id="Fy" type="text" value=""></td>
               <td>ksi</td>
             </tr>
