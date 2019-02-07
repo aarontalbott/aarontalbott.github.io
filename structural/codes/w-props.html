@@ -53,7 +53,7 @@
         border-radius: 1rem;
         width: 90%;
         padding: 3rem;
-        margin: auto;
+        text-align: center;
       }
       
       .tableDesc {
@@ -62,7 +62,13 @@
       
       .tableSymbol {
         text-align: right;
-	white-space: nowrap;
+        white-space: nowrap;
+      }
+      
+      .tableUnits {
+        text-align: left;
+        font-size: 0.75rem;
+        color: darkgray;
       }
 
     </style>
@@ -110,13 +116,13 @@
                 <td class="tableDesc">Member Length</td>
                 <td class="tableSymbol">L =</td>
                 <td><input id="L" type="text" value=""></td>
-                <td>ft</td>
+                <td class="tableUnits">ft</td>
               </tr>
               <tr>
                 <td class="tableDesc">Unbraced Length (Bending)</td>
                 <td class="tableSymbol">L<sub>b</sub> =</td>
                 <td><input id="Lb" type="text" value=""></td>
-                <td>ft</td>
+                <td class="tableUnits">ft</td>
               </tr>
               <tr>
                 <td class="tableDesc">Moment Gradient</td>
@@ -134,7 +140,7 @@
                 <td class="tableDesc">Unbraced Length (Strong-Axis Buckling)</td>
                 <td class="tableSymbol">L<sub>bx</sub> =</td>
                 <td><input id="Lbx" type="text" value=""></td>
-                <td>ft</td>
+                <td class="tableUnits">ft</td>
               </tr>
               <tr>
                 <td class="tableDesc">Effective Length Factor (Weak-Axis Buckling)</td>
@@ -146,7 +152,7 @@
                 <td class="tableDesc">Unbraced Length (Weak-Axis Buckling)</td>
                 <td class="tableSymbol">L<sub>by</sub> =</td>
                 <td><input id="Lby" type="text" value=""></td>
-                <td>ft</td>
+                <td class="tableUnits">ft</td>
               </tr>
             </table>
 
@@ -168,19 +174,19 @@
                 <td class="tableDesc">Required Axial Strength</td>
                 <td class="tableSymbol">P<sub>r</sub> =</td>
                 <td><input id="Pr" type="text" value=""></td>
-		            <td>kips</td>
+		            <td class="tableUnits">kips</td>
               </tr>
               <tr>
                 <td class="tableDesc">Required Flexural Strength (strong-axis)</td>
                 <td class="tableSymbol">M<sub>rx</sub> =</td>
                 <td><input id="Mrx" type="text" value=""></td>
-		            <td>ft-kips</td>
+		            <td class="tableUnits">ft-kips</td>
               </tr>
               <tr>
                 <td class="tableDesc">Required Flexural Strength (weak-axis)</td>
                 <td class="tableSymbol">M<sub>ry</sub> =</td>
                 <td><input id="Mry" type="text" value=""></td>
-		            <td>ft-kips</td>
+		            <td class="tableUnits">ft-kips</td>
               </tr>
             </table>
 
@@ -193,14 +199,7 @@
           Design Summary
         </div>
         <div class="cardContent">
-          <div class="column33">
-            <div class="result" id="designMoment"></div>
-          </div>
-          <div class="column33">
-            <div class="result" id="designMoment"></div>
-          </div>
-          <div class="column33">
-            <div class="result" id="designMoment"></div>
+          <div class="result" id="designMoment">
           </div>
         </div>
       </div>
@@ -216,13 +215,13 @@
               <td class="tableDesc">Modulus of Elasticity</td>
               <td class="tableSymbol"><label for="E">E =</label></td>
               <td><input id="E" type="text" value=""></td>
-              <td>ksi</td>
+              <td class="tableUnits">ksi</td>
             </tr>
             <tr>
               <td class="tableDesc">Yield Stress</td>
               <td class="tableSymbol"><label for="Fy">F<sub>y</sub> =</label></td>
               <td><input id="Fy" type="text" value=""></td>
-              <td>ksi</td>
+              <td class="tableUnits">ksi</td>
             </tr>
           </table>
           <h1>Section Properties</h1>
@@ -266,37 +265,37 @@
                 <td class="tableDesc">Plastic Moment</td>
                 <td class="tableSymbol">M<sub>p</sub> =</td>
                 <td id="Mp"></td>
-                <td>ft-kip</td>
+                <td class="tableUnits">ft-kip</td>
               </tr>
               <tr>
                 <td class="tableDesc">Yield Moment</td>
 		            <td class="tableSymbol">M<sub>y</sub> =</td>
                 <td id="My"></td>
-                <td>ft-kips</td>
+                <td class="tableUnits">ft-kips</td>
               </tr>
               <tr>
                 <td class="tableDesc">Lower bound of inelastic LTB (0.7F<sub>y</sub>S<sub>x</sub>)</td>
 		            <td class="tableSymbol">M<sub>r</sub> =</td>
                 <td id="Mr"></td>
-                <td>ft-kips</td>
+                <td class="tableUnits">ft-kips</td>
               </tr>
               <tr>
                 <td class="tableDesc">Limiting unbraced length for yielding</td>
                 <td class="tableSymbol">L<sub>p</sub> =</td>
                 <td id="Lp"></td>
-                <td>ft</td>
+                <td class="tableUnits">ft</td>
               </tr>
               <tr>
                 <td class="tableDesc">Limiting unbraced length for inelastic LTB</td>
                 <td class="tableSymbol">L<sub>r</sub> =</td>
                 <td id="Lr"></td>
-                <td>ft</td>
+                <td class="tableUnits">ft</td>
               </tr>
               <tr>
                 <td class="tableDesc">Nominal Moment Capacity based on L<sub>b</sub></td>
                 <td class="tableSymbol">M<sub>n</sub> =</td>
                 <td id="Mn"></td>
-                <td>ft-kip</td>
+                <td class="tableUnits">ft-kip</td>
               </tr>
             </table>
             <h1>Axial Capacity</h1>
