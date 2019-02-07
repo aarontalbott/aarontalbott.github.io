@@ -153,7 +153,7 @@
               
             <table>
               <tr>
-                <td>Method</td>
+                <td class="tableDesc">Method</td>
                 <td></td>
                 <td>
                   <select id="selectMethod">
@@ -164,20 +164,20 @@
 		            <td></td>
               </tr>
               <tr>
-                <td>Required Axial Strength</td>
-                <td>P<sub>r</sub> =</td>
+                <td class="tableDesc">Required Axial Strength</td>
+                <td class="tableSymbol">P<sub>r</sub> =</td>
                 <td><input id="Pr" type="text" value=""></td>
 		            <td>kips</td>
               </tr>
               <tr>
-                <td>Required Flexural Strength (strong-axis)</td>
-                <td>M<sub>rx</sub> =</td>
+                <td class="tableDesc">Required Flexural Strength (strong-axis)</td>
+                <td class="tableSymbol">M<sub>rx</sub> =</td>
                 <td><input id="Mrx" type="text" value=""></td>
 		            <td>ft-kips</td>
               </tr>
               <tr>
-                <td>Required Flexural Strength (weak-axis)</td>
-                <td>M<sub>ry</sub> =</td>
+                <td class="tableDesc">Required Flexural Strength (weak-axis)</td>
+                <td class="tableSymbol">M<sub>ry</sub> =</td>
                 <td><input id="Mry" type="text" value=""></td>
 		            <td>ft-kips</td>
               </tr>
@@ -212,14 +212,14 @@
           <h1>Material Properties</h1>
           <table>
             <tr>
-              <td>Modulus of Elasticity</td>
-              <td><label for="E">E =</label></td>
+              <td class="tableDesc">Modulus of Elasticity</td>
+              <td class="tableSymbol"><label for="E">E =</label></td>
               <td><input id="E" type="text" value=""></td>
               <td>ksi</td>
             </tr>
             <tr>
-              <td>Yield Stress</td>
-              <td><label for="Fy">F<sub>y</sub> =</label></td>
+              <td class="tableDesc">Yield Stress</td>
+              <td class="tableSymbol"><label for="Fy">F<sub>y</sub> =</label></td>
               <td><input id="Fy" type="text" value=""></td>
               <td>ksi</td>
             </tr>
@@ -227,32 +227,32 @@
           <h1>Section Properties</h1>
           <table>
             <tr>
-              <th>Property</th>
-              <th>Symbol</th>
-              <th>Strong-Axis (x)</th>
-              <th>Weak-Axis (y)</th>
+              <th></th>
+              <th></th>
+              <th>x</th>
+              <th>y</th>
             </tr>
               <tr>
-                <td>Moment of Inertia (in<sup>4</sup>)</td>
-                <td>I</td>
+                <td class="tableDesc">Moment of Inertia (in<sup>4</sup>)</td>
+                <td class="tableSymbol">I</td>
                 <td id="Ix"></td>
                 <td id="Iy"></td>
               </tr>
               <tr>
-                <td>Section Modulus (in<sup>3</sup>)</td> 
-                <td>S</td>
+                <td class="tableDesc">Section Modulus (in<sup>3</sup>)</td> 
+                <td class="tableSymbol">S</td>
                 <td id="Sx"></td>
                 <td id="Sy"></td>
               </tr>
               <tr>
-                <td>Area (in<sup>2</sup>)</td>
-                <td>A</td>
+                <td class="tableDesc">Area (in<sup>2</sup>)</td>
+                <td class="tableSymbol">A</td>
                 <td id="A"></td>
                 <td></td>
               </tr>
               <tr>
-                <td>Radius of Gyration (in)</td>
-                <td>r</td>
+                <td class="tableDesc">Radius of Gyration (in)</td>
+                <td class="tableSymbol">r</td>
                 <td id="rx"></td>
                 <td id="ry"></td>
               </tr>
@@ -261,45 +261,39 @@
           <div id="beamCurve"></div>
           <div>
             <table>
-              <tr>
-                <th>Description</th>
-                <th>Symbol</th>
-                <th>Value</th>
-                <th>Unit</th>
-              </tr>
 		          <tr>
-                <td>Plastic Moment</td>
-                <td>M<sub>p</sub></td>
+                <td class="tableDesc">Plastic Moment</td>
+                <td class="tableSymbol">M<sub>p</sub></td>
                 <td id="Mp"></td>
                 <td>ft-kip</td>
               </tr>
               <tr>
-                <td>Yield Moment</td>
-		            <td>M<sub>y</sub></td>
+                <td class="tableDesc">Yield Moment</td>
+		            <td class="tableSymbol">M<sub>y</sub></td>
                 <td id="My"></td>
                 <td>ft-kips</td>
               </tr>
               <tr>
-                <td>Lower bound of inelastic LTB (0.7F<sub>y</sub>S<sub>x</sub>)</td>
-		            <td>M<sub>r</sub></td>
+                <td class="tableDesc">Lower bound of inelastic LTB (0.7F<sub>y</sub>S<sub>x</sub>)</td>
+		            <td class="tableSymbol">M<sub>r</sub></td>
                 <td id="Mr"></td>
                 <td>ft-kips</td>
               </tr>
               <tr>
-                <td>Limiting unbraced length for yielding</td>
-                <td>L<sub>p</sub></td>
+                <td class="tableDesc">Limiting unbraced length for yielding</td>
+                <td class="tableSymbol">L<sub>p</sub></td>
                 <td id="Lp"></td>
                 <td>ft</td>
               </tr>
               <tr>
-                <td>Limiting unbraced length for inelastic LTB</td>
-                <td>L<sub>r</sub></td>
+                <td class="tableDesc">Limiting unbraced length for inelastic LTB</td>
+                <td class="tableSymbol">L<sub>r</sub></td>
                 <td id="Lr"></td>
                 <td>ft</td>
               </tr>
               <tr>
-                <td>Nominal Moment Capacity based on L<sub>b</sub></td>
-                <td>M<sub>n</sub></td>
+                <td class="tableDesc">Nominal Moment Capacity based on L<sub>b</sub></td>
+                <td class="tableSymbol">M<sub>n</sub></td>
                 <td id="Mn"></td>
                 <td>ft-kip</td>
               </tr>
