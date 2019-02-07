@@ -340,6 +340,7 @@
       Lx: 20, // ft
       Ky: 1,
       Ly: 20, // ft
+      method: "ASD",
       Pr: 10, // kip
       Mrx: 30, // ft-kip
       Mry: 5, // ft-kip
@@ -563,11 +564,20 @@
       }
 
       // Add event listeners to trigger re-calc when inputs are changed
-      select.setAttribute("onchange", "refreshPage()");
-      document.getElementById("Fy").setAttribute("oninput", "refreshPage()");
+      document.getElementById("selectSection").setAttribute("onchange", "refreshPage()");
+      document.getElementById("selectMaterial").setAttribute("onchange", "refreshPage()");
       document.getElementById("L").setAttribute("oninput", "refreshPage()");
       document.getElementById("Lb").setAttribute("oninput", "refreshPage()");
       document.getElementById("Cb").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Kx").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Lx").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Ky").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Ly").setAttribute("oninput", "refreshPage()");
+      
+      document.getElementById("selectMethod").setAttribute("onchange", "refreshPage()");
+      document.getElementById("Pr").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Mrx").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Mry").setAttribute("oninput", "refreshPage()");
 
       updatePage();
       drawChart();
