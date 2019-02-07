@@ -10,6 +10,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style>
       table {
+        width: 100%;
         margin: auto;
       }
 
@@ -23,7 +24,7 @@
 
       select, input {
         font-size: 0.9rem;
-	width: 8rem;
+        width: 6rem;
         border-radius: 0;
       }
 
@@ -63,12 +64,14 @@
       .tableSymbol {
         text-align: right;
         white-space: nowrap;
+        max-width: 4rem;
       }
       
       .tableUnits {
         text-align: left;
         font-size: 0.75rem;
         color: darkgray;
+        max-width: 4rem;
       }
 
     </style>
@@ -174,19 +177,19 @@
                 <td class="tableDesc">Required Axial Strength</td>
                 <td class="tableSymbol">P<sub>r</sub> =</td>
                 <td><input id="Pr" type="text" value=""></td>
-		            <td class="tableUnits">kips</td>
+                <td class="tableUnits">kips</td>
               </tr>
               <tr>
                 <td class="tableDesc">Required Flexural Strength (strong-axis)</td>
                 <td class="tableSymbol">M<sub>rx</sub> =</td>
                 <td><input id="Mrx" type="text" value=""></td>
-		            <td class="tableUnits">ft-kips</td>
+                <td class="tableUnits">ft-kips</td>
               </tr>
               <tr>
                 <td class="tableDesc">Required Flexural Strength (weak-axis)</td>
                 <td class="tableSymbol">M<sub>ry</sub> =</td>
                 <td><input id="Mry" type="text" value=""></td>
-		            <td class="tableUnits">ft-kips</td>
+                <td class="tableUnits">ft-kips</td>
               </tr>
             </table>
 
