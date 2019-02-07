@@ -282,13 +282,13 @@
                 <td class="tableUnits">ft-kips</td>
               </tr>
               <tr>
-                <td class="tableDesc">Lower bound of inelastic LTB (0.7F<sub>y</sub>S<sub>x</sub>)</td>
-		            <td class="tableSymbol">M<sub>r</sub> =</td>
+                <td class="tableDesc">Lower-bound Moment of inelastic LTB</td>
+                <td class="tableSymbol">0.7F<sub>y</sub>S<sub>x</sub> =</td>
                 <td class="tableValue" id="Mr"></td>
                 <td class="tableUnits">ft-kips</td>
               </tr>
               <tr>
-                <td class="tableDesc">Limiting unbraced length for yielding</td>
+                <td class="tableDesc">Limiting unbraced length for M<sub>p</sub></td>
                 <td class="tableSymbol">L<sub>p</sub> =</td>
                 <td class="tableValue" id="Lp"></td>
                 <td class="tableUnits">ft</td>
@@ -332,7 +332,7 @@
 
     var beam = {
       section : "W8X31",
-      material: "A36",
+      material: "A992",
       L: 20, // ft
       Lb: 20, // ft
       Cb: 1,
