@@ -54,6 +54,14 @@
         padding: 3rem;
         margin: auto;
       }
+      
+      .tableDesc {
+        text-align: left;
+      }
+      
+      .tableSymbol {
+        text-align: right;
+      }
 
     </style>
   </head>
@@ -80,13 +88,13 @@
             <h1>Member Properties</h1>
             <table>
               <tr>
-                <td>Section</td>
+                <td class="tableDesc">Section</td>
                 <td></td>
                 <td><select id="selectSection"></select></td>
                 <td></td>
               </tr>
               <tr>
-                <td>Material</td>
+                <td class="tableDesc">Material</td>
                 <td></td>
                 <td>
                   <select id=“selectMaterial”>
@@ -97,44 +105,44 @@
                 <td></td>
               </tr>
               <tr>
-                <td>Member Length</td>
-                <td>L =</td>
+                <td class="tableDesc">Member Length</td>
+                <td class="tableSymbol">L =</td>
                 <td><input id="L" type="text" value=""></td>
                 <td>ft</td>
               </tr>
               <tr>
-                <td>Unbraced Length (Bending)</td>
-                <td>L<sub>b</sub> =</td>
+                <td class="tableDesc">Unbraced Length (Bending)</td>
+                <td class="tableSymbol">L<sub>b</sub> =</td>
                 <td><input id="Lb" type="text" value=""></td>
                 <td>ft</td>
               </tr>
               <tr>
-                <td>Moment Gradient</td>
-                <td>C<sub>b</sub> =</td>
+                <td class="tableDesc">Moment Gradient</td>
+                <td class="tableSymbol">C<sub>b</sub> =</td>
                 <td><input id="Cb" type="text" value=""></td>
                 <td>--</td>
               </tr>
               <tr>
-                <td>Effective Length Factor (Strong-Axis Buckling)</td>
-                <td>K<sub>x</sub> =</td>
+                <td class="tableDesc">Effective Length Factor (Strong-Axis Buckling)</td>
+                <td class="tableSymbol">K<sub>x</sub> =</td>
                 <td><input id="Kx" type="text" value=""></td>
                 <td>--</td>
               </tr>
               <tr>
-                <td>Unbraced Length (Strong-Axis Buckling)</td>
-                <td>L<sub>bx</sub> =</td>
+                <td class="tableDesc">Unbraced Length (Strong-Axis Buckling)</td>
+                <td class="tableSymbol">L<sub>bx</sub> =</td>
                 <td><input id="Lbx" type="text" value=""></td>
                 <td>ft</td>
               </tr>
               <tr>
-                <td>Effective Length Factor (Weak-Axis Buckling)</td>
-                <td>K<sub>y</sub> =</td>
+                <td class="tableDesc">Effective Length Factor (Weak-Axis Buckling)</td>
+                <td class="tableSymbol">K<sub>y</sub> =</td>
                 <td><input id="Ky" type="text" value=""></td>
                 <td>--</td>
               </tr>
               <tr>
-                <td>Unbraced Length (Weak-Axis Buckling)</td>
-                <td>L<sub>by</sub> =</td>
+                <td class="tableDesc">Unbraced Length (Weak-Axis Buckling)</td>
+                <td class="tableSymbol">L<sub>by</sub> =</td>
                 <td><input id="Lby" type="text" value=""></td>
                 <td>ft</td>
               </tr>
