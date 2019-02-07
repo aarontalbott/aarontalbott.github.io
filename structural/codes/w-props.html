@@ -136,11 +136,13 @@
               </select>
             <table>
               <tr>
+                <td>Required Axial Strength</td>
                 <td>P<sub>r</sub></td>
                 <td><input id="Pr" type="text" value=""></td>
 		            <td>kips</td>
               </tr>
               <tr>
+                <td>Required Flexural Strength</td>
                 <td>M<sub>r</sub></td>
                 <td><input id="Mr" type="text" value=""></td>
 		            <td>ft-kips</td>
@@ -174,71 +176,76 @@
         </div>
         <div class="cardContent">
           <div id="beamCurve"></div>
-          <div class="column50">
+          <div>
             <table>
               <tr>
                 <th>Description</th>
+                <th>Symbol</th>
                 <th>M (ft-kip)</th>
                 <th>L (ft)</th>
               </tr>
               <tr>
-		      <td>M<sub>r</sub> (0.7M<sub>y</sub>)</td>
+                <td></td>
+		            <td>M<sub>r</sub> (0.7M<sub>y</sub>)</td>
                 <td id="Mr"></td>
                 <td id="Lr"></td>
               </tr>
               <tr>
+                <td></td>
                 <td>M<sub>y</sub></td>
                 <td id="My"></td>
                 <td></td>
               </tr>
               <tr>
+                <td></td>
                 <td>M<sub>p</sub></td>
                 <td id="Mp"></td>
                 <td id="Lp"></td>
               </tr>
               <tr>
+                <td></td>
                 <td>&Phi;M<sub>n</sub>/&Omega;</td>
                 <td id="Mn"></td>
                 <td></td>
               </tr>
+              <tr>
+                <td></td>
+                <td><label for="E">E (ksi)</label></td>
+                <td><input id="E" type="text" value=""></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><label for="Fy">F<sub>y</sub> (ksi)</label></td>
+                <td><input id="Fy" type="text" value=""></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>I<sub>x</sub> (in<sup>4</sup>)</td>
+                <td id="Ix"></td>
+                <td>I<sub>y</sub> (in<sup>4</sup>)</td>
+                <td id="Iy"></td>
+              </tr>
+              <tr>
+                <td>S<sub>x</sub> (in<sup>3</sup>)</td>
+                <td id="Sx"></td>
+                <td>S<sub>y</sub> (in<sup>3</sup>)</td>
+                <td id="Sy"></td>
+              </tr>
+              <tr>
+                <td>A (in<sup>2</sup>)</td>
+                <td id="A"></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>r<sub>x</sub> (in)</td>
+                <td id="rx"></td>
+                <td>r<sub>y</sub> (in)</td>
+                <td id="ry"></td>
+              </tr>
             </table>
           </div>
-          <table>
-            <tr>
-              <td><label for="E">E (ksi)</label></td>
-              <td><input id="E" type="text" value=""></td>
-            </tr>
-            <tr>
-              <td><label for="Fy">Fy (ksi)</label></td>
-              <td><input id="Fy" type="text" value=""></td>
-            </tr>
-          </table>
-          <table>
-            <tr>
-              <td>I<sub>x</sub> (in<sup>4</sup>)</td>
-              <td id="Ix"></td>
-              <td>I<sub>y</sub> (in<sup>4</sup>)</td>
-              <td id="Iy"></td>
-            </tr>
-            <tr>
-              <td>S<sub>x</sub> (in<sup>3</sup>)</td>
-              <td id="Sx"></td>
-              <td>S<sub>y</sub> (in<sup>3</sup>)</td>
-              <td id="Sy"></td>
-            </tr>
-        <tr>
-          <td>A (in<sup>2</sup>)</td>
-              <td id="A"></td>
-              <td></td>
-              <td></td>
-        </tr>
-            <tr>
-              <td>r<sub>x</sub> (in)</td>
-              <td id="rx"></td>
-              <td>r<sub>y</sub> (in)</td>
-              <td id="ry"></td>
-            </tr>
-          </table>
         </div>
       </div>
     </div>
