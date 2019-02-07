@@ -445,20 +445,20 @@
 
         if (Cb >= 1 && Cb <= CbCritical) {
           return [
-            ["Lb", "Mn"],
-            [0, beam.Mn(0)],
-            [LpPrime, beam.Mn(LpPrime)],
-            [Lr, beam.Mn(Lr)],
-            [1.05 * Lr, beam.Mn(1.05 * Lr)],
-            [1.10 * Lr, beam.Mn(1.10 * Lr)],
-            [1.15 * Lr, beam.Mn(1.15 * Lr)],
-            [1.20 * Lr, beam.Mn(1.20 * Lr)],
-            [1.25 * Lr, beam.Mn(1.25 * Lr)],
-            [1.30 * Lr, beam.Mn(1.30 * Lr)],
-            [1.35 * Lr, beam.Mn(1.35 * Lr)],
-            [1.40 * Lr, beam.Mn(1.40 * Lr)],
-            [1.45 * Lr, beam.Mn(1.45 * Lr)],
-            [1.50 * Lr, beam.Mn(1.50 * Lr)]
+            ["Lb", "Mn", {'type': 'string', 'role': 'style'}],
+            [0, beam.Mn(0), null],
+            [LpPrime, beam.Mn(LpPrime), 'point { size: 18; shape-type: star; fill-color: #a52714; }'],
+            [Lr, beam.Mn(Lr), 'point { size: 18; shape-type: star; fill-color: #a52714; }'],
+            [1.05 * Lr, beam.Mn(1.05 * Lr), null],
+            [1.10 * Lr, beam.Mn(1.10 * Lr), null],
+            [1.15 * Lr, beam.Mn(1.15 * Lr), null],
+            [1.20 * Lr, beam.Mn(1.20 * Lr), null],
+            [1.25 * Lr, beam.Mn(1.25 * Lr), null],
+            [1.30 * Lr, beam.Mn(1.30 * Lr), null],
+            [1.35 * Lr, beam.Mn(1.35 * Lr), null],
+            [1.40 * Lr, beam.Mn(1.40 * Lr), null],
+            [1.45 * Lr, beam.Mn(1.45 * Lr), null],
+            [1.50 * Lr, beam.Mn(1.50 * Lr), null]
           ];
         }
 
