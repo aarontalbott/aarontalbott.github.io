@@ -81,12 +81,24 @@
         <div class="cardContent">
 
             <h1>Member Properties</h1>
-            Section <select id="selectSection"></select><br>
-            Material <select id=“selectMaterial”>
-              <option value="A36">ASTM A36</option>
-              <option value="A992">ASTM A992</option>
-            </select><br>
             <table>
+              <tr>
+                <td>Section</td>
+                <td></td>
+                <td><select id="selectSection"></select></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Material</td>
+                <td></td>
+                <td>
+                  <select id=“selectMaterial”>
+                    <option value="A36">ASTM A36</option>
+                    <option value="A992">ASTM A992</option>
+                  </select>
+                </td>
+                <td></td>
+              </tr>
               <tr>
                 <td>Member Length</td>
                 <td>L =</td>
@@ -132,11 +144,19 @@
             </table>
 
             <h1>Design Loads</h1>
-              <select id="selectMethod">
-                <option value="ASD">ASD</option>
-                <option value="LRFD">LRFD</option>
-              </select>
+              
             <table>
+              <tr>
+                <td>Method</td>
+                <td></td>
+                <td>
+                  <select id="selectMethod">
+                    <option value="ASD">ASD</option>
+                    <option value="LRFD">LRFD</option>
+                  </select>
+                </td>
+		            <td></td>
+              </tr>
               <tr>
                 <td>Required Axial Strength</td>
                 <td>P<sub>r</sub> =</td>
