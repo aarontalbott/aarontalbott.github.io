@@ -34,7 +34,7 @@
         border-bottom: 1px solid black;
         margin: 1.5rem 0 1rem 0;
       }
-      
+
       .cardHeader:after {
         content: "\2796"; /* Unicode character for "minus" sign (-) */
         font-size: 1rem;
@@ -56,27 +56,52 @@
         padding: 3rem;
         text-align: center;
       }
-      
+
       .tableDesc {
         text-align: left;
       }
-      
+
       .tableSymbol {
         text-align: right;
         white-space: nowrap;
         width: 4rem;
       }
-      
+
       .tableValue {
         text-align: left;
         width: 6rem;
       }
-    	    
+
       .tableUnits {
         text-align: left;
         font-size: 0.75rem;
         color: darkgray;
         max-width: 4rem;
+      }
+
+      #MxGraphic {
+        padding: 0;
+        margin: 0;
+        border: 1px solid gray;
+        overflow: auto;
+      }
+
+      #MrxBar {
+        float: left;
+        width: 75%;
+        height: 3rem;
+        background-color: green;
+        margin: 0;
+        padding: 0;
+      }
+
+      #MnxBar {
+        float: left;
+        width: 25%;
+        height: 3rem;
+        background-color: darkgray;
+        margin: 0;
+        padding: 0;
       }
 
     </style>
@@ -165,7 +190,7 @@
             </table>
 
             <h1>Design Loads</h1>
-              
+
             <table>
               <tr>
                 <td class="tableDesc">Method</td>
@@ -207,7 +232,10 @@
           Design Summary
         </div>
         <div class="cardContent">
-          <div class="result" id="designMoment">
+          <div class="result" id="designMoment"></div>
+          <div id="MxGraphic">
+            <div id="MrxBar"></div>
+            <div id="MnxBar"></div>
           </div>
         </div>
       </div>
@@ -247,7 +275,7 @@
                 <td class="tableValue" id="Iy"></td>
               </tr>
               <tr>
-                <td class="tableDesc">Section Modulus (in<sup>3</sup>)</td> 
+                <td class="tableDesc">Section Modulus (in<sup>3</sup>)</td>
                 <td class="tableSymbol">S =</td>
                 <td class="tableValue" id="Sx"></td>
                 <td class="tableValue" id="Sy"></td>
@@ -347,18 +375,18 @@
 
       E: function() {
           return 29000; // ksi
-      }, 
-        
+      },
+
       Fy: function() {
         if (this.material == "A36") {
           return 36; // ksi
         }
-        
+
         if (this.material == "A992") {
           return 50; // ksi
         }
       },
-      
+
       sectionProp: function(prop) {
         return shapeLibrary[this.section][prop];
       },
@@ -524,18 +552,18 @@
       document.getElementById("Pr").value = beam.Pr;
       document.getElementById("Mrx").value = beam.Mrx;
       document.getElementById("Mry").value = beam.Mry;
-			
+
 			document.getElementById("E").innerHTML = beam.E();
       document.getElementById("Fy").innerHTML = beam.Fy();
 
       document.getElementById("Ix").innerHTML = beam.sectionProp("Ix");
       document.getElementById("Sx").innerHTML = beam.sectionProp("Sx");
       document.getElementById("rx").innerHTML = beam.sectionProp("rx");
-      
+
       document.getElementById("Iy").innerHTML = beam.sectionProp("Iy");
       document.getElementById("Sy").innerHTML = beam.sectionProp("Sy");
       document.getElementById("ry").innerHTML = beam.sectionProp("ry");
-      
+
       document.getElementById("A").innerHTML = beam.sectionProp("A");
 
       document.getElementById("Mr").innerHTML = beam.Mr().toFixed(1);
@@ -544,7 +572,8 @@
       document.getElementById("Mp").innerHTML = beam.Mp().toFixed(1);
       document.getElementById("Lp").innerHTML = beam.Lp().toFixed(1);
       document.getElementById("Mn").innerHTML = beam.Mn(beam.Lb).toFixed(1);
-      document.getElementById("designMoment").innerHTML = beam.Mn(beam.Lb).toFixed(1);
+
+      document.getElementById("designMoment").innerHTML = beam.Mrx / beam.Mn(beam.Lb);
 
       drawChart();
     }
@@ -575,7 +604,7 @@
       document.getElementById("Lx").setAttribute("oninput", "refreshPage()");
       document.getElementById("Ky").setAttribute("oninput", "refreshPage()");
       document.getElementById("Ly").setAttribute("oninput", "refreshPage()");
-      
+
       document.getElementById("selectMethod").setAttribute("onchange", "refreshPage()");
       document.getElementById("Pr").setAttribute("oninput", "refreshPage()");
       document.getElementById("Mrx").setAttribute("oninput", "refreshPage()");
