@@ -84,6 +84,7 @@
         margin: 0;
         border: 1px solid gray;
         overflow: auto;
+        position: relative;
       }
 
       #MrxBar {
@@ -93,33 +94,41 @@
         background-color: green;
         margin: 0;
         padding: 0;
+        position: absolute;
+        z-index: 4;
       }
       
       #MaxBar {
         float: left;
-        width: 25%;
+        width: 75%;
         height: 3rem;
         background-color: yellow;
         margin: 0;
         padding: 0;
+        position: absolute;
+        z-index: 3;
       }
 
       #MnxBar {
         float: left;
-        width: 15%;
+        width: 90%;
         height: 3rem;
         background-color: red;
         margin: 0;
         padding: 0;
+        position: absolute;
+        z-index: 2;
       }
       
       #MpxBar {
         float: left;
-        width: 10%;
+        width: 100%;
         height: 3rem;
         background-color: white;
         margin: 0;
         padding: 0;
+        position: absolute;
+        z-index: 1;
       }
 
     </style>
