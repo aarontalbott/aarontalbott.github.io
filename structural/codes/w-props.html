@@ -28,19 +28,13 @@
         border-radius: 0;
       }
 
-      .cardContent h1 {
-        font-size: 0.9rem;
-        font-weight: 700;
-        border-bottom: 1px solid black;
-        margin: 1.5rem 0 1rem 0;
-      }
 
-      .cardHeader:after {
+
+      h1:before {
         content: "\2796"; /* Unicode character for "minus" sign (-) */
-        font-size: 1rem;
-        color: #777;
-        float: right;
-        margin-left: 5px;
+        font-size: 0.7rem;
+        /* float: right; */
+        margin-right: 5px;
       }
 
       .padding {
@@ -98,7 +92,7 @@
         position: absolute;
         z-index: 4;
       }
-      
+
       #MaxBar {
         float: left;
         width: 75%;
@@ -120,7 +114,7 @@
         position: absolute;
         z-index: 2;
       }
-      
+
       #MpxBar {
         float: left;
         width: 100%;
@@ -137,242 +131,222 @@
   <body onload="getData()">
     <div class="row">
       <div class="topnav" id="navbar"></div>
-    </div>
-    <div class="row" id="contentRow">
-      <div class="card">
-        <div class="cardHeader">
-          AISC Beam-Column Design - W Shapes
-        </div>
-        <div class="cardContent">
-          Computes axial (P), flexural (M), and combined axial and flexural (P-M) loading strength.  Uses AISC shapes database (version 15) and AISC 360-16.
+      <h1>AISC Beam-Column Design - W Shapes</h1>
+      <p>Computes axial (P), flexural (M), and combined axial and flexural
+        (P-M) loading strength.  Uses AISC shapes database (version 15) and
+        AISC 360-16.</p>
+
+      <h1>Input</h1>
+      <div>
+        <h2>Member Properties</h2>
+        <table>
+          <tr>
+            <td class="tableDesc">Section</td>
+            <td></td>
+            <td><select id="selectSection"></select></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Material</td>
+            <td></td>
+            <td>
+              <select id="selectMaterial">
+                <option value="A36">ASTM A36</option>
+                <option value="A992">ASTM A992</option>
+              </select>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Member Length</td>
+            <td class="tableSymbol">L =</td>
+            <td class="tableValue"><input id="L" type="text" value=""></td>
+            <td class="tableUnits">ft</td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Unbraced Length (Bending)</td>
+            <td class="tableSymbol">L<sub>b</sub> =</td>
+            <td class="tableValue"><input id="Lb" type="text" value=""></td>
+            <td class="tableUnits">ft</td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Moment Gradient</td>
+            <td class="tableSymbol">C<sub>b</sub> =</td>
+            <td class="tableValue"><input id="Cb" type="text" value=""></td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Effective Length Factor (Strong-Axis Buckling)</td>
+            <td class="tableSymbol">K<sub>x</sub> =</td>
+            <td class="tableValue"><input id="Kx" type="text" value=""></td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Unbraced Length (Strong-Axis Buckling)</td>
+            <td class="tableSymbol">L<sub>bx</sub> =</td>
+            <td class="tableValue"><input id="Lx" type="text" value=""></td>
+            <td class="tableUnits">ft</td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Effective Length Factor (Weak-Axis Buckling)</td>
+            <td class="tableSymbol">K<sub>y</sub> =</td>
+            <td class="tableValue"><input id="Ky" type="text" value=""></td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Unbraced Length (Weak-Axis Buckling)</td>
+            <td class="tableSymbol">L<sub>by</sub> =</td>
+            <td class="tableValue"><input id="Ly" type="text" value=""></td>
+            <td class="tableUnits">ft</td>
+          </tr>
+        </table>
+        <h2>Design Loads</h2>
+        <table>
+                <tr>
+                  <td class="tableDesc">Method</td>
+                  <td></td>
+                  <td>
+                    <select id="selectMethod">
+                      <option value="ASD">ASD</option>
+                      <option value="LRFD">LRFD</option>
+                    </select>
+                  </td>
+  		            <td></td>
+                </tr>
+                <tr>
+                  <td class="tableDesc">Required Axial Strength</td>
+                  <td class="tableSymbol">P<sub>r</sub> =</td>
+                  <td class="tableValue"><input id="Pr" type="text" value=""></td>
+                  <td class="tableUnits">kips</td>
+                </tr>
+                <tr>
+                  <td class="tableDesc">Required Flexural Strength (strong-axis)</td>
+                  <td class="tableSymbol">M<sub>rx</sub> =</td>
+                  <td class="tableValue"><input id="Mrx" type="text" value=""></td>
+                  <td class="tableUnits">ft-kips</td>
+                </tr>
+                <tr>
+                  <td class="tableDesc">Required Flexural Strength (weak-axis)</td>
+                  <td class="tableSymbol">M<sub>ry</sub> =</td>
+                  <td class="tableValue"><input id="Mry" type="text" value=""></td>
+                  <td class="tableUnits">ft-kips</td>
+                </tr>
+              </table>
+      </div>
+
+      <h1>Design Summary</h1>
+      <div>
+        <div class="result" id="designMoment"></div>
+        <div id="MxGraphic">
+          <div id="MrxBar"></div>
+          <div id="MaxBar"></div>
+          <div id="MnxBar"></div>
+          <div id="MpxBar"></div>
         </div>
       </div>
 
-      <div class="card">
-        <div class="cardHeader">
-          Input
-        </div>
-        <div class="cardContent">
 
-            <h1>Member Properties</h1>
-            <table>
-              <tr>
-                <td class="tableDesc">Section</td>
-                <td></td>
-                <td><select id="selectSection"></select></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Material</td>
-                <td></td>
-                <td>
-                  <select id="selectMaterial">
-                    <option value="A36">ASTM A36</option>
-                    <option value="A992">ASTM A992</option>
-                  </select>
-                </td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Member Length</td>
-                <td class="tableSymbol">L =</td>
-                <td class="tableValue"><input id="L" type="text" value=""></td>
-                <td class="tableUnits">ft</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Unbraced Length (Bending)</td>
-                <td class="tableSymbol">L<sub>b</sub> =</td>
-                <td class="tableValue"><input id="Lb" type="text" value=""></td>
-                <td class="tableUnits">ft</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Moment Gradient</td>
-                <td class="tableSymbol">C<sub>b</sub> =</td>
-                <td class="tableValue"><input id="Cb" type="text" value=""></td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Effective Length Factor (Strong-Axis Buckling)</td>
-                <td class="tableSymbol">K<sub>x</sub> =</td>
-                <td class="tableValue"><input id="Kx" type="text" value=""></td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Unbraced Length (Strong-Axis Buckling)</td>
-                <td class="tableSymbol">L<sub>bx</sub> =</td>
-                <td class="tableValue"><input id="Lx" type="text" value=""></td>
-                <td class="tableUnits">ft</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Effective Length Factor (Weak-Axis Buckling)</td>
-                <td class="tableSymbol">K<sub>y</sub> =</td>
-                <td class="tableValue"><input id="Ky" type="text" value=""></td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Unbraced Length (Weak-Axis Buckling)</td>
-                <td class="tableSymbol">L<sub>by</sub> =</td>
-                <td class="tableValue"><input id="Ly" type="text" value=""></td>
-                <td class="tableUnits">ft</td>
-              </tr>
-            </table>
-
-            <h1>Design Loads</h1>
-
-            <table>
-              <tr>
-                <td class="tableDesc">Method</td>
-                <td></td>
-                <td>
-                  <select id="selectMethod">
-                    <option value="ASD">ASD</option>
-                    <option value="LRFD">LRFD</option>
-                  </select>
-                </td>
-		            <td></td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Required Axial Strength</td>
-                <td class="tableSymbol">P<sub>r</sub> =</td>
-                <td class="tableValue"><input id="Pr" type="text" value=""></td>
-                <td class="tableUnits">kips</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Required Flexural Strength (strong-axis)</td>
-                <td class="tableSymbol">M<sub>rx</sub> =</td>
-                <td class="tableValue"><input id="Mrx" type="text" value=""></td>
-                <td class="tableUnits">ft-kips</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Required Flexural Strength (weak-axis)</td>
-                <td class="tableSymbol">M<sub>ry</sub> =</td>
-                <td class="tableValue"><input id="Mry" type="text" value=""></td>
-                <td class="tableUnits">ft-kips</td>
-              </tr>
-            </table>
-
-
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="cardHeader">
-          Design Summary
-        </div>
-        <div class="cardContent">
-          <div class="result" id="designMoment"></div>
-          <div id="MxGraphic">
-            <div id="MrxBar"></div>
-            <div id="MaxBar"></div>
-            <div id="MnxBar"></div>
-            <div id="MpxBar"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="cardHeader">
-          Detailed Calculation
-        </div>
-        <div class="cardContent">
-          <h1>Material Properties</h1>
-          <table>
+      <h1>Detailed Calculation</h1>
+      <div>
+        <h2>Material Properties</h2>
+        <table>
+          <tr>
+            <td class="tableDesc">Modulus of Elasticity</td>
+            <td class="tableSymbol"><label for="E">E =</label></td>
+            <td class="tableValue" id="E"></td>
+            <td class="tableUnits">ksi</td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Yield Stress</td>
+            <td class="tableSymbol"><label for="Fy">F<sub>y</sub> =</label></td>
+            <td class="tableValue" id="Fy"></td>
+            <td class="tableUnits">ksi</td>
+          </tr>
+        </table>
+        <h2>Section Properties</h2>
+        <table>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>x</th>
+            <th>y</th>
+          </tr>
             <tr>
-              <td class="tableDesc">Modulus of Elasticity</td>
-              <td class="tableSymbol"><label for="E">E =</label></td>
-              <td class="tableValue" id="E"></td>
-              <td class="tableUnits">ksi</td>
+              <td class="tableDesc">Moment of Inertia (in<sup>4</sup>)</td>
+              <td class="tableSymbol">I =</td>
+              <td class="tableValue" id="Ix"></td>
+              <td class="tableValue" id="Iy"></td>
             </tr>
             <tr>
-              <td class="tableDesc">Yield Stress</td>
-              <td class="tableSymbol"><label for="Fy">F<sub>y</sub> =</label></td>
-              <td class="tableValue" id="Fy"></td>
-              <td class="tableUnits">ksi</td>
+              <td class="tableDesc">Section Modulus (in<sup>3</sup>)</td>
+              <td class="tableSymbol">S =</td>
+              <td class="tableValue" id="Sx"></td>
+              <td class="tableValue" id="Sy"></td>
+            </tr>
+            <tr>
+              <td class="tableDesc">Area (in<sup>2</sup>)</td>
+              <td class="tableSymbol">A =</td>
+              <td class="tableValue" id="A"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tableDesc">Radius of Gyration (in)</td>
+              <td class="tableSymbol">r =</td>
+              <td class="tableValue" id="rx"></td>
+              <td class="tableValue" id="ry"></td>
+            </tr>
+        </table>
+        <h2>Flexural Capacity</h2>
+        <div id="beamCurve"></div>
+        <div>
+          <table>
+	          <tr>
+              <td class="tableDesc">Plastic Moment</td>
+              <td class="tableSymbol">M<sub>p</sub> =</td>
+              <td class="tableValue" id="Mp"></td>
+              <td class="tableUnits">ft-kip</td>
+            </tr>
+            <tr>
+              <td class="tableDesc">Yield Moment</td>
+	            <td class="tableSymbol">M<sub>y</sub> =</td>
+              <td class="tableValue" id="My"></td>
+              <td class="tableUnits">ft-kips</td>
+            </tr>
+            <tr>
+              <td class="tableDesc">Lower-bound Moment of inelastic LTB</td>
+              <td class="tableSymbol">0.7F<sub>y</sub>S<sub>x</sub> =</td>
+              <td class="tableValue" id="Mr"></td>
+              <td class="tableUnits">ft-kips</td>
+            </tr>
+            <tr>
+              <td class="tableDesc">Limiting unbraced length for M<sub>p</sub></td>
+              <td class="tableSymbol">L<sub>p</sub> =</td>
+              <td class="tableValue" id="Lp"></td>
+              <td class="tableUnits">ft</td>
+            </tr>
+            <tr>
+              <td class="tableDesc">Limiting unbraced length for inelastic LTB</td>
+              <td class="tableSymbol">L<sub>r</sub> =</td>
+              <td id="Lr"></td>
+              <td class="tableUnits">ft</td>
+            </tr>
+            <tr>
+              <td class="tableDesc">Nominal Moment Capacity based on L<sub>b</sub></td>
+              <td class="tableSymbol">M<sub>n</sub> =</td>
+              <td class="tableValue" id="Mn"></td>
+              <td class="tableUnits">ft-kip</td>
             </tr>
           </table>
-          <h1>Section Properties</h1>
-          <table>
-            <tr>
-              <th></th>
-              <th></th>
-              <th>x</th>
-              <th>y</th>
-            </tr>
-              <tr>
-                <td class="tableDesc">Moment of Inertia (in<sup>4</sup>)</td>
-                <td class="tableSymbol">I =</td>
-                <td class="tableValue" id="Ix"></td>
-                <td class="tableValue" id="Iy"></td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Section Modulus (in<sup>3</sup>)</td>
-                <td class="tableSymbol">S =</td>
-                <td class="tableValue" id="Sx"></td>
-                <td class="tableValue" id="Sy"></td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Area (in<sup>2</sup>)</td>
-                <td class="tableSymbol">A =</td>
-                <td class="tableValue" id="A"></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Radius of Gyration (in)</td>
-                <td class="tableSymbol">r =</td>
-                <td class="tableValue" id="rx"></td>
-                <td class="tableValue" id="ry"></td>
-              </tr>
-          </table>
-          <h1>Flexural Capacity</h1>
-          <div id="beamCurve"></div>
-          <div>
-            <table>
-		          <tr>
-                <td class="tableDesc">Plastic Moment</td>
-                <td class="tableSymbol">M<sub>p</sub> =</td>
-                <td class="tableValue" id="Mp"></td>
-                <td class="tableUnits">ft-kip</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Yield Moment</td>
-		            <td class="tableSymbol">M<sub>y</sub> =</td>
-                <td class="tableValue" id="My"></td>
-                <td class="tableUnits">ft-kips</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Lower-bound Moment of inelastic LTB</td>
-                <td class="tableSymbol">0.7F<sub>y</sub>S<sub>x</sub> =</td>
-                <td class="tableValue" id="Mr"></td>
-                <td class="tableUnits">ft-kips</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Limiting unbraced length for M<sub>p</sub></td>
-                <td class="tableSymbol">L<sub>p</sub> =</td>
-                <td class="tableValue" id="Lp"></td>
-                <td class="tableUnits">ft</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Limiting unbraced length for inelastic LTB</td>
-                <td class="tableSymbol">L<sub>r</sub> =</td>
-                <td id="Lr"></td>
-                <td class="tableUnits">ft</td>
-              </tr>
-              <tr>
-                <td class="tableDesc">Nominal Moment Capacity based on L<sub>b</sub></td>
-                <td class="tableSymbol">M<sub>n</sub> =</td>
-                <td class="tableValue" id="Mn"></td>
-                <td class="tableUnits">ft-kip</td>
-              </tr>
-            </table>
-            <h1>Axial Capacity</h1>
-            <p>calcs</p>
-            <p>calcs</p>
-            <h1>Combined Axial-Flexural Capacity</h1>
-            <p>calcs</p>
-            <p>calcs</p>
-          </div>
         </div>
+        <h1>Axial Capacity</h1>
+        <p>calcs</p>
+        <p>calcs</p>
+        <h1>Combined Axial-Flexural Capacity</h1>
+        <p>calcs</p>
+        <p>calcs</p>
       </div>
+
+
     </div>
     <div class="pageFooter" id="pageFooter"></div>
   </body>
