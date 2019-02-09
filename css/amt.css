@@ -224,12 +224,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .bigButton {
+  font-family: "Raleway";
+  font-weight: 400;
   display: block;
   width: 90%;
   max-width: 20rem;
   margin: 1rem auto;
   padding: 2rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   background-color: #3498db;
   border-radius: 1rem;
   color: white;
