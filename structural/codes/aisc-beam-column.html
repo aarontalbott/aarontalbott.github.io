@@ -76,53 +76,71 @@
         padding: 0;
         margin: 0;
         overflow: auto;
-        position: relative;
         width: 100%;
-        height: 5rem;
+        height: 3rem;
       }
 
       #MrxBar {
         float: left;
         width: 50%;
-        height: 5rem;
-        background-color: blue;
+        height: 1rem;
+        background-color: #04ce9f;
+        border-right: 2px solid black;
         margin: 0;
         padding: 0;
-        position: absolute;
         z-index: 4;
+        text-align: right;
+        font-size: 0.9rem;
+      }
+
+      #MxDesignBar {
+        float:left;
+        width: 100%;
+        height: 1rem;
+        position: relative;
+        border-top: 2px solid black;
       }
 
       #MaxBar {
         float: left;
         width: 75%;
-        height: 5rem;
-        background-color: green;
+        height: 1rem;
+        /* background-color: #04ce9f; */
+        border-right: 2px solid black;
         margin: 0;
         padding: 0;
         position: absolute;
         z-index: 3;
+        text-align: right;
+        font-size: 0.9rem;
       }
 
       #MnxBar {
         float: left;
         width: 90%;
-        height: 5rem;
-        background-color: yellow;
+        height: 1rem;
+        /* background-color: yellow; */
+        border-right: 2px solid black;
         margin: 0;
         padding: 0;
         position: absolute;
         z-index: 2;
+        text-align: right;
+        font-size: 0.9rem;
       }
 
       #MpxBar {
         float: left;
         width: 100%;
-        height: 5rem;
-        background-color: red;
+        height: 1rem;
+        /* background-color: red; */
+        border-right: 2px solid black;
         margin: 0;
         padding: 0;
         position: absolute;
         z-index: 1;
+        text-align: right;
+        font-size: 0.9rem;
       }
 
     </style>
@@ -131,19 +149,8 @@
     <div class="row">
       <div class="topnav" id="navbar"></div>
       <h1>AISC Beam-Column Design - W Shapes</h1>
+      <h1>Basic Input</h1>
       <div>
-        <!-- <div class="result" </div> -->
-        <div id="MxGraphic">
-          <div id="MrxBar"><div id="designMoment"></div></div>
-          <div id="MaxBar"></div>
-          <div id="MnxBar"></div>
-          <div id="MpxBar"></div>
-        </div>
-      </div>
-
-      <h1>Input</h1>
-      <div>
-        <h2>Member Properties</h2>
         <table>
           <tr>
             <td class="tableDesc">Section</td>
@@ -168,6 +175,81 @@
             <td class="tableValue"><input id="L" type="text" value=""></td>
             <td class="tableUnits">ft</td>
           </tr>
+          <tr>
+            <td class="tableDesc">Required Axial Strength</td>
+            <td class="tableSymbol">P<sub>r</sub> =</td>
+            <td class="tableValue"><input id="Pr" type="text" value=""></td>
+            <td class="tableUnits">kips</td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Required Flexural Strength (strong-axis)</td>
+            <td class="tableSymbol">M<sub>rx</sub> =</td>
+            <td class="tableValue"><input id="Mrx" type="text" value=""></td>
+            <td class="tableUnits">ft-kips</td>
+          </tr>
+          <tr>
+            <td class="tableDesc">Required Flexural Strength (weak-axis)</td>
+            <td class="tableSymbol">M<sub>ry</sub> =</td>
+            <td class="tableValue"><input id="Mry" type="text" value=""></td>
+            <td class="tableUnits">ft-kips</td>
+          </tr>
+          <tr>
+            <td class="tableDesc"> Design Method</td>
+            <td></td>
+            <td>
+              <select id="selectMethod">
+                <option value="ASD">ASD</option>
+                <option value="LRFD">LRFD</option>
+              </select>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <h1>Design Summary</h1>
+        <h2>Strong-Axis Bending</h2>
+        <div id="MxGraphic">
+          <div id="MrxBar"><div id="designMoment"></div></div>
+          <div id="MxDesignBar">
+            <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
+            <div id="MnxBar">M<sub>n</sub></div>
+            <div id="MpxBar">M<sub>p</sub></div>
+          </div>
+        </div>
+        <h2>Weak-Axis Bending</h2>
+        <div id="MxGraphic">
+          <div id="MrxBar"><div id=""></div></div>
+          <div id="MxDesignBar">
+            <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
+            <div id="MnxBar">M<sub>n</sub></div>
+            <div id="MpxBar">M<sub>p</sub></div>
+          </div>
+        </div>
+        <h2>Axial Load</h2>
+        <div id="MxGraphic">
+          <div id="MrxBar"><div id=""></div></div>
+          <div id="MxDesignBar">
+            <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
+            <div id="MnxBar">M<sub>n</sub></div>
+            <div id="MpxBar">M<sub>p</sub></div>
+          </div>
+        </div>
+        <h2>Combined Load</h2>
+        <div id="MxGraphic">
+          <div id="MrxBar"><div id=""></div></div>
+          <div id="MxDesignBar">
+            <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
+            <div id="MnxBar">M<sub>n</sub></div>
+            <div id="MpxBar">M<sub>p</sub></div>
+          </div>
+        </div>
+      </div>
+
+      <h1>Detailed Input</h1>
+      <div>
+        <h2>Member Properties</h2>
+        <table>
           <tr>
             <td class="tableDesc">Unbraced Length (Bending)</td>
             <td class="tableSymbol">L<sub>b</sub> =</td>
@@ -205,38 +287,6 @@
             <td class="tableUnits">ft</td>
           </tr>
         </table>
-        <h2>Design Loads</h2>
-        <table>
-                <tr>
-                  <td class="tableDesc">Method</td>
-                  <td></td>
-                  <td>
-                    <select id="selectMethod">
-                      <option value="ASD">ASD</option>
-                      <option value="LRFD">LRFD</option>
-                    </select>
-                  </td>
-  		            <td></td>
-                </tr>
-                <tr>
-                  <td class="tableDesc">Required Axial Strength</td>
-                  <td class="tableSymbol">P<sub>r</sub> =</td>
-                  <td class="tableValue"><input id="Pr" type="text" value=""></td>
-                  <td class="tableUnits">kips</td>
-                </tr>
-                <tr>
-                  <td class="tableDesc">Required Flexural Strength (strong-axis)</td>
-                  <td class="tableSymbol">M<sub>rx</sub> =</td>
-                  <td class="tableValue"><input id="Mrx" type="text" value=""></td>
-                  <td class="tableUnits">ft-kips</td>
-                </tr>
-                <tr>
-                  <td class="tableDesc">Required Flexural Strength (weak-axis)</td>
-                  <td class="tableSymbol">M<sub>ry</sub> =</td>
-                  <td class="tableValue"><input id="Mry" type="text" value=""></td>
-                  <td class="tableUnits">ft-kips</td>
-                </tr>
-              </table>
       </div>
 
       <h1>Detailed Calculation</h1>
