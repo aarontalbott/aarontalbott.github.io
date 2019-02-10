@@ -28,13 +28,6 @@
         border-radius: 0;
       }
 
-      h1:before {
-        content: "\2796"; /* Unicode character for "minus" sign (-) */
-        font-size: 0.7rem;
-        /* float: right; */
-        margin-right: 5px;
-      }
-
       .padding {
         padding: 1rem;
       }
@@ -148,7 +141,8 @@
   <body onload="getData()">
     <div class="row">
       <div class="topnav" id="navbar"></div>
-      <h1>Basic Input</h1>
+      <div class="title">Beam-Column Design - AISC 360-16</div>
+      <h1>Quick Input</h1>
       <div>
         <table>
           <tr>
@@ -205,8 +199,9 @@
           </tr>
         </table>
       </div>
+
+      <h1>Design Summary</h1>
       <div>
-        <h1>Design Summary</h1>
         <h2>Strong-Axis Bending</h2>
         <div id="MxGraphic">
           <div id="MrxBar"><div id="designMoment"></div></div>
@@ -244,7 +239,7 @@
           </div>
         </div>
       </div>
-
+        
       <h1>Detailed Input</h1>
       <div>
         <h2>Member Properties</h2>

@@ -28,9 +28,27 @@ h1 {
   font-family: "Raleway", sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
-  border-bottom: 1px solid lightgray;
+  /* border: 1px solid lightgray; */
   margin: 1.5rem 0 1rem 0;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
+  cursor: pointer;
+  background-color: #3498db;
+  border-radius: 1rem;
+  color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+h1:before {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+  font-size: 0.7rem;
+  /* float: right; */
+  margin-right: 5px;
+  margin-left: 5px;
+  color: white;
+}
+
+h1 + div {
+  overflow: hidden;
 }
 
 h2 {
@@ -225,13 +243,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .bigButton {
   font-family: "Raleway";
-  font-weight: 400;
+  font-weight: 700;
   display: block;
   width: 90%;
   max-width: 20rem;
   margin: 1rem auto;
   padding: 2rem;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   background-color: #3498db;
   border-radius: 1rem;
   color: white;
@@ -285,6 +303,12 @@ button {
   font-size: 0.8rem;
   color: lightgray;
   text-align: center;
+}
+
+.title {
+  font-family: "Raleway";
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 /* Styling for the page header menu */
