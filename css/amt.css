@@ -84,6 +84,13 @@ li {
 
 }
 
+select {
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 0;
+  height: 4rem;
+}
+
 table {
   font-size: 0.9rem;
   /* margin-top: 1.25rem;
