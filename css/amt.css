@@ -28,13 +28,23 @@ h1 {
   font-family: "Raleway", sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
-  /* border: 1px solid lightgray; */
-  margin: 1.5rem 0 0 0;
+  margin: 0;
   padding: 1rem 0;
   cursor: pointer;
   background-color: #3498db;
-  /* border-radius: 1rem; */
+  border-radius: 1rem 1rem 0 0;
   color: white;
+  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+}
+
+h2 {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  background-color: lightgray;
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
@@ -50,6 +60,8 @@ h1:before {
 h1 + div {
   overflow: hidden;
   border: 1px solid #3498db;
+  border-radius: 0 0 1rem 1rem;
+  margin-bottom: 1rem;
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
@@ -60,6 +72,7 @@ h1 + div {
   font-weight: 400;
   font-size: 0.9rem;
   border-bottom: 1px solid lightgray;
+  background-color: inherit;
 }
 
 ul {
@@ -73,10 +86,10 @@ li {
 
 table {
   font-size: 0.9rem;
-  margin-top: 1.25rem;
+  /* margin-top: 1.25rem;
   margin-right:auto;
-  margin-left: auto;
-  /* width: 100%; */
+  margin-left: auto; */
+  width: 100%;
   border-collapse: collapse;
   overflow: scroll;
 }
@@ -107,7 +120,7 @@ tr {
 td{
   text-align: left;
   font-size: 0.9rem;
-  padding: 0.1rem;
+  padding: 0.4rem;
 }
 
 tfoot{
@@ -314,6 +327,15 @@ button {
   font-family: "Raleway";
   font-size: 1.25rem;
   font-weight: 400;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid black;
+}
+
+.subtitle {
+  font-family: "Raleway";
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
 }
 
 /* Styling for the page header menu */
@@ -463,7 +485,7 @@ button {
   width: 90%;
   margin: 1rem auto;
   padding: 0;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
 .tableDesc {

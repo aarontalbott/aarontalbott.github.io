@@ -12,9 +12,25 @@
   <body onload="getData()">
     <div class="row">
       <div class="topnav" id="navbar"></div>
-      <div class="title">Beam-Column Design - AISC 360-16</div>
+      <div class="title">Wide-Flange Beam Design</div>
+        <div class="subtitle">
+          Strong-Axis Bending <br>
+          AISC 360-16
+        </div>
+
       <h1>Quick Calc</h1>
       <div>
+        <div class="result">
+          <h2>Combined Load</h2>
+          <div id="MxGraphic">
+            <div id="MrxBar"><div id=""></div></div>
+            <div id="MxDesignBar">
+              <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
+              <div id="MnxBar">M<sub>n</sub></div>
+              <div id="MpxBar">M<sub>p</sub></div>
+            </div>
+          </div>
+        </div>
         <table>
           <tr>
             <td class="tableDesc">Section</td>
@@ -58,23 +74,10 @@
             <td class="tableUnits">ft-kips</td>
           </tr>
         </table>
-
-        <div class="result">
-          <h2>Combined Load</h2>
-          <div id="MxGraphic">
-            <div id="MrxBar"><div id=""></div></div>
-            <div id="MxDesignBar">
-              <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
-              <div id="MnxBar">M<sub>n</sub></div>
-              <div id="MpxBar">M<sub>p</sub></div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
-      <h1>Detailed Input</h1>
-      <div class="hidden">
+      <h1>Detailed Calc</h1>
+      <div>
         <h2>Member Properties</h2>
         <table>
           <tr>
@@ -125,10 +128,6 @@
             <td class="tableUnits">ft</td>
           </tr>
         </table>
-      </div>
-
-      <h1>Detailed Calculation</h1>
-      <div>
         <h2>Material Properties</h2>
         <table>
           <tr>
