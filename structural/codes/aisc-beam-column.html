@@ -8,142 +8,12 @@
       crossorigin="anonymous">
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <style>
-      table {
-        width: 100%;
-        margin: auto;
-      }
-
-      td {
-        padding: 0.5rem;
-      }
-
-      th {
-        background-color: white;
-      }
-
-      select, input {
-        font-size: 0.9rem;
-        width: 6rem;
-        border-radius: 0;
-      }
-
-      .padding {
-        padding: 1rem;
-      }
-
-      .result {
-        font-size: 5rem;
-        font-weight: 700;
-        background-color: #f7f7f7;
-        border: 1px solid lightgray;
-        border-radius: 1rem;
-        width: 90%;
-        margin: 1rem auto;
-        padding: 0;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-      }
-
-      .tableDesc {
-        text-align: left;
-      }
-
-      .tableSymbol {
-        text-align: right;
-        white-space: nowrap;
-        width: 4rem;
-      }
-
-      .tableValue {
-        text-align: left;
-        width: 6rem;
-      }
-
-      .tableUnits {
-        text-align: left;
-        font-size: 0.75rem;
-        color: darkgray;
-        max-width: 4rem;
-      }
-
-      #MxGraphic {
-        padding: 0;
-        margin: auto;
-        overflow: auto;
-        width: 90%;
-        height: 3rem;
-      }
-
-      #MrxBar {
-        float: left;
-        width: 50%;
-        height: 1rem;
-        background-color: #04ce9f;
-        border-right: 2px solid black;
-        margin: 0;
-        padding: 0;
-        z-index: 4;
-        text-align: right;
-        font-size: 0.9rem;
-      }
-
-      #MxDesignBar {
-        float:left;
-        width: 100%;
-        height: 1rem;
-        position: relative;
-        border-top: 2px solid black;
-      }
-
-      #MaxBar {
-        float: left;
-        width: 75%;
-        height: 1rem;
-        /* background-color: #04ce9f; */
-        border-right: 2px solid black;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        z-index: 3;
-        text-align: right;
-        font-size: 0.9rem;
-      }
-
-      #MnxBar {
-        float: left;
-        width: 90%;
-        height: 1rem;
-        /* background-color: yellow; */
-        border-right: 2px solid black;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        z-index: 2;
-        text-align: right;
-        font-size: 0.9rem;
-      }
-
-      #MpxBar {
-        float: left;
-        width: 100%;
-        height: 1rem;
-        /* background-color: red; */
-        border-right: 2px solid black;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        z-index: 1;
-        text-align: right;
-        font-size: 0.9rem;
-      }
-
-    </style>
   </head>
   <body onload="getData()">
     <div class="row">
       <div class="topnav" id="navbar"></div>
       <div class="title">Beam-Column Design - AISC 360-16</div>
-      <h1>Quick Input</h1>
+      <h1>Quick Calc</h1>
       <div>
         <table>
           <tr>
@@ -187,57 +57,7 @@
             <td class="tableValue"><input id="Mry" type="text" value=""></td>
             <td class="tableUnits">ft-kips</td>
           </tr>
-          <tr>
-            <td class="tableDesc"> Design Method</td>
-            <td></td>
-            <td>
-              <select id="selectMethod">
-                <option value="ASD">ASD</option>
-                <option value="LRFD">LRFD</option>
-              </select>
-            </td>
-            <td></td>
-          </tr>
         </table>
-      </div>
-
-      <h1>Design Summary</h1>
-      <div>
-        <div class="result">
-          <h2>Strong-Axis Bending</h2>
-          <div id="MxGraphic">
-            <div id="MrxBar"><div id="designMoment"></div></div>
-            <div id="MxDesignBar">
-              <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
-              <div id="MnxBar">M<sub>n</sub></div>
-              <div id="MpxBar">M<sub>p</sub></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="result">
-          <h2>Weak-Axis Bending</h2>
-          <div id="MxGraphic">
-            <div id="MrxBar"><div id=""></div></div>
-            <div id="MxDesignBar">
-              <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
-              <div id="MnxBar">M<sub>n</sub></div>
-              <div id="MpxBar">M<sub>p</sub></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="result">
-          <h2>Axial Load</h2>
-          <div id="MxGraphic">
-            <div id="MrxBar"><div id=""></div></div>
-            <div id="MxDesignBar">
-              <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
-              <div id="MnxBar">M<sub>n</sub></div>
-              <div id="MpxBar">M<sub>p</sub></div>
-            </div>
-          </div>
-        </div>
 
         <div class="result">
           <h2>Combined Load</h2>
@@ -257,6 +77,17 @@
       <div class="hidden">
         <h2>Member Properties</h2>
         <table>
+          <tr>
+            <td class="tableDesc"> Design Method</td>
+            <td></td>
+            <td>
+              <select id="selectMethod">
+                <option value="ASD">ASD</option>
+                <option value="LRFD">LRFD</option>
+              </select>
+            </td>
+            <td></td>
+          </tr>
           <tr>
             <td class="tableDesc">Unbraced Length (Bending)</td>
             <td class="tableSymbol">L<sub>b</sub> =</td>
@@ -347,6 +178,42 @@
             </tr>
         </table>
         <h2>Flexural Capacity</h2>
+        <div class="result">
+          <h2>Strong-Axis Bending</h2>
+          <div id="MxGraphic">
+            <div id="MrxBar"><div id="designMoment"></div></div>
+            <div id="MxDesignBar">
+              <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
+              <div id="MnxBar">M<sub>n</sub></div>
+              <div id="MpxBar">M<sub>p</sub></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result">
+          <h2>Weak-Axis Bending</h2>
+          <div id="MxGraphic">
+            <div id="MrxBar"><div id=""></div></div>
+            <div id="MxDesignBar">
+              <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
+              <div id="MnxBar">M<sub>n</sub></div>
+              <div id="MpxBar">M<sub>p</sub></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result">
+          <h2>Axial Load</h2>
+          <div id="MxGraphic">
+            <div id="MrxBar"><div id=""></div></div>
+            <div id="MxDesignBar">
+              <div id="MaxBar">M<sub>n</sub>/&Omega;</div>
+              <div id="MnxBar">M<sub>n</sub></div>
+              <div id="MpxBar">M<sub>p</sub></div>
+            </div>
+          </div>
+        </div>
+
         <div id="beamCurve"></div>
         <div>
           <table>
