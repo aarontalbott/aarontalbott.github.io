@@ -29,11 +29,10 @@ h1 {
   font-size: 1.1rem;
   font-weight: 400;
   margin: 0;
-  padding: 1rem 0;
+  padding: 0.5rem;
   cursor: pointer;
   background-color: #ecf0f1;
-  border-left: 5px solid #3498db;
-  color: white;
+  color: black;
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
@@ -44,7 +43,7 @@ h2 {
   margin: 0;
   padding: 0.5rem 0;
   cursor: pointer;
-  background-color: lightgray;
+  background-color: #ecf0f1;
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
