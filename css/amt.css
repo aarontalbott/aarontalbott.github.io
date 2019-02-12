@@ -350,7 +350,7 @@ button {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  margin: 0;
+  margin-bottom: 3rem;
   padding: 3rem 0;
   width: 100%;
   color: black;
@@ -366,7 +366,6 @@ button {
   padding: 0;
   overflow: auto;
   max-width: 50rem;
-  border-bottom: 2px solid black;
 }
 
 #name {
