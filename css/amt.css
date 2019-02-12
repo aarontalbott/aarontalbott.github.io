@@ -79,10 +79,9 @@ li {
 }
 
 select {
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 1rem;
   border-radius: 0;
-  height: 4rem;
 }
 
 table {
