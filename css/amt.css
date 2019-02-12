@@ -356,6 +356,7 @@ button {
   color: black;
   overflow: auto;
   background-color: #ecf0f1;
+  border-bottom: 10px solid #3498db;
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
