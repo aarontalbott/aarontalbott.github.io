@@ -24,7 +24,7 @@ h1 {
   font-family: "Raleway", sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
-  margin: 1rem 0 1rem 1rem;
+  margin: 1rem 0 0 1rem;
   padding: 0.5rem;
   cursor: pointer;
   background-color: #ecf0f1;
@@ -36,7 +36,7 @@ h2 {
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  margin: 1rem 0 1rem 1rem;
+  margin: 1rem 0 0 1rem;
   padding: 0.5rem;
   cursor: pointer;
   background-color: #ecf0f1;
