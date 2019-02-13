@@ -189,7 +189,7 @@ input[type=number]::-webkit-outer-spin-button {
   float: left;
   width: 50%;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
 }
 .column75 {
   float: left;
@@ -262,13 +262,12 @@ input[type=number]::-webkit-outer-spin-button {
   font-family: "Raleway";
   font-weight: 400;
   display: block;
-  width: 90%;
   /* max-width: 20rem; */
-  margin: 1rem auto;
+  margin: 1rem;
   padding: 2rem;
   font-size: 1.25rem;
   background-color: #3498db;
-  /* border-radius: 1rem; */
+  border-radius: 1rem;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -480,6 +479,26 @@ button {
   color: white;
 }
 
+#myPhoto {
+  display: block;
+  margin: auto;
+  width: 250px;
+  height: 250px;
+  border: 10px solid white;
+  border-radius: 50%;
+  margin: 1rem auto;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#splashBio {
+  background-color: #f7f7f7;
+  border: 1px solid lightgray;
+  margin-top: 50px;
+  overflow: auto;
+  margin: 1rem;
+  padding: 1rem;
+}
+
 .result {
   font-weight: 700;
   background-color: #f7f7f7;
@@ -601,5 +620,5 @@ button {
   .card {
     margin: 1rem;
   }
-  
+
 }
