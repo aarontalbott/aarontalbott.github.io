@@ -282,13 +282,12 @@ input[type=number]::-webkit-outer-spin-button {
   color: white;
   text-align: center;
   text-decoration: none;
-  transition: 100ms;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: 200ms;
 }
 
 .bigButton:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 0 6px 9px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transform: translate(-3px, -6px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .hidden {
