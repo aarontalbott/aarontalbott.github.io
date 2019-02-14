@@ -26,16 +26,23 @@ h1 {
   margin: 1rem 0 0 1rem;
   padding: 0.5rem;
   cursor: pointer;
+  border-left: 5px solid #3498db;
   background-color: #ecf0f1;
   color: black;
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+}
+
+h1:before {
+  content: '\002D';
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 h2 {
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  margin: 1rem 0 0 1rem;
+  margin: 2rem 0 0 1rem;
   padding: 0.5rem;
   cursor: pointer;
   background-color: #ecf0f1;
@@ -44,7 +51,6 @@ h2 {
 
 h1 + div {
   overflow: hidden;
-  border-left: 2px solid #3498db;
   padding-left: 1rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
