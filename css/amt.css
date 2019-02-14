@@ -492,7 +492,8 @@ button {
 }
 
 #splashCard {
-  margin: 0;
+  max-width: 250px;
+  margin: auto;
   padding: 0:
   background-color: #f7f7f7;
   border: 1px solid lightgray;
