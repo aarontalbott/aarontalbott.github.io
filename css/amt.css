@@ -367,6 +367,7 @@ button {
   background-color: #ecf0f1;
   border-bottom: 5px solid #3498db;
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+  transition: 200ms;
 }
 
 #pageHeader {
@@ -635,7 +636,7 @@ button {
   }
 
   #navbar {
-    padding 1rem;
+    padding: 0.5rem;
   }
   
   .card {
