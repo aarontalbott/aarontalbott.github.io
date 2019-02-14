@@ -157,10 +157,8 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
   width: 100%;
   overflow: hidden;
-  max-width: 50rem;
   margin: auto;
   background-color: white;
-  border: 1px solid lightgray;
 }
 
 .column25 {
@@ -209,6 +207,14 @@ input[type=number]::-webkit-outer-spin-button {
   margin: auto;
   padding: 0;
 }
+
+.column100 {
+  width: 100%;
+  max-width: 50rem;
+  margin: auto;
+  padding: 0;
+}
+
 
 .card {
   font-family: "Roboto", sans-serif;
