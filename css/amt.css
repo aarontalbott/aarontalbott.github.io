@@ -491,6 +491,14 @@ button {
   color: white;
 }
 
+#splashCard {
+  margin: 0;
+  padding: 0:
+  background-color: #f7f7f7;
+  border: 1px solid lightgray;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
 #myPhoto {
   display: block;
   margin: auto;
@@ -498,15 +506,11 @@ button {
   max-width: 250px;
   height: auto;
   margin: auto;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 #splashBio {
-  background-color: #f7f7f7;
-  border: 1px solid lightgray;
-  margin-top: 50px;
   overflow: auto;
-  margin: 1rem;
+  margin: 0;
   padding: 1rem;
 }
 
