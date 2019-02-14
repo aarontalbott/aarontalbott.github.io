@@ -331,7 +331,7 @@ button {
   font-family: "Raleway";
   font-size: 1.25rem;
   font-weight: 400;
-  margin-bottom: 2rem;
+  margin: 1rem;
   border-bottom: 1px solid black;
 }
 
@@ -339,7 +339,7 @@ button {
   font-family: "Raleway";
   font-size: 0.9rem;
   font-weight: 400;
-  margin-bottom: 2rem;
+  margin: 1rem;
 }
 
 /* Styling for the page header menu */
