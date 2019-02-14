@@ -384,6 +384,7 @@ button {
   font-weight: 700;
   text-decoration: none;
   vertical-align: bottom;
+  transition: 200ms;
 }
 
 #hamburgerButton {
