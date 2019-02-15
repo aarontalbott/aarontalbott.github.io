@@ -405,16 +405,15 @@ button {
 }
 
 #contactButton {
-  margin-left: 1rem;
-  padding: 0.25rem 1rem;
-  background-color: #ecf0f1;
-  line-height: 1.25rem;
-  font-size: 0.75rem;
+  display: block;
+  margin: 1rem auto;
+  padding: 1rem;
   background-color: #3498db;
+  line-height: 1.25rem;
+  font-size: 1.5rem;
   color: white;
   text-decoration: none;
   overflow: hidden;
-  border-radius: 1rem;
 }
 
 #menuWrapper {
@@ -484,26 +483,30 @@ button {
 
 #splashCard {
   margin: 1rem;
-  padding: 0:
-  background-color: #f7f7f7;
-  border: 1px solid lightgray;
+  padding: 3rem;
+  /* background-color: #f7f7f7; */
+  /* border: 1px solid lightgray; */
   overflow: auto;
 }
 
 #myPhoto {
   display: block;
-  float: left;
   margin: auto;
-  width: 33%;
-  height: auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 10px solid white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
 }
 
 #splashBio {
   display: block;
-  float: left;
-  width: 67%;
+  /* float: left;
+  width: calc(100% - 250px); */
+  text-align: center;
   overflow: auto;
-  margin: 0;
+  margin: auto;
   padding: 1rem;
 }
 
