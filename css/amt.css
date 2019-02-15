@@ -483,24 +483,25 @@ button {
 }
 
 #splashCard {
-  max-width: 250px;
-  margin: auto;
+  margin: 1rem;
   padding: 0:
   background-color: #f7f7f7;
   border: 1px solid lightgray;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  overflow: auto;
 }
 
 #myPhoto {
   display: block;
+  float: left;
   margin: auto;
-  width: 100%;
-  max-width: 250px;
+  width: 33%;
   height: auto;
-  margin: auto;
 }
 
 #splashBio {
+  display: block;
+  float: left;
+  width: 67%;
   overflow: auto;
   margin: 0;
   padding: 1rem;
@@ -627,7 +628,7 @@ button {
   #navbar {
     padding: 0.5rem;
   }
-  
+
   .card {
     margin: 1rem;
   }
