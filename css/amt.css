@@ -497,6 +497,7 @@ button {
 
 #myPhoto {
   display: block;
+  float: left;
   margin: auto;
   width: 250px;
   height: auto;
@@ -508,6 +509,7 @@ button {
 
 #splashBio {
   display: block;
+  float: left;
   width: calc(100% - 250px);
   overflow: auto;
   margin: auto;
