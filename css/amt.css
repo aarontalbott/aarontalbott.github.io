@@ -486,9 +486,8 @@ button {
 }
 
 #splashCard {
-  position: relative;
   width: 100%;
-  height: 50%;
+  max-width: 50rem;
   margin: auto;
   padding-top: 3rem;
   padding-bottom: 1rem;
@@ -497,9 +496,6 @@ button {
 }
 
 #myPhoto {
-  position: absolute;
-  top: calc(50% - 125px);
-  left: calc(50% - 125px);
   display: block;
   margin: auto;
   width: 250px;
@@ -512,9 +508,7 @@ button {
 
 #splashBio {
   display: block;
-  position: absolute;
-  top: calc(50% + 150px);
-  width: 100%;
+  width: calc(100% - 250px);
   overflow: auto;
   margin: auto;
   padding: 1rem;
@@ -522,6 +516,7 @@ button {
   font-family: "Raleway" sans-serif;
   font-weight: 700;
   font-size: 2rem;
+  color: inherit;
 }
 
 .result {
