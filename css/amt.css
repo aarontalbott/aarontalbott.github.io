@@ -482,9 +482,9 @@ button {
 }
 
 #splashCard {
-  margin: 1rem;
-  padding: 3rem;
-  /* background-color: #f7f7f7; */
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  background-color: #ecf0f1;
   /* border: 1px solid lightgray; */
   overflow: auto;
 }
