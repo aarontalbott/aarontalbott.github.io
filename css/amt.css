@@ -11,8 +11,6 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f7f7f7;
-  color: black;
   height: 100%;
   font-size: 100%;
   margin: 0;
@@ -143,6 +141,18 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.lightAccent {
+  background-color: #f7f7f7;
+}
+
+.mediumAccent {
+  background-color: #ecf0f1;
+}
+
+.darkAccent {
+  background-color: #3498db;
 }
 
 .row {
