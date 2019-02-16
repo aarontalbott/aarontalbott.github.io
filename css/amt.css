@@ -363,7 +363,7 @@ button {
   font-weight: 400;
   font-size: 1rem;
   margin-bottom: 3rem;
-  padding: 3rem 1rem 1rem 1rem;
+  padding: 1rem;
   width: 100%;
   color: black;
   overflow: auto;
@@ -379,22 +379,21 @@ button {
   padding: 0;
   overflow: auto;
   max-width: 50rem;
+  height: 2rem;
 }
 
 #name {
   display: block;
   float: left;
-  font-size: 1.5rem;
-  font-weight: 700;
+  height: 100%;
   text-decoration: none;
-  vertical-align: bottom;
   transition: 200ms;
 }
 
 #hamburgerButton {
   display: block;
   float: right;
-  height: 24px;
+  height: 100%;
 }
 
 #menuButtonWrapper {
@@ -502,13 +501,14 @@ button {
   padding: 3rem 1rem 3rem 1rem;
   color: #3498db;
   overflow: auto;
+  text-align: center;
 }
 
 #myPhoto {
   display: block;
-  float: left;
   margin: auto;
-  width: 33%;
+  width: 67%;
+  max-width: 250px;
   height: auto;
   border-radius: 50%;
   border: 10px solid white;
@@ -516,16 +516,31 @@ button {
 
 }
 
+#socialBar {
+  display: inline-block;
+  padding: 1rem;
+  margin: auto;
+}
+
+#socialBar > a {
+  display: block;
+  float: left;
+  padding: 0.5rem;
+  border: 1px solid lightgray;
+}
+
 .socialIcon {
   margin: 0;
   padding: 10px;
   width: 20px;
   height: 20px;
+  border: 1px solid lightgray;
 }
 
 #splashName {
   width: 100%;
   height: auto;
+  padding-top: 1rem;
 }
 
 #splashBio {
