@@ -523,6 +523,12 @@ button {
   overflow: auto;
 }
 
+a > .socialIcon {
+  display: block;
+  float: left;
+  width: 20%;
+}
+
 .socialIcon {
   margin: 0;
   padding: 0 1rem;
