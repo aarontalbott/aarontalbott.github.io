@@ -498,16 +498,13 @@ button {
   width: 100%;
   height: calc(100% - 5px);
   margin-bottom: 10%;
-  padding: 1rem;
+  padding: 5%;
   background-color: #ecf0f1;
   border-bottom: 5px solid #3498db;
   overflow: auto;
   text-align: center;
   z-index: 1;
-  background-image: url("/img/test.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+
 }
 
 #splashContainer {
@@ -518,9 +515,14 @@ button {
   background: rgba(255, 255, 255, 0.75);
   /* background-color: white; */
   max-width: 50rem;
+  height: 50%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   /* opacity: 0.5; */
+  background-image: url("/img/test.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #verticalBar {
@@ -548,30 +550,30 @@ button {
 
 #socialBar {
   display: block;
-  width: 100%;
   max-width: 50rem;
   margin: auto;
-  padding: 1rem 0;
+  padding: 1%;
   overflow: auto;
+  text-align: center;
 }
 
 a > .socialIcon {
-  display: block;
-  float: left;
-  width: 20%;
+  width: 75px;
+  overflow: auto;
 }
 
 .socialIcon {
   margin: 0;
-  padding: 0 1rem;
+  padding: 0;
   height: 50px;
   width: 50px;
+  overflow: auto;
 }
 
 #splashName {
   width: 100%;
   height: auto;
-  padding: 1rem;
+  padding: 3% 0;
   max-width: 50rem;
   z-index: 4;
   /* border-bottom: 1px solid lightgray; */
