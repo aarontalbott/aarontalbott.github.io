@@ -512,17 +512,21 @@ button {
 }
 
 #coffeeStain1 {
+  height: 300px;
+  width: 300px;
   position: absolute;
-  top: 70%;
-  left: 70%;
+  top: calc(100% - 300px);
+  left: calc(100% - 200px);
   z-index: 1;
   opacity: 0.5;
 }
 
 #coffeeStain2 {
+  height: 300px;
+  width: 300px;
   position: absolute;
-  top: 20%;
-  left: -5%;
+  top: calc(30% - 150px);
+  left: -100px;
   z-index: 1;
   opacity: 0.5;
 }
@@ -531,13 +535,14 @@ button {
 #splashCard {
   position: absolute;
   top: 0;
-  left: 10%;
+  left: calc(50% - 150px);
   padding: 0;
   margin: 0;
   text-align: center;
-  width: 80%;
-  max-width: 50rem;
-  height: 75%;
+  width: 300px;
+  /* max-width: 300px;
+  max-height: 400px; */
+  height: 450px;
   /* background: rgba(255, 255, 255, 0.75); */
   background-color: white;
   overflow: auto;
@@ -562,7 +567,7 @@ button {
 
 #splashPhoto {
   width: 100%;
-  max-width: 50rem;
+  /* max-width: 50rem; */
   margin: auto;
   height: 75%;
   border: 1rem solid white;
