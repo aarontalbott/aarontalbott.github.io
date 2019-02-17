@@ -496,30 +496,62 @@ button {
 
 #splashCard {
   width: 100%;
-  max-width: 50rem;
-  margin: auto;
-  padding: 3rem 1rem 3rem 1rem;
-  color: #3498db;
+  height: calc(100% - 5px);
+  margin-bottom: 10%;
+  padding: 1rem;
+  background-color: #ecf0f1;
+  border-bottom: 5px solid #3498db;
   overflow: auto;
   text-align: center;
+  z-index: 1;
+  background-image: url("/img/test.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#splashContainer {
+  padding: 0;
+  margin: auto;
+  z-index: 3;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.75);
+  /* background-color: white; */
+  max-width: 50rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 0.5rem;
+  /* opacity: 0.5; */
+}
+
+#verticalBar {
+  position: absolute;
+  width: 50%;
+  height: 75%;
+  background-color: lightgray;
+  top: 0;
+  left: 25%;
+  z-index: 2;
 }
 
 #myPhoto {
   display: block;
   margin: auto;
-  width: 67%;
+  width: 100%;
   max-width: 250px;
   height: auto;
   border-radius: 50%;
   border: 10px solid white;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  z-index: 3;
 
 }
 
 #socialBar {
   display: block;
-  padding: 0;
-  margin: 2rem auto 0 auto;
+  width: 100%;
+  max-width: 50rem;
+  margin: auto;
+  padding: 1rem 0;
   overflow: auto;
 }
 
@@ -533,13 +565,16 @@ a > .socialIcon {
   margin: 0;
   padding: 0 1rem;
   height: 50px;
-  width: auto;
+  width: 50px;
 }
 
 #splashName {
   width: 100%;
   height: auto;
-  padding-top: 1rem;
+  padding: 1rem;
+  max-width: 50rem;
+  z-index: 4;
+  /* border-bottom: 1px solid lightgray; */
 }
 
 #splashBio {
