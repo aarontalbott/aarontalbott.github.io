@@ -505,7 +505,7 @@ button {
   border-bottom: 5px solid #3498db;
   overflow: hidden;
   text-align: center;
-  z-index: -1;
+  z-index: 1;
   background-color: #ecf0f1;
   background-image: url("/img/graph-paper.svg");
 }
@@ -516,7 +516,7 @@ button {
   position: absolute;
   top: 500px;
   left: calc(50% + 0px);
-  z-index: 1;
+  z-index: 2;
   opacity: 0.5;
 }
 
@@ -526,7 +526,7 @@ button {
   position: absolute;
   top: 400px;
   left: calc(50% + 50px);
-  z-index: 1;
+  z-index: 2;
   opacity: 0.5;
 }
 
@@ -546,11 +546,16 @@ button {
   background-color: white;
   overflow: auto;
   box-shadow: 10px 8px 33px -6px rgba(0,0,0,0.63);
+  transition: transform 0.5s ease-in-out;
   transform: rotate(-3deg);
   border-radius: 1rem;
   /* opacity: 0.5; */
   z-index: 3;
 
+}
+
+#splashCard:hover {
+  transform: rotate(0deg);
 }
 
 #verticalBar {
@@ -560,7 +565,6 @@ button {
   background-color: lightgray;
   top: 0;
   left: 25%;
-  z-index: 2;
 }
 
 #splashPhoto {
@@ -583,6 +587,7 @@ button {
   padding: 1%;
   overflow: auto;
   text-align: center;
+  z-index: 4;
 }
 
 a > .socialIcon {
