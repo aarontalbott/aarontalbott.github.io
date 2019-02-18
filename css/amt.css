@@ -559,7 +559,7 @@ button {
 }
 
 #splashCard {
-  position: absolute;
+  position: relative;
   top: 40px;
   left: calc(50% - 150px);
   padding: 0;
