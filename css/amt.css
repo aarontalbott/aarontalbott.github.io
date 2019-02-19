@@ -281,17 +281,22 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 1rem auto;
   padding: 2rem;
   font-size: 1.25rem;
-  background-color: #3498db;
-  color: white;
+  background-color: #ecf0f1;
+  color: #3498db;
   text-align: center;
   text-decoration: none;
-  transition: 200ms;
+  transition: background-color 200ms;
+  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   max-width: 300px;
 }
 
 .bigButton:hover {
-  transform: translate(-3px, -6px);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background-color: #3498db;
+  color: white;
+  transform: scale(1.1);
+  /* transform: translate(-3px, -6px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+
 }
 
 .hidden {
@@ -504,14 +509,12 @@ button {
   padding: 0 3rem;
   background-color: #ecf0f1;
   border-bottom: 5px solid #3498db;
-  overflow: hidden;
+  overflow: auto;
   text-align: center;
   z-index: 1;
   background-color: #ecf0f1;
-  /* background-image: url("/img/graph-paper.svg"); */
-  /* background-image: url("/img/test.jpg");
-  background-position: top;
-  background-size: cover; */
+  background-image: url("/img/graph-paper.svg");
+  background-position: center;
 }
 
 #coffeeStain1 {
@@ -519,19 +522,25 @@ button {
   width: 300px;
   position: absolute;
   top: 0px;
-  left: 0px;
-  z-index: 1;
+  left: calc(50% - 450px);
+  z-index: 2;
   opacity: 0.5;
+  background-image: url("/img/coffee-stain-1.svg");
+  background-position: center;
+  background-size: cover;
 }
 
 #coffeeStain2 {
   height: 300px;
   width: 300px;
   position: absolute;
-  top: 400px;
-  left: 200px;
-  z-index: 1;
+  top: 500px;
+  left: calc(50% + 100px);
+  z-index: 3;
   opacity: 0.5;
+  background-image: url("/img/coffee-stain-2.svg");
+  background-position: center;
+  background-size: cover;
 }
 
 #eraserShavings {
@@ -563,30 +572,52 @@ button {
 }
 
 #splashCard {
-  position: relative;
-  top: 40px;
-  left: calc(50% - 150px);
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 325px);
   padding: 0;
-  margin-bottom: 50px;
+  /* margin: 50px; */
   text-align: center;
   width: 300px;
-  /* max-width: 300px;
-  max-height: 400px; */
   height: 450px;
-  /* background: rgba(255, 255, 255, 0.75); */
   background-color: white;
   overflow: auto;
   box-shadow: 10px 8px 33px -6px rgba(0,0,0,0.63);
-  transition: transform 0.5s ease-in-out;
+  transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform: rotate(-3deg);
   border-radius: 1rem;
-  /* opacity: 0.5; */
-  z-index: 3;
+  z-index: 5;
+
+}
+
+#splashMenu {
+  position: absolute;
+  top: 100px;
+  left: calc(50% + 25px);
+  padding: 1rem;
+  /* margin: 50px; */
+  text-align: center;
+  width: 300px;
+  height: 450px;
+  background-color: white;
+  overflow: auto;
+  box-shadow: 10px 8px 33px -6px rgba(0,0,0,0.63);
+  transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: rotate(4deg);
+  border-radius: 1rem;
+  z-index: 4;
 
 }
 
 #splashCard:hover {
   transform: rotate(0deg);
+  transform: scale(1.1);
+}
+
+#splashMenu:hover {
+  transform: rotate(0deg);
+  transform: scale(1.1);
+  z-index: 10;
 }
 
 #verticalBar {
@@ -781,6 +812,15 @@ a > .socialIcon {
 
   .card {
     margin: 1rem;
+  }
+
+  #splashCard {
+    left: calc(50% - 150px);
+  }
+
+  #splashMenu {
+    left: calc(50% - 150px);
+    top: 550px;
   }
 
 }
