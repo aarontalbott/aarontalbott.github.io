@@ -15,7 +15,6 @@ body {
   font-size: 100%;
   margin: 0;
   background-color: white;
-  padding-top: 5rem;
 }
 
 a {
@@ -397,7 +396,7 @@ button {
   margin: auto;
   padding: 0;
   overflow: auto;
-  max-width: 50rem;
+  /*max-width: 50rem;*/
   height: 2rem;
 }
 
