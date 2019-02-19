@@ -278,7 +278,7 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 400;
   display: block;
   /* max-width: 20rem; */
-  margin: 1rem;
+  margin: 1rem auto;
   padding: 2rem;
   font-size: 1.25rem;
   background-color: #3498db;
@@ -286,6 +286,7 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
   text-decoration: none;
   transition: 200ms;
+  max-width: 300px;
 }
 
 .bigButton:hover {
@@ -507,16 +508,19 @@ button {
   text-align: center;
   z-index: 1;
   background-color: #ecf0f1;
-  background-image: url("/img/graph-paper.svg");
+  /* background-image: url("/img/graph-paper.svg"); */
+  /* background-image: url("/img/test.jpg");
+  background-position: top;
+  background-size: cover; */
 }
 
 #coffeeStain1 {
   height: 300px;
   width: 300px;
   position: absolute;
-  top: 100px;
-  left: calc(50% - 300px);
-  z-index: 2;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
   opacity: 0.5;
 }
 
@@ -524,9 +528,9 @@ button {
   height: 300px;
   width: 300px;
   position: absolute;
-  top: 0px;
-  left: calc(50% - 400px);
-  z-index: 2;
+  top: 400px;
+  left: 200px;
+  z-index: 1;
   opacity: 0.5;
 }
 
@@ -563,7 +567,7 @@ button {
   top: 40px;
   left: calc(50% - 150px);
   padding: 0;
-  margin: 0;
+  margin-bottom: 50px;
   text-align: center;
   width: 300px;
   /* max-width: 300px;
