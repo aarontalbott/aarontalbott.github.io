@@ -619,8 +619,7 @@ button {
 }
 
 #splashCard:hover {
-  transform: rotate(0deg);
-  transform: scale(1.1);
+  transform: rotate(0deg) scale(1.1);
 }
 
 #splashMenu:hover {
