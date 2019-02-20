@@ -1,24 +1,18 @@
   <div id="pageHeader">
     <a href="/"><img id="name" src="/img/name.svg" alt=""></a>
     <img id="hamburgerButton" src="/img/iconfinder_menu-alt_134216.svg" alt="">
-    <!-- <div id="menuButtonWrapper">
-      <a id="menuButton" href="#">Menu</a>
-      <a id="contactButton" href="#">Contact</a>
-    </div> -->
   </div>
-  <!-- <div id="menuWrapper">
-    <div id="menu">
-        <a href="/structural/index.html">Structural Engineering</a>
-        <a href="#">Software</a>
-        <a href=/aboutme.html>About Me</a>
-    </div>
-  </div> -->
+  <div id="menu">
+      <a href="/structural/index.html">Structural Engineering</a>
+      <a href="#">Software</a>
+      <a href=/aboutme.html>About Me</a>
+  </div>
 
   <script>
     var button = document.getElementById("hamburgerButton");
     button.addEventListener("click", function() {
-      body = document.getElementsByTagName("body")[0];
-      body.classList.toggle("menuTransition");
+      menu = document.getElementById("menu");
+      menu.classList.toggle("menuTransition");
     });
 
   </script>
