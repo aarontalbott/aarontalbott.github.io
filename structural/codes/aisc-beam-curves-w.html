@@ -1,1 +1,342 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/amt.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body onload="getData()">
+    <div class="topnav" id="navbar"></div>
+    <div class="row">
+      <div class="column100">
+        <div class="title">AISC 360-15 Beam Curves</title>
+        <div id="beamCurve"></div>
+      </div>
+    </div>    
+    <div class="pageFooter" id="pageFooter"></div>
+  </body>
 
+  <script>
+    $("#navbar").load("/navbar.html"); // load navbar from file
+    $("#pageFooter").load("/footer.html"); // load footer from file
+    google.charts.load('current', {'packages':['corechart']});
+    // Define Global Variables
+    var shapeLibrary = undefined; // JSON containing all shape data
+    var sectionKeys = undefined; // array containing section keys
+    var propertyKeys = undefined; // array containing seciton property keys
+    var beam = {
+      section : "W8X31",
+      material: "A992",
+      L: 20, // ft
+      Lb: 20, // ft
+      Cb: 1,
+      Kx: 1,
+      Lx: 20, // ft
+      Ky: 1,
+      Ly: 20, // ft
+      method: "ASD",
+      Pr: 10, // kip
+      Mrx: 30, // ft-kip
+      Mry: 5, // ft-kip
+      E: function() {
+          return 29000; // ksi
+      },
+      Fy: function() {
+        if (this.material == "A36") {
+          return 36; // ksi
+        }
+        if (this.material == "A992") {
+          return 50; // ksi
+        }
+      },
+      sectionProp: function(prop) {
+        return shapeLibrary[this.section][prop];
+      },
+      My: function() {
+        return this.Fy() * this.sectionProp("Sx") / 12;
+      },
+      Mp: function() {
+        return this.Fy() * this.sectionProp("Zx") / 12;
+      },
+      Mr: function() {
+        return 0.7 * this.My();
+      },
+      Lp: function() {
+        return 1.76 * this.sectionProp("ry") * Math.sqrt(this.E() / this.Fy()) / 12;
+      },
+      Lr: function() {
+        a = 0.7 * this.Fy() / this.E();
+        b = this.sectionProp("J") * 1 /
+            (this.sectionProp("Sx") * this.sectionProp("ho"));
+        return 1.95 * this.sectionProp("rts") / a *
+            Math.sqrt(b + Math.sqrt(b * b + 6.76 * a * a)) / 12;
+      },
+      Mn: function(Lb) {
+        Lr = this.Lr();
+        Lp = this.Lp();
+        Mp = this.Mp();
+        Mr = this.Mr();
+        Cb = this.Cb;
+        if (Lb <= Lp) {
+          result = Mp;
+        }
+        if (Lb > Lp && Lb <= Lr) {
+          Mn = Cb * (Mp - (Mp - Mr) * (Lb - Lp) / (Lr - Lp));
+          result = Math.min(Mn, Mp);
+        }
+        if (Lb > Lr) {
+          a = Math.pow(Lb * 12 / this.sectionProp("rts"), 2);
+          b = this.sectionProp("J") * 1 /
+              (this.sectionProp("Sx") * this.sectionProp("ho"));
+          Fcr = Cb * Math.pow(Math.PI, 2) * this.E() / a *
+                Math.sqrt(1 + 0.078 * b * a);
+          Mn = Fcr * this.sectionProp("Sx") / 12;
+          result = Math.min(Mn, Mp);
+        }
+        return result;
+      },
+      MnCurve: function() {
+        Mp = this.Mp();
+        Mr = this.Mr();
+        Cb = this.Cb;
+        E = this.E();
+        Sx = this.sectionProp("Sx");
+        J = this.sectionProp("J");
+        ho = this.sectionProp("ho");
+        Lp = this.Lp();
+        Lr = this.Lr();
+        rts = this.sectionProp("rts");
+        CbCritical = Mp / Mr;
+        if (Cb >= 1 && Cb <= CbCritical) {
+          LpPrime = Lp + Mp * (1 - 1 / Cb) * (Lr - Lp) / (Mp - Mr);
+        }
+        if (Cb > CbCritical) {
+			  a = Math.pow(12 * Mp / (Cb * Math.pow(Math.PI, 2) * E * Sx), 2);
+          b = -0.078 * J * 1 / Sx / ho;
+          c = -1;
+          x = (-b + Math.sqrt(b * b -4 * a * c)) / (2 * a);
+          LpPrime = rts * Math.sqrt(x) / 12;
+        }
+        if (Cb >= 1 && Cb <= CbCritical) {
+          return [
+            ["Lb", "Mn", {'type': 'string', 'role': 'style'}],
+            [0, beam.Mn(0), null],
+            [LpPrime, beam.Mn(LpPrime), 'point { visible: true;}'],
+            [Lr, beam.Mn(Lr), 'point { visible: true;}'],
+            [1.05 * Lr, beam.Mn(1.05 * Lr), null],
+            [1.10 * Lr, beam.Mn(1.10 * Lr), null],
+            [1.15 * Lr, beam.Mn(1.15 * Lr), null],
+            [1.20 * Lr, beam.Mn(1.20 * Lr), null],
+            [1.25 * Lr, beam.Mn(1.25 * Lr), null],
+            [1.30 * Lr, beam.Mn(1.30 * Lr), null],
+            [1.35 * Lr, beam.Mn(1.35 * Lr), null],
+            [1.40 * Lr, beam.Mn(1.40 * Lr), null],
+            [1.45 * Lr, beam.Mn(1.45 * Lr), null],
+            [1.50 * Lr, beam.Mn(1.50 * Lr), null]
+          ];
+        }
+        if (this.Cb > CbCritical) {
+          return [
+            ["Lb", "Mn", {'type': 'string', 'role': 'style'}],
+            [0, beam.Mn(0), null],
+            [LpPrime, beam.Mn(LpPrime),  'point { visible: true;}'],
+            [1.05 * LpPrime, beam.Mn(1.05 * LpPrime), null],
+            [1.10 * LpPrime, beam.Mn(1.10 * LpPrime), null],
+            [1.15 * LpPrime, beam.Mn(1.15 * LpPrime), null],
+            [1.20 * LpPrime, beam.Mn(1.20 * LpPrime), null],
+            [1.25 * LpPrime, beam.Mn(1.25 * LpPrime), null],
+            [1.30 * LpPrime, beam.Mn(1.30 * LpPrime), null],
+            [1.35 * LpPrime, beam.Mn(1.35 * LpPrime), null],
+            [1.40 * LpPrime, beam.Mn(1.40 * LpPrime), null],
+            [1.45 * LpPrime, beam.Mn(1.45 * LpPrime), null],
+            [1.50 * LpPrime, beam.Mn(1.50 * LpPrime), null]
+          ];
+        }
+      }
+    };
+    // Pull data from server and call function to build page elements
+    function getData() {
+      var url = "/data/aisc-shapes-database-v15-w.json";
+      $.getJSON(url, function(data){
+        shapeLibrary = data;
+        sectionKeys = Object.keys(shapeLibrary);
+        propertyKeys = Object.keys(shapeLibrary[sectionKeys[0]]);
+        initializePage();
+      });
+    }
+    function readPage() { // sets beam properties to values from HTML page
+      beam.section = document.getElementById("selectSection").value;
+      beam.material = document.getElementById("selectMaterial").value;
+      beam.L = document.getElementById("L").value;
+      beam.Lb = document.getElementById("Lb").value;
+      beam.Cb = document.getElementById("Cb").value;
+      beam.Kx = document.getElementById("Kx").value;
+      beam.Lx = document.getElementById("Lx").value;
+      beam.Ky = document.getElementById("Ky").value;
+      beam.Ly = document.getElementById("Ly").value;
+      beam.method = document.getElementById("selectMethod").value;
+      beam.Pr = document.getElementById("Pr").value;
+      beam.Mrx = document.getElementById("Mrx").value;
+      beam.Mry = document.getElementById("Mry").value;
+    }
+    function updatePage() { // sets HTML page values to beam properties
+      document.getElementById("selectSection").value = beam.section;
+			document.getElementById("selectMaterial").value = beam.material;
+      document.getElementById("L").value = beam.L;
+      document.getElementById("Lb").value = beam.Lb;
+      document.getElementById("Cb").value = beam.Cb;
+      document.getElementById("Kx").value = beam.Kx;
+      document.getElementById("Lx").value = beam.Lx;
+      document.getElementById("Ky").value = beam.Ky;
+      document.getElementById("Ly").value = beam.Ly;
+      document.getElementById("selectMethod").value = beam.method;
+      document.getElementById("Pr").value = beam.Pr;
+      document.getElementById("Mrx").value = beam.Mrx;
+      document.getElementById("Mry").value = beam.Mry;
+			document.getElementById("E").innerHTML = beam.E();
+      document.getElementById("Fy").innerHTML = beam.Fy();
+      document.getElementById("Ix").innerHTML = beam.sectionProp("Ix");
+      document.getElementById("Sx").innerHTML = beam.sectionProp("Sx");
+      document.getElementById("rx").innerHTML = beam.sectionProp("rx");
+      document.getElementById("Iy").innerHTML = beam.sectionProp("Iy");
+      document.getElementById("Sy").innerHTML = beam.sectionProp("Sy");
+      document.getElementById("ry").innerHTML = beam.sectionProp("ry");
+      document.getElementById("A").innerHTML = beam.sectionProp("A");
+      document.getElementById("Mr").innerHTML = beam.Mr().toFixed(1);
+      document.getElementById("Lr").innerHTML = beam.Lr().toFixed(1);
+      document.getElementById("My").innerHTML = beam.My().toFixed(1);
+      document.getElementById("Mp").innerHTML = beam.Mp().toFixed(1);
+      document.getElementById("Lp").innerHTML = beam.Lp().toFixed(1);
+      document.getElementById("Mn").innerHTML = beam.Mn(beam.Lb).toFixed(1);
+      document.getElementById("designMoment").innerHTML = (beam.Mrx / beam.Mn(beam.Lb)).toFixed(3);
+      drawChart();
+    }
+    function refreshPage() {
+      readPage();
+      updatePage();
+    }
+    // Populate dropdown menu for selecting section
+    function initializePage() {
+      // Populate section select dropdown
+      var select = document.getElementById("selectSection");
+      for (var i = 0; i < sectionKeys.length; i++) {
+        var option = document.createElement("option");
+        option.value = sectionKeys[i];
+        option.innerHTML = sectionKeys[i];
+        select.appendChild(option);
+      }
+      // Add event listeners to trigger re-calc when inputs are changed
+      document.getElementById("selectSection").setAttribute("onchange", "refreshPage()");
+      document.getElementById("selectMaterial").setAttribute("onchange", "refreshPage()");
+      document.getElementById("L").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Lb").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Cb").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Kx").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Lx").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Ky").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Ly").setAttribute("oninput", "refreshPage()");
+      document.getElementById("selectMethod").setAttribute("onchange", "refreshPage()");
+      document.getElementById("Pr").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Mrx").setAttribute("oninput", "refreshPage()");
+      document.getElementById("Mry").setAttribute("oninput", "refreshPage()");
+      updatePage();
+      drawChart();
+    }
+    function drawChart() {
+      var data = new google.visualization.arrayToDataTable(beam.MnCurve());
+      var options = {
+        backgroundColor: "#ffffff",
+        title: "Beam Strength Curve",
+        hAxis: {title: "Unbraced Length (ft)"},
+        vAxis: {title: "Nominal Strength (ft-kip)"},
+        legend: "none",
+        lineWidth: 2,
+        height: 400
+      };
+      var chart = new google.visualization.AreaChart(document.getElementById('beamCurve'));
+      chart.draw(data, options);
+    }
+    // Build full table for all sections
+    function buildFullTable() {
+      //Build table and append to target div
+      var tbl = document.createElement("table");
+      var tblBody = document.createElement("tbody");
+      var row = document.createElement("tr");
+      var heading = document.createElement("th");
+      var cell = document.createElement("td");
+      var cellText = document.createTextNode("");
+      //Build Header Row
+      for (var i = 0; i < propertyKeys.length; i++) {
+        heading = document.createElement("th");
+        cellText = document.createTextNode(propertyKeys[i]);
+        heading.appendChild(cellText);
+        row.appendChild(heading);
+      }
+      tblBody.appendChild(row);
+      //Build Data Rows
+      for (var i = 0; i < sectionKeys.length; i++) {
+        section = sectionKeys[i]
+        row = document.createElement("tr");
+        for (var j = 0; j < propertyKeys.length; j++) {
+          property = propertyKeys[j]
+          cell = document.createElement("td");
+          cellText = document.createTextNode(shapeLibrary[section][property]);
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+        }
+        tblBody.appendChild(row);
+      }
+      tbl.appendChild(tblBody);
+      targetDiv.appendChild(tbl);
+    }
+    // Build table for currentSection
+    function buildCurrentSectionTable() {
+      var targetDiv = document.getElementById("sectionData");
+      var tbl = document.createElement("table");
+      var tblBody = document.createElement("tbody");
+      //Build Data Rows
+      for (var i = 0; i < propertyKeys.length; i++) {
+        var propertyName = propertyKeys[i];
+        var propertyValue = shapeLibrary[beam.section][propertyName];
+        var row = document.createElement("tr");
+        var labelCell = document.createElement("td");
+        var labelText = document.createTextNode(propertyName);
+        labelCell.appendChild(labelText);
+        row.appendChild(labelCell);
+        var valueCell = document.createElement("td");
+        var valueText = document.createTextNode(propertyValue);
+        valueCell.appendChild(valueText);
+        row.appendChild(valueCell);
+        tblBody.appendChild(row);
+      }
+      tbl.appendChild(tblBody);
+      targetDiv.appendChild(tbl);
+    }
+    function update(section) {
+      clear();
+      beam.section = section;
+      buildCurrentSectionTable();
+      readPage();
+      document.getElementById("My").value = shapeLibrary[beam.section].Sx * beam.Fy / 12;
+    }
+    function clear() {
+      // var targetDivs = ["sectionSketch",
+      //                   "sectionData",
+      //                   "beamCurve",
+      //                   "columnCurve",
+      //                   "combinedCurve"];
+      //
+      // for (var i = 0; i < targetDivs.length; i++) {
+      //   var currentDiv = document.getElementById(targetDivs[i]);
+      //   var children = currentDiv.childNodes;
+      //   for (var j = 0; j < children.length; j++) {
+      //     currentDiv.removeChild(children[j]);
+      //   }
+      // }
+    }
+  </script>
+</html>
