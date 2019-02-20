@@ -14,15 +14,11 @@
     </div>
   </div> -->
 
-  <!-- <script>
-    var button = document.getElementById("menuButton");
+  <script>
+    var button = document.getElementById("hamburgerButton");
     button.addEventListener("click", function() {
-      var menu = document.getElementById("menuWrapper");
-      if (menu.style.maxHeight){
-        menu.style.maxHeight = null;
-      } else {
-        menu.style.maxHeight = menu.scrollHeight + "px";
-      }
+      body = document.getElementsByTagName("body")[0];
+      body.classList.toggle("menuTransition");
     });
 
-  </script> -->
+  </script>
