@@ -13,7 +13,37 @@
     <div class="topnav" id="navbar"></div>
     <div class="row">
       <div class="column100">
-        <div class="title">AISC 360-15 Beam Curves</title>
+        <div class="title">AISC 360-15 Beam Curves</div>
+          <table>
+            <tr>
+              <td class="tableDesc">Material</td>
+              <td class="tableSymbol"></td>
+              <td class="tableValue">
+                <select id="selectMaterial">
+                  <option value="A36">ASTM A36</option>
+                  <option value="A992">ASTM A992</option>
+                </select>
+              </td>
+              <td class="tableUnits"></td>
+            </tr>
+            <tr>
+              <td class="tableDesc"> Design Method</td>
+              <td></td>
+              <td>
+                <select id="selectMethod">
+                  <option value="ASD">ASD</option>
+                  <option value="LRFD">LRFD</option>
+                </select>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tableDesc">Moment Gradient</td>
+              <td class="tableSymbol">C<sub>b</sub> =</td>
+              <td class="tableValue"><input id="Cb" type="text" value=""></td>
+              <td>--</td>
+            </tr>
+          </table>
         <div id="beamCurve"></div>
       </div>
     </div>    
