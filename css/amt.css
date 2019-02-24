@@ -17,7 +17,6 @@ body {
   overflow-x: hidden;
   font-size: 100%;
   margin: 0;
-  padding-top: 100px;
   /* background-color: white; */
   transition: 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform-origin: top;
@@ -246,6 +245,7 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: 1rem;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow: auto;
 }
 
 
@@ -305,24 +305,23 @@ input[type=number]::-webkit-outer-spin-button {
 /* Styling for the page header menu */
 
 #navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  padding: 34px;
+  height: 50px;
   width: 100%;
   color: black;
   transition: 200ms;
-  /* background-color: rgba(255, 255, 255, 0.5); */
+  border-bottom: 1px solid black;
+  margin-bottom: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #name {
   display: block;
   float: left;
   height: 32px;
+  margin: 9px 1rem;
   text-decoration: none;
   transition: 200ms;
 }
@@ -331,58 +330,11 @@ input[type=number]::-webkit-outer-spin-button {
   display: block;
   float: right;
   height: 32px;
+  margin: 9px 1rem;
   cursor: pointer;
   z-index: 200;
 }
 
-#menuButtonWrapper {
-  display: block;
-  overflow: auto;
-  padding: 0.5rem 0;
-}
-
-#menuButton {
-  margin-left: 1rem;
-  padding: 0.25rem 1rem;
-  background-color: #ecf0f1;
-  line-height: 1.25rem;
-  font-size: 0.75rem;
-  background-color: white;
-  color: #3498db;
-  text-decoration: none;
-  overflow: hidden;
-  border-radius: 1rem;
-  border: 1px solid #3498db;
-}
-
-#contactButton {
-  display: block;
-  margin: 1rem auto;
-  padding: 1rem;
-  background-color: #3498db;
-  line-height: 1.25rem;
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
-  overflow: hidden;
-}
-
-#menuWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  /* max-height: 0; */
-  text-align: center;
-  margin-top: 10rem;
-  padding: 0;
-  overflow: auto;
-  transition: 0.3s;
-  transition-timing-function: ease-in-out;
-  overflow: hidden;
-  max-width: 50rem;
-}
 
 #menu {
   position: absolute;
@@ -427,83 +379,10 @@ input[type=number]::-webkit-outer-spin-button {
   color: white;
 }
 
-#splashBG {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 600px;
-  margin-bottom: 10%;
-  padding: 0 3rem;
-  /* background-color: #ecf0f1; */
-  /* border-bottom: 5px solid #3498db; */
-  overflow: hidden;
-  /* overflow-y: auto; */
-  text-align: center;
-  z-index: 1;
-  /* background-color: white; */
-  /* background-image: url("/img/graph-paper.svg"); */
-
-  transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-#coffeeStain1 {
-  height: 300px;
-  width: 300px;
-  position: absolute;
-  top: 0px;
-  left: calc(50% - 450px);
-  z-index: 2;
-  opacity: 0.5;
-  background-image: url("/img/coffee-stain-1.svg");
-  background-position: center;
-  background-size: cover;
-}
-
-#coffeeStain2 {
-  height: 300px;
-  width: 300px;
-  position: absolute;
-  top: 500px;
-  left: calc(50% + 100px);
-  z-index: 3;
-  opacity: 0.5;
-  background-image: url("/img/coffee-stain-2.svg");
-  background-position: center;
-  background-size: cover;
-}
-
-#eraserShavings {
-  height: 300px;
-  width: 300px;
-  position: absolute;
-  top: 400px;
-  left: calc(50% - 300px);
-  z-index: 2;
-}
-
-#eraser {
-  height: 355px;
-  width: 495px;
-  position: absolute;
-  top: 400px;
-  left: calc(50% - 300px);
-  z-index: 2;
-}
-
-#calculator {
-  height: 573px;
-  width: 286px;
-  position: absolute;
-  top: 100px;
-  left: calc(50% + 150px);
-  z-index: 2;
-  transform: rotate(20deg);
-}
-
 #splashCard {
-  position: absolute;
+  /* position: absolute;
   top: calc(50% - 200px);
-  left: calc(50% - 325px);
+  left: calc(50% - 325px); */
   padding: 0;
   /* margin: 50px; */
   text-align: center;
@@ -520,9 +399,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #splashMenu {
-  position: absolute;
+  /* position: absolute;
   top: calc(50% - 200px);
-  left: calc(50% + 25px);
+  left: calc(50% + 25px); */
   padding: 1rem;
   /* margin: 50px; */
   text-align: center;
@@ -558,10 +437,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #splashPhoto {
-  width: 100%;
-  /* max-width: 50rem; */
+  width: 300px;
   margin: auto;
-  height: 75%;
+  height: 300px;
   border: 1rem solid white;
   background-image: url("/img/test.jpg");
   background-repeat: no-repeat;
@@ -730,11 +608,11 @@ a > .socialIcon {
     width: 100%;
   }
 
-  #navbar {
+  /* #navbar {
     padding: 8px;
-  }
+  } */
 
-  #splashCard {
+  /* #splashCard {
     left: calc(50% - 150px);
     top: 50px;
   }
@@ -746,6 +624,6 @@ a > .socialIcon {
 
   #splashBG {
     height: 1100px;
-  }
+  } */
 
 }
