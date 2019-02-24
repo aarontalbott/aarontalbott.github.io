@@ -5,23 +5,33 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
+a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
+  width: 100%;
   height: 100%;
+  overflow-x: hidden;
   font-size: 100%;
   margin: 0;
-  background-color: white;
+  padding-top: 100px;
+  /* background-color: white; */
   transition: 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform-origin: top;
+  background-image: url("/img/escheresque.png");
+  background-position: top left;
 }
 
-a {
-  color: inherit;
-  text-decoration: underline;
+button {
+  background-color: #c53211;
+  color: white;
+  font-size: 0.9rem;
+  padding: 0.25rem;
+  margin: 0.625rem;
+  border: none;
 }
 
 h1 {
@@ -59,18 +69,8 @@ h2 + div {
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
-.result > h2 {
-  margin: 0 1rem 1rem 1rem;
-  padding: 1rem 0 0 0;
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
-  font-size: 0.9rem;
-  border-bottom: 1px solid lightgray;
-  background-color: inherit;
-}
-
-ul {
-  padding: auto 0.5rem;
+html {
+  height: 100%;
 }
 
 li {
@@ -130,6 +130,10 @@ tfoot{
   text-align: left;
 }
 
+ul {
+  padding: auto 0.5rem;
+}
+
 input {
   font-size: 0.9rem;
   width: 5rem;
@@ -158,12 +162,27 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #3498db;
 }
 
-.row {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow: hidden;
-  margin: auto;
+.bigButton {
+  font-family: "Raleway";
+  font-weight: 400;
+  display: block;
+  margin: 1rem auto;
+  padding: 2rem;
+  font-size: 1.25rem;
+  background-color: #ecf0f1;
+  color: #3498db;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 500ms;
+  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  max-width: 300px;
+}
+
+.bigButton:hover {
+  animation-name: colorChange;
+  animation-duration: 500ms;
+  background-color: #3498db;
+  color: white;
 }
 
 .column25 {
@@ -220,132 +239,34 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0;
 }
 
-
-.card {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  text-align: left;
-  margin: 2rem auto;
-  padding: 0;
-  /* width: 100%; */
-  max-width: 50rem;
-  color: black;
-  background-color: white;
-  border-radius: 0.5rem;
-  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
-}
-
-.cardHeader {
-  width: 100%;
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  border-bottom: 1px solid lightgray;
-  border-radius: 0.5rem 0.5rem 0 0;
-  padding: 0.5rem;
-  color: inherit;
-  /* border-left: 5px solid #3498db; */
-}
-
-.cardHeader:hover {
-  background: #3498db;
-  color: white;
-}
-
 .content {
-  width: 100%;
-  height: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.cardContent {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 0.9rem;
-  padding: 1rem;
-  overflow: hidden;
-  color: black;
-  background-color: white;
-  border-radius: 0 0 0.5rem 0.5rem;
-}
-
-
-.cardLinkList {
-  display: block;
-  width: 100%;
-  padding: 0.5rem 0 0.5rem 0;
-  text-decoration: none;
-}
-
-.cardLinkList:hover {
-  text-decoration: underline;
-}
-
-.bigButton {
-  font-family: "Raleway";
-  font-weight: 400;
-  display: block;
-  /* max-width: 20rem; */
-  margin: 1rem auto;
-  padding: 2rem;
-  font-size: 1.25rem;
-  background-color: #ecf0f1;
-  color: #3498db;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 500ms;
-  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  max-width: 300px;
-}
-
-@keyframes colorChange {
-  from {background-color: #ecf0f1;}
-  to {background-color: #3498db;}
-}
-
-
-.bigButton:hover {
-  animation-name: colorChange;
-  animation-duration: 500ms;
-  background-color: #3498db;
-  color: white;
-  /* transform: scale(1.1); */
-  /* transform: translate(-3px, -6px);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
-
-}
 
 .hidden {
   height: 0;
   visibility: hidden;
 }
 
+.row {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+}
+
 .row:after {
   content: "";
   display: table;
   clear: both;
-}
-
-.toplevel > a {
-  display: block;
-  /* float: left; */
-  padding: 5px;
-  margin: 0;
-  border: 1px solid black;
-}
-
-.sublevel {
-  visibility: hidden;
-  overflow: hidden;
-}
-
-button {
-  background-color: #c53211;
-  color: white;
-  font-size: 0.9rem;
-  padding: 0.25rem;
-  margin: 0.625rem;
-  border: none;
 }
 
 .pageFooter {
@@ -385,33 +306,24 @@ button {
 /* Styling for the page header menu */
 
 #navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  padding: 1rem;
+  padding: 34px;
   width: 100%;
   color: black;
-  overflow: auto;
-  background-color: #ecf0f1;
-  border-bottom: 5px solid #3498db;
-  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
   transition: 200ms;
-}
-
-#pageHeader {
-  position: relative;
-  display: block;
-  margin: auto;
-  padding: 0;
-  overflow: visible;
-  /*max-width: 50rem;*/
-  height: 2rem;
+  /* background-color: rgba(255, 255, 255, 0.5); */
 }
 
 #name {
   display: block;
   float: left;
-  height: 100%;
+  height: 32px;
   text-decoration: none;
   transition: 200ms;
 }
@@ -419,7 +331,7 @@ button {
 #hamburgerButton {
   display: block;
   float: right;
-  height: 100%;
+  height: 32px;
   cursor: pointer;
   z-index: 200;
 }
@@ -484,7 +396,7 @@ button {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  z-index: 100;
+  z-index: 900;
   transition: 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -523,15 +435,15 @@ button {
   min-height: 600px;
   margin-bottom: 10%;
   padding: 0 3rem;
-  background-color: #ecf0f1;
-  border-bottom: 5px solid #3498db;
+  /* background-color: #ecf0f1; */
+  /* border-bottom: 5px solid #3498db; */
   overflow: hidden;
   /* overflow-y: auto; */
   text-align: center;
   z-index: 1;
-  background-color: #ecf0f1;
-  background-image: url("/img/graph-paper.svg");
-  background-position: center;
+  /* background-color: white; */
+  /* background-image: url("/img/graph-paper.svg"); */
+
   transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -591,7 +503,7 @@ button {
 
 #splashCard {
   position: absolute;
-  top: calc(50% - 275px);
+  top: calc(50% - 200px);
   left: calc(50% - 325px);
   padding: 0;
   /* margin: 50px; */
@@ -602,7 +514,7 @@ button {
   overflow: auto;
   box-shadow: 10px 8px 33px -6px rgba(0,0,0,0.63);
   transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform: rotate(-3deg);
+  /* transform: rotate(-3deg); */
   border-radius: 1rem;
   z-index: 5;
 
@@ -621,7 +533,7 @@ button {
   overflow: auto;
   box-shadow: 10px 8px 33px -6px rgba(0,0,0,0.63);
   transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform: rotate(4deg);
+  /* transform: rotate(4deg); */
   border-radius: 1rem;
   z-index: 4;
 
@@ -819,16 +731,8 @@ a > .socialIcon {
     width: 100%;
   }
 
-  #name {
-    font-size: 1.1rem;
-  }
-
   #navbar {
-    padding: 0.5rem;
-  }
-
-  .card {
-    margin: 1rem;
+    padding: 8px;
   }
 
   #splashCard {
