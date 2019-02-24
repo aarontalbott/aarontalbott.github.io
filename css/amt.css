@@ -284,7 +284,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .menuTransition {
-  transform: translateX(-100%);
+  /* transform: translateX(-100%); */
+  visibility: visible;
 }
 
 .title {
@@ -338,14 +339,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 #menu {
-  position: absolute;
-  top: calc(4rem + 5px);
-  left: 100%;
+  /* position: absolute;
+  top: 50px;
+  left: 100%; */
   width: 100%;
   height: 100%;
   padding: 2rem;
   border-radius: 0;
-  overflow: auto;
+  visibility: hidden;
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
   z-index: 900;
@@ -358,7 +359,8 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 1rem;
   padding: 1rem;
   text-decoration: none;
-  margin: 0rem;
+  width: 200px;
+  margin: auto;
 }
 
 /* #menu a:nth-child(1) {
@@ -438,6 +440,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #splashPhoto {
+  position: absolute;
+  top: 100px;
+  left: calc(50% - 150px);
   width: 300px;
   margin: auto;
   height: 300px;
@@ -446,7 +451,8 @@ input[type=number]::-webkit-outer-spin-button {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-radius: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 #socialBar {
@@ -607,6 +613,12 @@ a > .socialIcon {
   .column67,
   .column75 {
     width: 100%;
+  }
+
+  #name,
+  #hamburgerButton {
+    height: 24px;
+    margin: 13px 1rem;
   }
 
   /* #navbar {
