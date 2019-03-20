@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <link rel="stylesheet" type="text/css" href="/css/amt.css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style media="screen">
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    #board {
+      padding: 0;
+      width: 502px;
+      height: 252px;
+      border: 1px solid magenta;
+      content: "";
+      margin: auto;
+    }
+
+    .square {
+      padding: 0;
+      margin: 0;
+      float: left;
+      width: 50px;
+      height: 50px;
+      border: 1px solid magenta;
+      font-size: 16px;
+      line-height: 50px;
+      text-align: center;
+    }
+
+    #title {
+      display: block;
+      margin: 50px auto;
+      font-size: 36px;
+      font-weight: 500;
+    }
+
+    #gameWindow {
+      width: 500px;
+      margin: auto;
+      text-align: center;
+    }
+
+    #livesLabel {
+      display: block;
+      float: right;
+    }
+
+    #livesCounter {
+      padding-left: 25px;
+      display: block;
+      float: right;
+    }
+
+    #scoreLabel {
+      display: block;
+      float: left;
+    }
+
+    #scoreCounter {
+      padding-left: 25px;
+      display: block;
+      float: left;
+    }
+
+    #menuBar {
+      width: 100%;
+      overflow: auto;
+      margin: 10px 0;
+    }
+
+    #credits {
+      width: 100%;
+      margin-top: 50px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+    #problem {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 24px;
+      font-weight: 500px;
+      <!-- border: 2px solid magenta; -->
+    }
+
+    .safe {
+      background-color: magenta;
+      color: black;
+    }
+
+  </style>
+  <title>aarontalbott.com</title>
+</head>
+<body onload="runGame()">
+  <div id="gameWindow">
+    <span id="title">Number Munchers 2</span>
+    <div id="menuBar">
+      <div id="scoreLabel">Score:</div>
+      <div id="scoreCounter"></div>
+      <div id="livesCounter"></div>
+      <div id="livesLabel">Lives:</div>
+    </div>
+    <div id="board">
+    </div>
+    <div id="problem">
+      Problem
+    </div>
+    <div id="credits">
+      Game Design - Owen Talbott <br>
+      Programming - Aaron Talbott <br>
+      Game Tester - Carrie Talbott
+    </div>
+  </div>
+  <script type="text/javascript">
+    var lives = 3;
+    var score = 0;
+
+    function runGame() {
+      newBoard();
+    }
+
+    function newBoard() {
+      lives = document.getElementById("livesCounter").innerHTML = lives;
+      score = document.getElementById("scoreCounter").innerHTML = score;
+      board = document.getElementById("board");
+      for (i = 0; i < 50; i++){
+        square = document.createElement("div");
+        square.setAttribute("class", "square");
+        square.innerHTML = Math.floor(Math.random() * 101);
+        board.appendChild(square);
+      }
+
+      for (i = 0; i < 1; i++){
+        squareList = document.getElementsByClassName("square");
+        j = Math.floor(Math.random() * 51);
+        squareList[j].classList.add("safe");
+      }
+    }
+  </script>
+</body>
+</html>
